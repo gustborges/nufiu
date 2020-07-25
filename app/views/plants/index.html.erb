@@ -1,0 +1,6 @@
+<% @plants.each do |plant|%>
+  <%= link_to plant_path(plant) do %>
+    <h3><%= plant.name %></h3>
+    <h3><%= "R$ #{plant.price}" %></h3>
+  <% end %>
+<% end %>
