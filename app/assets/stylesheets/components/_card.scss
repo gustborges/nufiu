@@ -1,3 +1,27 @@
-.plant-card {
-
+.plants-container {
+  margin: {
+    left: 20px;
+    right: 20px;
+  }
 }
+
+.plants-container {
+  a {
+    color: black;
+    h5 {
+      font-size: 15px;
+    }
+  }
+}
+
+.plant-card {
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin: 15px 10px;
+}
+
+.plant-card-text {
+  padding: 6px 14px;
+}
+
+

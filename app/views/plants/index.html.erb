@@ -5,11 +5,11 @@
 <div class="plants-container">
   <% @plants.each do |plant|%>
     <%= link_to plant_path(plant), class:"text-decoration-none" do %>
-      <div class="m-40">
+      <div class="plant-card">
         <%= image_tag "plants/1.png", class: "card-img-top", alt: "#{plant.name}" %>
-        <div class="card-body">
-          <h5 class="card-title"><%= plant.name %></h3>
-          <h5 class="card-text"><%= "R$ #{plant.price}" %></h3>
+        <div class="plant-card-text">
+          <h5 class="card-title"><%= plant.name %></h5>
+          <h5 class="card-text"><%= "R$ #{plant.price}" %></h5>
         </div>
       </div>
     <% end %>
