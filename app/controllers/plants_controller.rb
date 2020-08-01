@@ -15,7 +15,7 @@ class PlantsController < ApplicationController
   def create
     @plant = Plant.new(plant_params)
     if @plant.save
-      redirect to plant_path(params[:id])
+      redirect_to plant_path(@plant)
     else
       render :new
     end

@@ -2,5 +2,15 @@
   <h1>Nufiu Jardinagem</h1>
   <p>Compre plantas em casa.</p>
 </div>
-<h1><%= @plant.name %></h1>
-<h3>Preço: <%= @plant.price %></h3>
+<div class="plant-container">
+  <div class="plant-photo">
+    <%= image_tag "plants/2.png", alt: "#{@plant.name}" %>
+  </div>
+  <div class="plant-details">
+    <h1><%= @plant.name %></h1>
+    <h3><%= @plant.scientific_name %></h3>
+    <h2><%= @plant.description %></h2>
+    <h4><%= number_to_currency(@plant.price, unit: 'R$ ', separator: ',') %></h4>
+    <button class="orange-button">Quero comprar</button>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+.plant-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.plant-photo {
+  margin: 0px 60px;
+}
+
+.plant-photo img {
+  width: 340px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.plant-details {
+  padding-right: 60px;
+}
+
+.plant-details h1 {
+  color: $gray;
+} h2 {
+    color: black;
+    padding-top: 20px;
+    font: {
+      size: 20px;
+    }
+  } h3 {
+    color: $gray;
+    font: {
+      style: italic;
+    }
+  } h4 {
+    color: black;
+    padding-top: 20px;
+    font: {
+      weight: bold;
+      size: 30px;
+    }
+  }
+
+@media (max-width: 800px) {
+  .plant-container {
+    flex-wrap: wrap;
+  }
+  .plant-photo img {
+    width: 80vw;
+    height: 30vh;
+    object-fit: cover;
+  }
+  .plant-details {
+    margin-top: 20px;
+    margin-left: 45px;
+  }
+}
+
