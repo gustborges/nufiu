@@ -6,10 +6,10 @@
   <% @plants.each do |plant|%>
     <%= link_to plant_path(plant), class:"text-decoration-none" do %>
       <div class="plant-card">
-        <%= image_tag "plants/1.png", class: "card-img-top", alt: "#{plant.name}" %>
+        <%= image_tag "plants/2.png", class: "card-img-top", alt: "#{plant.name}" %>
         <div class="plant-card-text">
-          <h5 class="card-title"><%= plant.name %></h5>
-          <h5 class="card-text"><%= "R$ #{plant.price}" %></h5>
+          <h5 class="card-title"><%= plant.name.upcase %></h5>
+          <h5 class="card-price"><%= "#{number_to_currency(plant.price, unit: 'R$ ', separator: ',')}" %></h5>
         </div>
       </div>
     <% end %>
