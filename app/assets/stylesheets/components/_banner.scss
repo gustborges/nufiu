@@ -5,7 +5,7 @@
   background-size: cover;
   color: white;
   display: flex;
-  padding-left: 60px;
+  padding-left: 6em;
   flex-direction: column;
   justify-content: center;
   height: 60vh;
@@ -16,12 +16,12 @@
 .banner {
   h1 {
     font: {
-      size: 70px;
+      size: 7em;
     }
   }
   p {
     font: {
-      size: 30px;
+      size: 3em;
     }
   }
 }

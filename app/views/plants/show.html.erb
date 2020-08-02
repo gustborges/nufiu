@@ -4,7 +4,11 @@
 </div>
 <div class="plant-container">
   <div class="plant-photo">
-    <%= image_tag "plants/2.png", alt: "#{@plant.name}" %>
+    <% if @plant.photo.attached? %>
+      <%= cl_image_tag @plant.photo.key, alt: "#{@plant.name}" %>
+    <% else %>
+      <%= image_tag "plants/2.png", alt: "#{@plant.name}" %>
+    <% end %>
   </div>
   <div class="plant-details">
     <h1><%= @plant.name %></h1>

@@ -2,31 +2,31 @@
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  padding-top: 40px;
-  padding-bottom: 60px;
+  padding-top: 4em;
+  padding-bottom: 6em;
 }
 
 .plant-photo {
-  margin: 0px 60px;
+  margin: 0 6em;
 }
 
 .plant-photo img {
-  width: 340px;
-  height: 500px;
+  width: 34em;
+  height: 50em;
   object-fit: cover;
 }
 
 .plant-details {
-  padding-right: 60px;
+  padding-right: 6em;
 }
 
 .plant-details h1 {
   color: $gray;
 } h2 {
     color: black;
-    padding-top: 20px;
+    padding-top: 2em;
     font: {
-      size: 20px;
+      size: 2em;
     }
   } h3 {
     color: $gray;
@@ -35,10 +35,10 @@
     }
   } h4 {
     color: black;
-    padding-top: 20px;
+    padding-top: 2em;
     font: {
       weight: bold;
-      size: 30px;
+      size: 3em;
     }
   }
 
@@ -52,8 +52,8 @@
     object-fit: cover;
   }
   .plant-details {
-    margin-top: 20px;
-    margin-left: 45px;
+    margin-top: 2em;
+    margin-left: 4em;
   }
 }
 

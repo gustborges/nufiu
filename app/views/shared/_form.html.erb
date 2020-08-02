@@ -5,12 +5,13 @@
       <%= f.input :scientific_name, label: "Nome científico" %>
       <%= f.input :description, label: "Descrição" %>
       <%= f.input :category, label: "Categoria", as: :select, collection: ["Suculentas", "Cactos", "Pendentes e Trepadeiras", "Palmeiras", "Outras"] %>
-      <%= f.input :price, label: "Preço" %>
+      <%= f.input :price, label: "Preço", :input_html => {value: number_to_currency(f.object.price, unit: 'R$ ', separator: ',', precision: 2)} %>
       <%= f.input :best_seller, label: "Best-seller", as: :boolean %>
       <%= f.input :pet_friendly, label: "Pet-friendly", as: :boolean %>
       <%= f.input :for_beginners, label: "Para iniciantes (fácil de cuidar)", as: :boolean %>
       <%= f.input :low_light_tolerant, label: "Tolera pouca luz (para apartamento)", as: :boolean %>
       <%= f.input :water, label: "Precisa de muita água", as: :boolean %>
+      <%= f.input :photo, label: "Foto", as: :file %>
       <%= f.button :submit, "Adicionar kokedama", class: "orange-button" %>
     <% end %>
   </div>
