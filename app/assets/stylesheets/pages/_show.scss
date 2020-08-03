@@ -16,6 +16,16 @@
   object-fit: cover;
 }
 
+.plant-title {
+  display: flex;
+  align-items: center;
+}
+
+.plant-title i {
+  font-size: 1.5em;
+  padding-left: 1em;
+}
+
 .plant-details {
   padding-right: 6em;
 }

@@ -11,7 +11,11 @@
     <% end %>
   </div>
   <div class="plant-details">
-    <h1><%= @plant.name %></h1>
+    <div class="plant-title">
+      <h1><%= @plant.name %></h1>
+      <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, plant_path, method: :delete, data: { confirm: "Tem certeza que quer apagar?" } %>
+      <%= link_to "<i class='fas fa-edit'></i>".html_safe, edit_plant_path %>
+    </div>
     <h3><%= @plant.scientific_name %></h3>
     <h2><%= @plant.description %></h2>
     <h4><%= number_to_currency(@plant.price, unit: 'R$ ', separator: ',') %></h4>
