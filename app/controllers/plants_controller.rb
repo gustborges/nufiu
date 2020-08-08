@@ -6,10 +6,7 @@ class PlantsController < ApplicationController
     @plants = policy_scope(Plant)
   end
 
-  def show
-    @user = @plant.user
-    authorize @plant
-  end
+  def show; end
 
   def new
     @plant = Plant.new
