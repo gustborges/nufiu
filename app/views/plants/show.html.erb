@@ -13,8 +13,10 @@
   <div class="plant-details">
     <div class="plant-title">
       <h1><%= @plant.name %></h1>
-        <% if current_user.admin %>
+        <% if policy(@plant).destroy? %>
           <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, plant_path, method: :delete, data: { confirm: "Tem certeza que quer apagar?" } %>
+        <% end %>
+        <% if policy(@plant).edit? %>
           <%= link_to "<i class='fas fa-edit'></i>".html_safe, edit_plant_path %>
         <% end %>
     </div>
