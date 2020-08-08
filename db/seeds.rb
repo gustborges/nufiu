@@ -7,7 +7,41 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Plant.destroy_all
+User.destroy_all
 puts 'Last seeds destroyed'
+
+
+puts 'Seeding users'
+
+borgesmalu = User.create!(
+  name: "Maria Luiza Borges",
+  email: "borges.malu@gmail.com",
+  password: "nni6mug8",
+  phone: "(21)993444535",
+  address: "R. Vice Gov. Rubens Berardo, 65 - Bloco 2 - apt 307",
+  admin: true
+  )
+
+
+gustavoborges = User.create!(
+  name: "Gustavo Borges",
+  email: "gustborges@gmail.com",
+  password: "nni7mug9",
+  phone: "(21)967808889",
+  address: "R. Almirante Alexandrino, 1310 - apt 201",
+  admin: true
+  )
+
+cliente = User.create!(
+  name: "Max Lima",
+  email: "maxlimascm@gmail.com",
+  password: "raguzinho",
+  phone: "(21)98312099021",
+  address: "Santa Teresa",
+  admin: false
+  )
+
+
 puts 'Seeding plants'
 
 costela_de_adao = Plant.create!(
@@ -23,7 +57,8 @@ De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia
   water: "Rega frequente",
   size: "Altura média de 35 cm",
   best_seller: true,
-  for_beginners: false
+  for_beginners: false,
+  user: borgesmalu
   )
 
 
@@ -41,7 +76,8 @@ A lumina é uma planta bastante resistente, que requer muito pouca manutenção.
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: false,
-  for_beginners: true
+  for_beginners: true,
+  user: borgesmalu
   )
 
 
@@ -61,7 +97,8 @@ Em estações quentes e secas, como a primavera e o verão, as regas devem ser f
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: true,
-  for_beginners: true
+  for_beginners: true,
+  user: borgesmalu
   )
 
 
@@ -80,7 +117,8 @@ A Espada de São Jorge exige poucos cuidados. Não precisa de muita adubação, 
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: true,
-  for_beginners: true
+  for_beginners: true,
+  user: borgesmalu
   )
 
 
@@ -99,7 +137,8 @@ Diferentemente de grande parte das plantas para cultivo doméstico, não é reco
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: false,
-  for_beginners: false
+  for_beginners: false,
+  user: borgesmalu
   )
 
 pacova = Plant.create!(
@@ -117,7 +156,10 @@ Recomendamos cultivá-lo em áreas de luz indireta, ou à meia-sombra – com in
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: true,
-  for_beginners: true
+  for_beginners: true,
+  user: borgesmalu
   )
+
+
 
 puts 'All done!'

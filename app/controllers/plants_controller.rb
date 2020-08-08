@@ -3,17 +3,20 @@ class PlantsController < ApplicationController
   before_action :plant_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @plants = Plant.all
+    @plants = policy_scope(Plant)
   end
 
   def show; end
 
   def new
     @plant = Plant.new
+    authorize @plant
   end
 
   def create
     @plant = Plant.new(plant_params)
+    @plant.user = current_user
+    authorize @plant
     if @plant.save
       redirect_to plant_path(@plant)
     else
@@ -40,9 +43,10 @@ class PlantsController < ApplicationController
 
   def plant_find
     @plant = Plant.find(params[:id])
+    authorize @plant
   end
 
   def plant_params
-    params.require(:plant).permit(:name, :scientific_name, :category, :description, :water, :pet_friendly, :low_light_tolerant, :best_seller, :for_beginners, :size, :price, :photo)
+    params.require(:plant).permit(:name, :scientific_name, :category, :description, :water, :pet_friendly, :low_light_tolerant, :best_seller, :for_beginners, :size, :price, :photo, :user)
   end
 end
