@@ -4,7 +4,7 @@ class CartPlantsController < ApplicationController
 
   def create
     # If there's no opened cart, create it
-    if Cart.find_by(user: current_user).nil? || current_user.carts.last.status == "closed"
+    if Cart.find_by(user_id: current_user.id).nil? || current_user.carts.last.status == "closed"
       @cart = Cart.new
       @cart.user = current_user
       @cart.save
@@ -15,7 +15,7 @@ class CartPlantsController < ApplicationController
     # Then, create the cart_plant, within a cart and with a plant and amount
     @cart_plant = CartPlant.new
     @cart_plant.cart = @cart
-    @cart_plant.plant = params[:plant_id]
+    @cart_plant.plant_id = params[:plant_id]
     @cart_plant.amount = 1
     authorize @cart_plant
 
