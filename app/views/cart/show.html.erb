@@ -1,0 +1,23 @@
+<% if @cart.status == "closed" %>
+ <div>Obrigado por comprar. Aguarde.</div>
+<% end %>
+
+<div class="container">
+  <div>
+    <p>Total: R$ <%= @total_bill %></p>
+  </div>
+
+  <ol>
+    <% @cart_sum.each do |cart_plant| %>
+      <li>
+        <p><%= cart_plant[1][0].plant.name %></p>
+        <p>Quantidade: <%= cart_plant[1].length %></p>
+        <p>R$ <%= cart_plant[1][0].plant.price %>,00</p>
+      </li>
+      <% end %>
+  </ol>
+
+  <div>
+    <%= link_to "Finalizar", cart_path(@cart), method: :put %>
+  </div>
+</div>
