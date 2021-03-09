@@ -1,4 +1,4 @@
-.banner {
+.main-banner {
   background: url('https://res.cloudinary.com/gustborges/image/upload/v1596926651/nufiu/Banner_lpkl4y.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -9,19 +9,19 @@
   flex-direction: column;
   justify-content: center;
   height: 60vh;
-  width: 100%;
-  margin-top: 0;
-  }
+  width: 100vw;
+  margin: 0;
+}
 
-.banner {
+.main-banner {
   h1 {
     font: {
-      size: 7em;
+      size: 6rm;
     }
   }
   p {
     font: {
-      size: 3em;
+      size: 3rm;
     }
   }
 }

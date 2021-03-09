@@ -11,3 +11,14 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  background-color: white;
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
