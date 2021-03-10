@@ -26,7 +26,7 @@ gem 'devise'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 # Cloudinary
-gem 'cloudinary', '~> 1.12.0'
+gem 'cloudinary', '~> 1.16.0'
 # Authorization with Pundit
 gem 'pundit'
 
