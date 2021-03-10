@@ -1,6 +1,9 @@
 .navbar-lewagon {
   justify-content: space-between;
   vertical-align: center;
+  // overflow: hidden;
+  position: fixed;
+  z-index: 10;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,4 +17,9 @@
 
 .nav-item:hover {
   font-weight: bold;
+}
+
+.nufiu-logo a {
+  text-decoration: none;
+  color: black;
 }

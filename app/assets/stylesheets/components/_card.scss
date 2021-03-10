@@ -5,17 +5,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   background-color: white;
-
 }
 
-.plant-card>a>h5 {
-  text-decoration: none;
-}
 
 .plant-card-text {
-  padding: 6px 14px;
-  font-size: 1em;
+  font-size: 0.8em;
   text-decoration: none;
 }
 
@@ -24,16 +20,16 @@
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   font-size: 1em;
+  color: black;
 }
 
 .card-price {
   color: $gray;
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 
 .card-img {
   width: 100%;
-  border-radius: 4px;
 }
 
 .no-decoration, a:link, a:visited {
