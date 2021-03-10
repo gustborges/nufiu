@@ -1,17 +1,17 @@
 <div class="row">
   <div class="col-12">
     <div class="main-banner">
-      <h1>Nufiu Jardinagem</h1>
-      <p>Plantas ornamentais e decoração.</p>
+      <h1>Kokedamas</h1>
+      <p>As plantas ornamentais japonesas que vão transformar o seu ambiente.</p>
     </div>
   </div>
 </div>
 
 <div class="row justify-content-center add-margins">
   <% @plants.each do |plant|%>
-    <div class="col-12 col-sm-6 col-md-4">
+    <div class="col-6 col-md-4 col-lg-3">
       <div class="plant-card text-center m-0">
-        <%= link_to plant_path(plant), class:"text-decoration-none" do %>
+        <%= link_to plant_path(plant) do %>
           <% if plant.photo.attached? %>
             <%= cl_image_tag plant.photo.key, class: "card-img", alt: "#{plant.name}" %>
           <% else %>

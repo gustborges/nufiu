@@ -5,7 +5,8 @@
   background-size: cover;
   color: white;
   display: flex;
-  padding-left: 6em;
+  padding-left: 20px;
+  padding-right: 15vw;
   flex-direction: column;
   justify-content: center;
   height: 60vh;
@@ -16,12 +17,34 @@
 .main-banner {
   h1 {
     font: {
-      size: 6rm;
+      size: 7em;
     }
   }
   p {
     font: {
-      size: 3rm;
+      size: 1.8em;
     }
   }
 }
+
+@media (max-width: 800px) {
+  .main-banner h1 {
+    font-size: 5em;
+  }
+  .main-banner p {
+    font-size: 1.6em;
+  }
+}
+
+@media (max-width: 570px) {
+  .main-banner h1 {
+    font-size: 4em;
+  }
+  .main-banner p {
+    font-size: 1.4em;
+  }
+}
+
+
+
+

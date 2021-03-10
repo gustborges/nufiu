@@ -9,9 +9,14 @@
 
 }
 
+.plant-card>a>h5 {
+  text-decoration: none;
+}
+
 .plant-card-text {
   padding: 6px 14px;
   font-size: 1em;
+  text-decoration: none;
 }
 
 .card-title {
@@ -29,4 +34,8 @@
 .card-img {
   width: 100%;
   border-radius: 4px;
+}
+
+.no-decoration, a:link, a:visited {
+  text-decoration: none;
 }
