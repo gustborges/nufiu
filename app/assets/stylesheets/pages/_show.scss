@@ -1,5 +1,4 @@
 
-
 .plant-photo img {
   width: 100vw;
   height: 80vh;
@@ -7,9 +6,20 @@
 }
 
 .plant-info {
+  padding-top: 3em;
   padding-left: 10vw;
   padding-right: 10vw;
-  padding-top: 3em;
+}
+
+.plant-info h4 {
+  font-size: 1.8em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.plant-info p {
+  font-weight: 300;
+  padding-bottom: 1.5em;
 }
 
 .plant-title {
@@ -17,9 +27,18 @@
   align-items: center;
 }
 
+.plant-title h2 {
+  font-size: 3em;
+}
+
 .plant-title i {
   font-size: 1.5em;
   padding-left: 1em;
+}
+
+.plant-specific-name {
+  font-size: 1em;
+  margin-bottom: 1em;
 }
 
 @media (min-width: 768px) {

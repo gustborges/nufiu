@@ -14,9 +14,9 @@
           <%= link_to "<i class='fas fa-edit'></i>".html_safe, edit_plant_path %>
         <% end %>
     </div>
-    <h3><%= @plant.scientific_name %></h3>
-    <p><%= @plant.description %></p>
+    <h3 class="plant-specific-name"><%= @plant.scientific_name %></h3>
     <h4><%= number_to_currency(@plant.price, unit: 'R$ ', separator: ',') %></h4>
+    <p><%= @plant.description %></p>
     <div class="buy-button">
       <%= link_to "Quero comprar", plant_cart_plants_path(@plant), method: :post, class: "orange-button" %>
     </div>
