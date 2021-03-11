@@ -1,9 +1,12 @@
 .orange-button {
     font-size: 20px;
     font-weight: bold;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 0.8em;
     background-color: $orange;
     color: white;
     border: none;
+}
+
+.buy-button {
+  margin-top: 2em;
 }
