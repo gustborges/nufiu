@@ -16,16 +16,15 @@
 }
 
 .card-title {
-  font-weight: bold;
   margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  font-size: 1em;
-  color: black;
+  margin-bottom: 0.3em;
+  font-size: 1.2em;
+  color: $light-black;
 }
 
 .card-price {
-  color: $gray;
-  font-size: 0.6em;
+  color: $light-black;
+  font-size: 1em;
 }
 
 .card-img {

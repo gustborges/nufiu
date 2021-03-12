@@ -1,9 +1,7 @@
 .navbar-lewagon {
-  justify-content: space-between;
-  vertical-align: center;
-  // overflow: hidden;
-  position: fixed;
-  z-index: 10;
+  // overflow: auto;
+  // z-index: 999;
+  // position: fixed;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -23,3 +21,4 @@
   text-decoration: none;
   color: black;
 }
+

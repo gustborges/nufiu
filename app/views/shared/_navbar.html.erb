@@ -1,10 +1,8 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-<!--   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo.jpg" %>
-    <% end %>
- -->
-
-  <h1 class="nufiu-logo"><%= link_to "Nufiu", root_path %></h1>
+<nav class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+  <%= link_to root_path, class: "navbar-brand" do %>
+      <h1>NuFiu</h1>
+  <% end %>
+  <div class="ml-auto"></div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -12,7 +10,8 @@
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+
+    <ul class="navbar-nav">
       <% if user_signed_in? %>
         <li class="navbar-item">
           <%= link_to "Sobre", "#", class: "nav-link" %>
@@ -50,4 +49,15 @@
       <% end %>
     </ul>
   </div>
-</div>
+</nav>
+
+<script>
+  var nav = document.querySelector('nav');
+  window.addEventListener('scroll', function(){
+    if (window.pageYOffset > 100){
+      nav.classList.add('bg-light');
+    } else {
+      nav.classList.remove('bg-light');
+    }
+  });
+</script>

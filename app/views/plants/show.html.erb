@@ -15,7 +15,7 @@
         <% end %>
     </div>
     <h3 class="plant-specific-name"><%= @plant.scientific_name %></h3>
-    <h4><%= number_to_currency(@plant.price, unit: 'R$ ', separator: ',') %></h4>
+    <h4>R$ <%= @plant.price.ceil %> </h4>
     <p><%= @plant.description %></p>
     <div class="buy-button">
       <%= link_to "Quero comprar", plant_cart_plants_path(@plant), method: :post, class: "orange-button" %>

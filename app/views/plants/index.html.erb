@@ -19,7 +19,7 @@
           <% end %>
           <div class="plant-card-text">
             <h5 class="card-title"><%= plant.name %></h5>
-            <h5 class="card-price"><%= "#{number_to_currency(plant.price, unit: 'R$ ', separator: ',')}" %></h5>
+            <h5 class="card-price">R$ <%= plant.price.ceil %></h5>
           </div>
         <% end %>
       </div>
