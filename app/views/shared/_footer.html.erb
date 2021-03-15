@@ -1,0 +1,34 @@
+<div class="row footer">
+  <div class="col-6 col-md-3 left-side-menu order-md-1">
+    <ul>
+      <li><%= link_to "Sobre", root_path %></li>
+      <li><%= link_to "FAQ", root_path %></li>
+      <li><%= link_to "Entregas", root_path %></li>
+    </ul>
+  </div>
+  <div class="col-6 col-md-3 right-side-menu order-md-12">
+    <ul>
+      <li><%= link_to "Workshops Online", root_path %></li>
+      <li><%= link_to "Formas de Pagamento", root_path %></li>
+      <li><%= link_to "Contato", root_path %></li>
+    </ul>
+  </div>
+  <div class="col-12 col-md-6 subscribe order-md-2">
+    <h2>Suje-se</h2>
+    <form action="mailto:nufiujardinagem@gmail.com">
+      <input type="text" placeholder="Adicione seu email aqui">
+    </form>
+    <button>Quero receber novidades da Nufiu</button>
+    <ul class="pl-0">
+      <a href=""><i class="fab fa-facebook-f mr-3"></i>  </a>
+      <a href=""><i class="fab fa-instagram"></i></a>
+    </ul>
+  </div>
+  <div class="col-12 copyright">
+    <p>Copyright 2021 Nufiu</p>
+  </div>
+  <div class="col-12 terms">
+    <%= link_to "Termos de Uso", root_path, class: "mr-3" %>
+    <%= link_to "Políticas de Privacidade", root_path %>
+  </div>
+</div>
