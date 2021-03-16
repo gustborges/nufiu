@@ -4,7 +4,7 @@
       <%= f.input :name, label: "Nome da planta" %>
       <%= f.input :scientific_name, label: "Nome científico" %>
       <%= f.input :description, label: "Descrição" %>
-      <%= f.input :category, label: "Categoria", as: :select %>
+      <%= f.association :category, label: "Categoria" %>
       <%= f.input :price, label: "Preço", as: :integer %>
       <%= f.input :best_seller, label: "Best-seller", as: :boolean %>
       <%= f.input :pet_friendly, label: "Pet-friendly", as: :boolean %>
