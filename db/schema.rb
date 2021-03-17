@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_015653) do
+ActiveRecord::Schema.define(version: 2021_03_17_210646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,21 +60,35 @@ ActiveRecord::Schema.define(version: 2021_03_15_015653) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "colors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "plant_colors", force: :cascade do |t|
+    t.bigint "plant_id", null: false
+    t.bigint "color_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["color_id"], name: "index_plant_colors_on_color_id"
+    t.index ["plant_id"], name: "index_plant_colors_on_plant_id"
+  end
+
   create_table "plants", force: :cascade do |t|
     t.string "name"
     t.string "scientific_name"
     t.text "description"
     t.string "water"
     t.boolean "pet_friendly"
-    t.boolean "low_light_tolerant"
     t.boolean "best_seller"
-    t.boolean "for_beginners"
     t.string "size"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price"
     t.bigint "user_id"
     t.bigint "category_id"
+    t.string "light"
     t.index ["category_id"], name: "index_plants_on_category_id"
     t.index ["user_id"], name: "index_plants_on_user_id"
   end
@@ -99,6 +113,8 @@ ActiveRecord::Schema.define(version: 2021_03_15_015653) do
   add_foreign_key "cart_plants", "carts"
   add_foreign_key "cart_plants", "plants"
   add_foreign_key "carts", "users"
+  add_foreign_key "plant_colors", "colors"
+  add_foreign_key "plant_colors", "plants"
   add_foreign_key "plants", "categories"
   add_foreign_key "plants", "users"
 end
