@@ -41,23 +41,20 @@ cliente = User.create!(
   admin: false
   )
 
-
 puts 'Seeding plants'
 
 costela_de_adao = Plant.create!(
   name: "Costela de Adão",
   scientific_name: "Monstera deliciosa",
-  category: "Categoria da planta",
+  category_id: 1,
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
   price: 40,
   pet_friendly: false,
-  low_light_tolerant: true,
   water: "Rega frequente",
   size: "Altura média de 35 cm",
   best_seller: true,
-  for_beginners: false,
   user: borgesmalu
   )
 
@@ -65,18 +62,16 @@ De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia
 lumina = Plant.create!(
   name: "Lumina",
   scientific_name: "Chlorophytum orchidastrum",
-  category: "Categoria da planta",
+  category_id: 1,
   description: "O destaque da Lumina fica, sem dúvida, por conta de sua belíssima folhagem. O contraste do caule alaranjado, que se revela a partir do centro da planta, entre as vistosas folhas verdes onduladas, conferiu à planta o nome popular pelo qual este clorofito é chamado aqui no Brasil.
 
 A lumina é uma planta bastante resistente, que requer muito pouca manutenção. Seu cultivo é bem tranquilo, de modo que a planta lumina é uma opção ideal para os jardineiros de apartamento. Embora seja uma espécie de origem tropical, o Chlorophytum orchidastrum não gosta do sol pleno, situação que pode causar danos e queimaduras às suas folhas. O ideal é que a lumina seja mantida em um lugar com bastante luminosidade indireta, próxima a uma janela, protegida da incidência direta dos raios solares.
 ",
   price: 25.50,
   pet_friendly: true,
-  low_light_tolerant: true,
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: false,
-  for_beginners: true,
   user: borgesmalu
   )
 
@@ -84,7 +79,7 @@ A lumina é uma planta bastante resistente, que requer muito pouca manutenção.
 jiboia = Plant.create!(
   name: "Jiboia",
   scientific_name: "Epipremnum pinnatum",
-  category: "Categoria da planta",
+  category_id: 1,
   description: "A jiboia é extremamente adaptável ao ambiente que está sendo cultivada. Em vasos e cachepôs, a planta se mantém pequena e reservada; quando suspensa, deixa seus caules e folhas pendentes, criando uma espécie de cortina verde super charmosa — alternativa perfeita para decorar qualquer espaço.
 
 Sua folhagem se adapta bem aos ambientes com sombra, mas cresce melhor e mais rápido em locais com luz indireta. A única coisa que ela não suporta são as baixas temperaturas!
@@ -93,11 +88,9 @@ Em estações quentes e secas, como a primavera e o verão, as regas devem ser f
 ",
   price: 23,
   pet_friendly: false,
-  low_light_tolerant: true,
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: true,
-  for_beginners: true,
   user: borgesmalu
   )
 
@@ -105,7 +98,7 @@ Em estações quentes e secas, como a primavera e o verão, as regas devem ser f
 espada = Plant.create!(
   name: "Espada de São Jorge",
   scientific_name: "Epipremnum pinnatum",
-  category: "Categoria da planta",
+  category_id: 1,
   description: "Ligada por muitos ao místico, a espada de São Jorge é uma planta lindíssima e que está super em alta. É conhecida por ser uma das melhores espécies de plantas com ação purificadora para os ambientes e energias. Suas propriedades permitem que ela absorva substâncias tóxicas do ar durante o dia, enquanto à noite libera oxigênio limpo. Esse efeito auxilia na purificação dos cômodos da casa.
 
 A Espada de São Jorge exige poucos cuidados. Não precisa de muita adubação, se adapta bem tanto ao Sol, quanto à sombra e não precisa de muita rega. Ou seja, é ideal para quem quer uma planta em casa, mas sem ter muito trabalho. É uma planta bastante resistente e que sobrevive em áreas rnas com sol e também em áreas internas com menos incidência de luz e vento.
@@ -113,11 +106,9 @@ A Espada de São Jorge exige poucos cuidados. Não precisa de muita adubação, 
 ",
   price: 30,
   pet_friendly: false,
-  low_light_tolerant: true,
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: true,
-  for_beginners: true,
   user: borgesmalu
   )
 
@@ -125,7 +116,7 @@ A Espada de São Jorge exige poucos cuidados. Não precisa de muita adubação, 
 comigo_ninguem_pode = Plant.create!(
   name: "Comigo ninguém pode",
   scientific_name: "Dieffenbachia seguine",
-  category: "Categoria da planta",
+  category_id: 1,
   description: "Essa planta tóxica da família Araceae possui folhas vistosas com manchas esbranquiçadas características, frutos na forma de baga e flores em espádice. Originária da Amazônia, essa herbácea tem vastas possibilidades de usos – desde decoração até eliminação de pragas e insetos.
 
 Diferentemente de grande parte das plantas para cultivo doméstico, não é recomendado que essa planta seja exposta diretamente ao sol durante todo o tempo, de modo que é melhor que ela esteja em áreas onde há abundância de sombra durante a movimentação do sol.
@@ -133,18 +124,16 @@ Diferentemente de grande parte das plantas para cultivo doméstico, não é reco
 ",
   price: 36.50,
   pet_friendly: false,
-  low_light_tolerant: true,
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: false,
-  for_beginners: false,
   user: borgesmalu
   )
 
 pacova = Plant.create!(
   name: "Pacová",
   scientific_name: "Philodendron martianum",
-  category: "Categoria da planta",
+  category_id: 1,
   description: "Dono de folhas de um verde intenso e brilhante, o Pacová é uma espécie nativa do Brasil, encontrada aos montes em regiões cobertas pela Mata Atlântica (SP, RJ e no PR). Como seu ambiente nativo tem clima quente e úmido, o pacová não é muito fã de baixas temperaturas.
 
 Recomendamos cultivá-lo em áreas de luz indireta, ou à meia-sombra – com incidência de sol ameno do início ou fim do dia. Gosta de rega moderada, em geral 1 vez por semana é suficiente. Apesar de ser uma espécie tropical, é preciso sempre observar como ela reage à luminosidade.
@@ -152,11 +141,9 @@ Recomendamos cultivá-lo em áreas de luz indireta, ou à meia-sombra – com in
 ",
   price: 62,
   pet_friendly: true,
-  low_light_tolerant: true,
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: true,
-  for_beginners: true,
   user: borgesmalu
   )
 
