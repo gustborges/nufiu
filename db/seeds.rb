@@ -8,6 +8,8 @@
 
 Plant.destroy_all
 User.destroy_all
+Category.destroy_all
+Color.destroy_all
 puts 'Last seeds destroyed'
 
 
@@ -39,6 +41,96 @@ cliente = User.create!(
   phone: "(21)98312099021",
   address: "Santa Teresa",
   admin: false
+  )
+
+puts 'Seeding colors'
+
+bandeira = Color.create!(
+  name: "Verde Bandeira"
+  )
+
+lima = Color.create!(
+  name: "Verde Lima"
+  )
+
+abacate = Color.create!(
+  name: "Verde Abacate"
+  )
+
+escuro = Color.create!(
+  name: "Verde Escuro"
+  )
+
+lapis = Color.create!(
+  name: "Azul Lápis Lazuli"
+  )
+
+capri = Color.create!(
+  name: "Azul Capri"
+  )
+
+marinho = Color.create!(
+  name: "Azul Marinho"
+  )
+
+canario = Color.create!(
+  name: "Amarelo Canário"
+  )
+
+acafrao = Color.create!(
+  name: "Amarelo Açafrão"
+  )
+
+vermelho = Color.create!(
+  name: "Vermelho"
+  )
+
+carmim = Color.create!(
+  name: "Carmim"
+  )
+
+laranja = Color.create!(
+  name: "Laranja"
+  )
+
+salmao = Color.create!(
+  name: "Salmão"
+  )
+
+magenta = Color.create!(
+  name: "Magenta"
+  )
+
+violeta = Color.create!(
+  name: "Violeta"
+  )
+
+sisal = Color.create!(
+  name: "Sisal"
+  )
+
+marrom_claro = Color.create!(
+  name: "Marrom Claro"
+  )
+
+amendoado = Color.create!(
+  name: "Marrom Amendoado"
+  )
+
+branco = Color.create!(
+  name: "Branco"
+  )
+
+turquesa = Color.create!(
+  name: "Azul Turquesa"
+  )
+
+rustico = Color.create!(
+  name: "Rústico - Sem fios"
+  )
+
+surpreendame = Color.create!(
+  name: "Surpreenda-me"
   )
 
 puts 'Seeding categories'
