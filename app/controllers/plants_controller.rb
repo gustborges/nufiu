@@ -28,7 +28,7 @@ class PlantsController < ApplicationController
 
   def update
     if @plant.update(plant_params)
-      redirect_to plant_path(params[:id])
+      redirect_to plant_path(@plant)
     else
       render :edit
     end
@@ -47,6 +47,6 @@ class PlantsController < ApplicationController
   end
 
   def plant_params
-    params.require(:plant).permit(:name, :scientific_name, :description, :water, :pet_friendly, :best_seller, :size, :price, :photo, :user_id, :category_id, :color_ids => [])
+    params.require(:plant).permit(:name, :scientific_name, :description, :water_level, :water_text, :pet_friendly, :best_seller, :size, :price, :photo, :user_id, :category_id, :light_id, :color_ids => [])
   end
 end

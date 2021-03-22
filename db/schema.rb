@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_17_210646) do
+ActiveRecord::Schema.define(version: 2021_03_22_200608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,13 @@ ActiveRecord::Schema.define(version: 2021_03_17_210646) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "hex"
+  end
+
+  create_table "lights", force: :cascade do |t|
+    t.string "level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "plant_colors", force: :cascade do |t|
@@ -79,7 +86,6 @@ ActiveRecord::Schema.define(version: 2021_03_17_210646) do
     t.string "name"
     t.string "scientific_name"
     t.text "description"
-    t.string "water"
     t.boolean "pet_friendly"
     t.boolean "best_seller"
     t.string "size"
@@ -88,8 +94,11 @@ ActiveRecord::Schema.define(version: 2021_03_17_210646) do
     t.integer "price"
     t.bigint "user_id"
     t.bigint "category_id"
-    t.string "light"
+    t.integer "water_level"
+    t.string "water_text"
+    t.bigint "light_id"
     t.index ["category_id"], name: "index_plants_on_category_id"
+    t.index ["light_id"], name: "index_plants_on_light_id"
     t.index ["user_id"], name: "index_plants_on_user_id"
   end
 
@@ -116,5 +125,6 @@ ActiveRecord::Schema.define(version: 2021_03_17_210646) do
   add_foreign_key "plant_colors", "colors"
   add_foreign_key "plant_colors", "plants"
   add_foreign_key "plants", "categories"
+  add_foreign_key "plants", "lights"
   add_foreign_key "plants", "users"
 end

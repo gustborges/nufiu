@@ -10,6 +10,7 @@ Plant.destroy_all
 User.destroy_all
 Category.destroy_all
 Color.destroy_all
+Light.destroy_all
 puts 'Last seeds destroyed'
 
 
@@ -43,94 +44,130 @@ cliente = User.create!(
   admin: false
   )
 
+puts 'Seeding lights'
+
+sol = Light.create!(
+  level: "Sol"
+  )
+
+meia_sombra = Light.create!(
+  level: "Meia Sombra"
+  )
+
+sombra = Light.create!(
+  level: "Sombra"
+  )
+
 puts 'Seeding colors'
 
 bandeira = Color.create!(
-  name: "Verde Bandeira"
+  name: "Verde Bandeira",
+  hex: "#228b22"
   )
 
 lima = Color.create!(
-  name: "Verde Lima"
+  name: "Verde Lima",
+  hex: "#5EE045"
   )
 
 abacate = Color.create!(
-  name: "Verde Abacate"
+  name: "Verde Abacate",
+  hex: "#faed9c"
   )
 
 escuro = Color.create!(
-  name: "Verde Escuro"
+  name: "Verde Escuro",
+  hex: "#006400"
   )
 
 lapis = Color.create!(
-  name: "Azul Lápis Lazuli"
+  name: "Azul Lápis Lazuli",
+  hex: "#00F"
   )
 
 capri = Color.create!(
-  name: "Azul Capri"
+  name: "Azul Capri",
+  hex: "#2ee2ff"
   )
 
 marinho = Color.create!(
-  name: "Azul Marinho"
+  name: "Azul Marinho",
+  hex: "#00008b"
   )
 
 canario = Color.create!(
-  name: "Amarelo Canário"
+  name: "Amarelo Canário",
+  hex: "#FF0"
   )
 
 acafrao = Color.create!(
-  name: "Amarelo Açafrão"
+  name: "Amarelo Açafrão",
+  hex: "#FFBF00"
   )
 
 vermelho = Color.create!(
-  name: "Vermelho"
+  name: "Vermelho",
+  hex: "#F00"
   )
 
 carmim = Color.create!(
-  name: "Carmim"
+  name: "Carmim",
+  hex: "#8B0000"
   )
 
 laranja = Color.create!(
-  name: "Laranja"
+  name: "Laranja",
+  hex: "#F44611"
   )
 
 salmao = Color.create!(
-  name: "Salmão"
+  name: "Salmão",
+  hex: "#FA7F72"
   )
 
 magenta = Color.create!(
-  name: "Magenta"
+  name: "Magenta",
+  hex: "#F0F"
   )
 
 violeta = Color.create!(
-  name: "Violeta"
+  name: "Violeta",
+  hex: "#606"
   )
 
 sisal = Color.create!(
-  name: "Sisal"
+  name: "Sisal",
+  hex: "#DAC8B3"
   )
 
 marrom_claro = Color.create!(
-  name: "Marrom Claro"
+  name: "Marrom Claro",
+  hex: "#BB9469"
   )
 
 amendoado = Color.create!(
-  name: "Marrom Amendoado"
+  name: "Marrom Amendoado",
+  hex: "#964B00"
   )
 
 branco = Color.create!(
-  name: "Branco"
+  name: "Branco",
+  hex: "#FFFAFA"
   )
 
 turquesa = Color.create!(
-  name: "Azul Turquesa"
+  name: "Azul Turquesa",
+  hex: "#00CED1"
   )
 
 rustico = Color.create!(
-  name: "Rústico - Sem fios"
+  name: "Rústico - Sem fios",
+  hex: "#FFF"
   )
 
 surpreendame = Color.create!(
-  name: "Surpreenda-me"
+  name: "Surpreenda-me",
+  hex: "#FFF"
   )
 
 puts 'Seeding categories'
@@ -153,11 +190,13 @@ De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia
 ",
   price: 40,
   pet_friendly: false,
-  water: "Rega frequente",
+  water_level: 1,
+  water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
   best_seller: true,
   user: borgesmalu,
-  category: kokedama
+  category: kokedama,
+  light: sol
   )
 
 
@@ -170,11 +209,13 @@ A lumina é uma planta bastante resistente, que requer muito pouca manutenção.
 ",
   price: 25.50,
   pet_friendly: true,
-  water: "Rega moderada",
+  water_level: 1,
+  water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
   best_seller: false,
   user: borgesmalu,
-  category: kokedama
+  category: kokedama,
+  light: sol
   )
 
 
@@ -189,11 +230,13 @@ Em estações quentes e secas, como a primavera e o verão, as regas devem ser f
 ",
   price: 23,
   pet_friendly: false,
-  water: "Rega moderada",
+  water_level: 1,
+  water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
   best_seller: true,
   user: borgesmalu,
-  category: kokedama
+  category: kokedama,
+  light: sol
   )
 
 
@@ -207,11 +250,13 @@ A Espada de São Jorge exige poucos cuidados. Não precisa de muita adubação, 
 ",
   price: 30,
   pet_friendly: false,
-  water: "Rega moderada",
+  water_level: 1,
+  water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
   best_seller: true,
   user: borgesmalu,
-  category: kokedama
+  category: kokedama,
+  light: sol
   )
 
 
@@ -225,11 +270,13 @@ Diferentemente de grande parte das plantas para cultivo doméstico, não é reco
 ",
   price: 36.50,
   pet_friendly: false,
-  water: "Rega moderada",
+  water_level: 1,
+  water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
   best_seller: false,
   user: borgesmalu,
-  category: kokedama
+  category: kokedama,
+  light: sol
   )
 
 pacova = Plant.create!(
@@ -242,11 +289,13 @@ Recomendamos cultivá-lo em áreas de luz indireta, ou à meia-sombra – com in
 ",
   price: 62,
   pet_friendly: true,
-  water: "Rega moderada",
+  water_level: 1,
+  water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
   best_seller: true,
   user: borgesmalu,
-  category: kokedama
+  category: kokedama,
+  light: sol
   )
 
 

@@ -1,3 +1,14 @@
+.add-margins {
+  margin-top: 8em;
+  margin-left: 4em;
+  p {
+    color: $green;
+  }
+}
+
 .form-container {
-  padding: 60px;
+  padding-top: 1em;
+  padding-left: 4em;
+  padding-right: 4em;
+  padding-bottom: 4em;
 }
