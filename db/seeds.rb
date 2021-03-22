@@ -41,6 +41,16 @@ cliente = User.create!(
   admin: false
   )
 
+puts 'Seeding categories'
+
+kokedama = Category.create!(
+  name: "Kokedama"
+  )
+
+pote = Category.create!(
+  name: "Pote"
+  )
+
 puts 'Seeding plants'
 
 costela_de_adao = Plant.create!(
@@ -54,7 +64,8 @@ De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia
   water: "Rega frequente",
   size: "Altura média de 35 cm",
   best_seller: true,
-  user: borgesmalu
+  user: borgesmalu,
+  category: kokedama
   )
 
 
@@ -70,7 +81,8 @@ A lumina é uma planta bastante resistente, que requer muito pouca manutenção.
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: false,
-  user: borgesmalu
+  user: borgesmalu,
+  category: kokedama
   )
 
 
@@ -88,7 +100,8 @@ Em estações quentes e secas, como a primavera e o verão, as regas devem ser f
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: true,
-  user: borgesmalu
+  user: borgesmalu,
+  category: kokedama
   )
 
 
@@ -105,7 +118,8 @@ A Espada de São Jorge exige poucos cuidados. Não precisa de muita adubação, 
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: true,
-  user: borgesmalu
+  user: borgesmalu,
+  category: kokedama
   )
 
 
@@ -122,7 +136,8 @@ Diferentemente de grande parte das plantas para cultivo doméstico, não é reco
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: false,
-  user: borgesmalu
+  user: borgesmalu,
+  category: kokedama
   )
 
 pacova = Plant.create!(
@@ -138,7 +153,8 @@ Recomendamos cultivá-lo em áreas de luz indireta, ou à meia-sombra – com in
   water: "Rega moderada",
   size: "Altura média de 35 cm",
   best_seller: true,
-  user: borgesmalu
+  user: borgesmalu,
+  category: kokedama
   )
 
 
