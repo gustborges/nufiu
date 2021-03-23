@@ -16,7 +16,16 @@
     </div>
     <h3 class="plant-specific-name"><%= @plant.scientific_name %></h3>
     <h4>R$ <%= @plant.price.ceil %> </h4>
-    <p><%= @plant.description %></p>
+    <p class="plant-description"><%= @plant.description %></p>
+    <div class="plant-profile">
+      <% if @plant.light != nil %>
+        <p><%= image_tag "icons/sun.svg", alt: "Iluminação", size: '30x30', style: 'margin-right: 10px' %><%= @plant.light.level %></p>
+      <% end %>
+      <p><%= image_tag "icons/two-drops.svg", alt: "Rega", size: '30x30', style: 'margin-right: 10px' %><%= @plant.water_text %></p>
+      <% if @plant.pet_friendly? %>
+        <p> <%= image_tag "icons/pet-friendly.svg", alt: "Pet-friendly", size: '30x30', style: 'margin-right: 10px' %>Pet-friendly </p>
+      <% end %>
+    </div>
     <div class="buy-button">
       <%= link_to "Quero comprar", plant_cart_plants_path(@plant), method: :post, class: "green-button" %>
     </div>

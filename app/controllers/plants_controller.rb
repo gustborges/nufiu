@@ -4,6 +4,7 @@ class PlantsController < ApplicationController
 
   def index
     @plants = policy_scope(Plant)
+    @lights = Light.all
   end
 
   def show; end
@@ -43,6 +44,7 @@ class PlantsController < ApplicationController
 
   def plant_find
     @plant = Plant.find(params[:id])
+    @light = @plant.light
     authorize @plant
   end
 
