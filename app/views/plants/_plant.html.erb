@@ -1,0 +1,17 @@
+<% @plants.each do |plant|%>
+  <div class="col-6 col-md-4 col-lg-3" id="plants">
+    <div class="plant-card m-0" id="plant>
+      <%= link_to plant_path(plant) do %>
+        <% if plant.photo.attached? %>
+          <%= cl_image_tag plant.photo.key, class: "card-img", alt: "#{plant.name}" %>
+        <% else %>
+          <%= image_tag "plants/2.png", class: "card-img", alt: "#{plant.name}" %>
+        <% end %>
+        <div class="plant-card-text">
+          <h5 class="card-title"><%= plant.name %></h5>
+          <h5 class="card-price">R$ <%= plant.price.ceil %></h5>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

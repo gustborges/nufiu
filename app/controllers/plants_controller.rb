@@ -3,8 +3,17 @@ class PlantsController < ApplicationController
   before_action :plant_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @plants = policy_scope(Plant)
     @lights = Light.all
+    if params["search"].present?
+      @filter = params["search"]["light"].concat(params["search"]["categories"]).concat(params["search"]["name"]).flatten.reject(&:blank?).join("")
+      @plants = policy_scope(Plant).all.search("#{@filter}")
+    else
+      @plants = policy_scope(Plant)
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show; end
