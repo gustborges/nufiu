@@ -15,10 +15,10 @@ class Plant < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search,
     against: [ :name, :water_level, :pet_friendly ],
-    associated_against: {
-      light: [ :level ],
-      categories: [ :name ]
-    },
+    # associated_against: {
+    #   light: [ :level ],
+    #   categories: [ :name ]
+    # },
     using: {
       tsearch: { prefix: true }
     }

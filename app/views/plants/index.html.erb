@@ -13,7 +13,6 @@
     <%= f.input :light, label: "Iluminação", collection: ["Sol direto", "Meia-sombra", "Sombra"], as: :check_boxes %>
     <%= f.input :water_level, label: "Rega", collection: ["Todo dia", "Frequência média", "Pouca água"], as: :check_boxes %>
     <%= f.input :name, label: "Lumina", collection: ["Lumina"], as: :check_boxes %>
-    <%= f.submit "Filtrar", class: "green-button" %>
   <% end %>
 </div>
 
@@ -27,7 +26,8 @@
 
   for (const check of checkBoxes) {
   check.addEventListener( 'change', function() {
-    Rails.fire(form, 'submit');
+    form.submit();
+    // Rails.fire(form, 'submit');
   });
   }
 </script>

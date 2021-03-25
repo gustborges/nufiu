@@ -5,6 +5,7 @@ function replacePlants (innerHTML) {
 
 if ('<%= @filter %>' === "[]") {
 replacePlants("<%= j render 'plant', plants: policy_scope(Plant).all %>");
+console.log("Ativado");
 }
 else {
 replacePlants("<%= j render 'plant', plants: @plants %>");
