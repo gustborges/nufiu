@@ -1,13 +1,13 @@
-function replacePlants (innerHTML) {
-  const plants = document.getElementById('plants');
-  plants.innerHTML = innerHTML;
-}
+// function replacePlants (innerHTML) {
+//   const plants = document.getElementById('plants');
+//   plants.innerHTML = innerHTML;
+// }
 
-if ('<%= @filter %>' === "[]") {
-replacePlants("<%= j render 'plant', plants: policy_scope(Plant).all %>");
-console.log("Ativado");
-}
-else {
-replacePlants("<%= j render 'plant', plants: @plants %>");
-}
+// if ('<%= @filter %>' === "[]") {
+// replacePlants("<%= j render 'plant', plants: policy_scope(Plant).all %>");
+// console.log("Ativado");
+// }
+// else {
+// replacePlants("<%= j render 'plant', plants: @plants %>");
+// }
 

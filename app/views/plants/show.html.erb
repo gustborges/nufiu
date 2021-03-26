@@ -18,8 +18,8 @@
     <h4>R$ <%= @plant.price.ceil %> </h4>
     <p class="plant-description"><%= @plant.description %></p>
     <div class="plant-profile">
-      <% if @plant.light != nil %>
-        <p><%= image_tag "icons/sun.svg", alt: "Iluminação", size: '30x30', style: 'margin-right: 10px' %><%= @plant.light.level %></p>
+      <% if @plant.sun != nil %>
+        <p><%= image_tag "icons/sun.svg", alt: "Iluminação", size: '30x30', style: 'margin-right: 10px' %><%= @plant.sun.amount %></p>
       <% end %>
       <p><%= image_tag "icons/two-drops.svg", alt: "Rega", size: '30x30', style: 'margin-right: 10px' %><%= @plant.water_text %></p>
       <% if @plant.pet_friendly? %>

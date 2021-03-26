@@ -3,17 +3,25 @@ class PlantsController < ApplicationController
   before_action :plant_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @lights = Light.all
-    if params["search"].present?
-      @filter = params["search"]["light"].concat(params["search"]["categories"]).concat(params["search"]["name"]).flatten.reject(&:blank?).join("")
-      @plants = policy_scope(Plant).all.search("#{@filter}")
-    else
-      @plants = policy_scope(Plant)
+    @allowed_plants = policy_scope(Plant)
+    @search = policy_scope(Plant).search do
+      fulltext params[:query]
+      facet(:category)
+      facet(:sun)
+      # with(:category_name, params[:cat]) if params[:cat].present?
     end
-    respond_to do |format|
-      format.html
-      format.js
-    end
+
+    @plants = @search.results
+
+    # if params[:query].present?
+    #   @plants = allowed_plants.search(params[:query]).results
+    # else
+    #   @plants = allowed_plants
+    # end
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   end
 
   def show; end
@@ -53,11 +61,10 @@ class PlantsController < ApplicationController
 
   def plant_find
     @plant = Plant.find(params[:id])
-    @light = @plant.light
     authorize @plant
   end
 
   def plant_params
-    params.require(:plant).permit(:name, :scientific_name, :description, :water_level, :water_text, :pet_friendly, :best_seller, :size, :price, :photo, :user_id, :category_id, :light_id, :color_ids => [])
+    params.require(:plant).permit(:name, :scientific_name, :description, :water_level, :water_text, :pet_friendly, :best_seller, :size, :price, :photo, :user_id, :category_id, :sun_id, :color_ids => [])
   end
 end

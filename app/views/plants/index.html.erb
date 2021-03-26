@@ -7,27 +7,65 @@
   </div>
 </div>
 
-<div class="filters-form">
-  <%= simple_form_for :search, url: root_path, method: "GET", remote: true do |f| %>
+<!-- Adicionar aqui botões. Com a pessoa clicando, envia um item para params[item1, item2...] ou... clicando em cada um vai filtrar de maneira diferente o @plants (sem uso da busca, usando where... então se clicar em pet_friendly é Plant.where(pet_friendly: true)... foda vai ser concatenar tudo!)-->
+
+<%= form_with url: root_path, method: :get, local: true do |f| %>
+  <%= f.text_field :query %>
+  <%= f.submit "Buscar", class: "green-button" %>
+<% end %>
+
+<div class="facets" style="color: black; border-color: black;">
+  <p>facets</p>
+  <% @search.facet(:category).rows.each do |facet| %>
+    <p><%= "#{facet.value} (#{facet.count})" %></p>
+  <% end %>
+  <% @search.facet(:sun).rows.each do |facet| %>
+    <p><%= "#{facet.value} (#{facet.count})" %></p>
+  <% end %>
+
+
+
+
+ <!-- <div class="filters-form">
+  <%= simple_form_for :query, url: root_path, method: :get, local: true do |f| %>
     <%= f.input :categories, label: "Categorias", collection: ["Kokedamas", "Terrários", "Potes"], as: :check_boxes %>
-    <%= f.input :light, label: "Iluminação", collection: ["Sol direto", "Meia-sombra", "Sombra"], as: :check_boxes %>
+    <%= f.input :sun, label: "Iluminação", collection: ["Sol direto", "Meia-sombra", "Sombra"], as: :check_boxes %>
     <%= f.input :water_level, label: "Rega", collection: ["Todo dia", "Frequência média", "Pouca água"], as: :check_boxes %>
     <%= f.input :name, label: "Lumina", collection: ["Lumina"], as: :check_boxes %>
+    <%= f.submit "Enviar", class: "green-button"%>
+    <%= link_to "Reset", root_path %>
   <% end %>
 </div>
+ -->
 
 <div class="row justify-content-center add-margins-home">
-  <%= render 'plant', plants: @plants %>
+  <% @plants.each do |plant|%>
+  <div class="col-6 col-md-4 col-lg-3" id="plants">
+    <div class="plant-card m-0" id="plant">
+      <%= link_to plant_path(plant) do %>
+        <% if plant.photo.attached? %>
+          <%= cl_image_tag plant.photo.key, class: "card-img", alt: "#{plant.name}" %>
+        <% else %>
+          <%= image_tag "plants/2.png", class: "card-img", alt: "#{plant.name}" %>
+        <% end %>
+        <div class="plant-card-text">
+          <h5 class="card-title"><%= plant.name %></h5>
+          <h5 class="card-price">R$ <%= plant.price.ceil %></h5>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 </div>
 
-<script type="text/javascript">
+
+<!-- <script type="text/javascript">
   var checkBoxes = document.querySelectorAll(".form-check-input");
   var form = document.querySelector('form');
 
   for (const check of checkBoxes) {
   check.addEventListener( 'change', function() {
     form.submit();
-    // Rails.fire(form, 'submit');
   });
   }
-</script>
+</script> -->

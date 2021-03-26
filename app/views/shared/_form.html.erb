@@ -8,7 +8,7 @@
       <%= f.input :price, label: "Preço", as: :integer, hint: "Não adicionar centavos" %>
       <%= f.input :best_seller, label: "Best-seller", as: :boolean %>
       <%= f.input :pet_friendly, label: "Pet-friendly", as: :boolean %>
-      <%= f.association :light, label: "Luz", label_method: :level %>
+      <%= f.association :sun, label: "Luz", label_method: :amount %>
       <%= f.input :water_level, label: "Quantidade de Água", collection: 1..3, hint: "Preencher um número de 1 (pouca água) a 3 (muita água)" %>
       <%= f.input :water_text, label: "Descrição da rega", hint: "Ex. Rega a cada 2-4 dias" %>
       <%= f.input :photo, label: "Foto", as: :file %>

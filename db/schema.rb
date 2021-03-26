@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_24_164344) do
+ActiveRecord::Schema.define(version: 2021_03_26_192018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,10 +67,13 @@ ActiveRecord::Schema.define(version: 2021_03_24_164344) do
     t.string "hex"
   end
 
-  create_table "lights", force: :cascade do |t|
-    t.string "level"
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
   create_table "plant_colors", force: :cascade do |t|
@@ -96,10 +99,17 @@ ActiveRecord::Schema.define(version: 2021_03_24_164344) do
     t.bigint "category_id"
     t.integer "water_level"
     t.string "water_text"
-    t.bigint "light_id"
+    t.bigint "sun_id"
     t.index ["category_id"], name: "index_plants_on_category_id"
-    t.index ["light_id"], name: "index_plants_on_light_id"
+    t.index ["sun_id"], name: "index_plants_on_sun_id"
     t.index ["user_id"], name: "index_plants_on_user_id"
+  end
+
+  create_table "suns", force: :cascade do |t|
+    t.string "level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "amount"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -152,7 +162,7 @@ ActiveRecord::Schema.define(version: 2021_03_24_164344) do
   add_foreign_key "plant_colors", "colors"
   add_foreign_key "plant_colors", "plants"
   add_foreign_key "plants", "categories"
-  add_foreign_key "plants", "lights"
+  add_foreign_key "plants", "suns"
   add_foreign_key "plants", "users"
   add_foreign_key "taggings", "tags"
 end
