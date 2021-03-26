@@ -5,23 +5,15 @@ class PlantsController < ApplicationController
   def index
     @allowed_plants = policy_scope(Plant)
     @search = policy_scope(Plant).search do
-      fulltext params[:query]
+      fulltext params[:category]
+      fulltext params[:sun]
+      fulltext params[:water_level]
       facet(:category)
       facet(:sun)
-      # with(:category_name, params[:cat]) if params[:cat].present?
+      facet(:pet_friendly)
+      facet(:water_level)
     end
-
     @plants = @search.results
-
-    # if params[:query].present?
-    #   @plants = allowed_plants.search(params[:query]).results
-    # else
-    #   @plants = allowed_plants
-    # end
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
   end
 
   def show; end

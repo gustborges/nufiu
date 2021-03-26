@@ -8,8 +8,9 @@ class Plant < ApplicationRecord
   has_one_attached :photo
 
   searchable do
-    text :name, :boost => 5
-    text :scientific_name, :description
+    # text :name, :boost => 5
+    # text :scientific_name, :description
+    text :water_level
     boolean :pet_friendly
     text :sun do
       sun.amount
