@@ -1,0 +1,51 @@
+
+<div class="filtrar">
+  <h6>FILTRAR</h6>
+</div>
+
+<div class="facetlist">
+<h6>Luz</h6>
+   <ul>
+      <% for row in @search.facet(:sun).rows %>
+          <li>
+          <% if params[:sun].blank? %>
+              <%= link_to(row.value, params.merge(:sun => row.value).permit!) %> <small class="rowcount"><%= row.count %></small>
+              <% else %>
+              <strong><%= row.value %></strong> (<%= link_to "X", :sun => nil %>)
+          <% end %>
+          </li>
+      <% end %>
+  </ul>
+</div>
+
+<div class="facetlist">
+<h6>Rega</h6>
+  <ul>
+    <% for row in @search.facet(:water_level).rows %>
+        <li>
+        <% if params[:water_level].blank? %>
+          <%= link_to(row.value, params.merge(:water_level => row.value).permit!) %> <small class="rowcount"><%= row.count %></small>
+        <% else %>
+          <strong><%= row.value %></strong> (<%= link_to "X", :water_level => nil %>)
+        <% end %>
+        </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="facetlist">
+<h6>Pet-friendly</h6>
+  <ul>
+    <% for row in @search.facet(:pet_friendly).rows %>
+        <li>
+        <% if params[:pet_friendly].blank? %>
+            <%= link_to(row.value, params.merge(:pet_friendly => row.value).permit!) %> <small class="rowcount"><%= row.count %></small>
+            <% else %>
+            <strong><%= row.value %></strong> (<%= link_to "X", :pet_friendly => nil %>)
+        <% end %>
+        </li>
+    <% end %>
+  </ul>
+</div>
+
+

@@ -9,49 +9,19 @@
 
 <!-- Busca ainda precisa de ajustes -->
 
-  <h2>Luz</h2>
-  <ul>
-    <li> <%= link_to "Sol Direto", url: root_path, method: :get, sun: "Sol Direto" %></li>
-    <li> <%= link_to "Meia-sombra", url: root_path, method: :get, sun: "Meia-sombra" %></li>
-    <li> <%= link_to "Sombra", url: root_path, method: :get, sun: "Sombra" %></li>
-  </ul>
-  <h2>Rega</h2>
-  <ul>
-    <li> <%= link_to "Raramente", url: root_path, method: :get, water_level: 1 %></li>
-    <li> <%= link_to "Frequente", url: root_path, method: :get, water_level: 2 %></li>
-    <li> <%= link_to "Todo dia", url: root_path, method: :get, water_level: 3 %></li>
-  </ul>
-  <h2>Pet-friendly</h2>
-  <ul>
-    <li> <%= link_to "Pet-friendly", url: root_path, method: :get, pet_friendly: true %></li>
-  </ul>
 
-
+<div class="facets">
+  <%= render 'facet' %>
+</div>
 <!--
 <%= form_with url: root_path, method: :get, local: true do |f| %>
-  <%= f.text_field :query %>
+  <%= f.text_field :q %>
   <%= f.submit "Buscar", class: "green-button" %>
 <% end %>
  -->
-
 <div class="row justify-content-center add-margins-home">
-  <% @plants.each do |plant|%>
-  <div class="col-6 col-md-4 col-lg-3" id="plants">
-    <div class="plant-card m-0" id="plant">
-      <%= link_to plant_path(plant) do %>
-        <% if plant.photo.attached? %>
-          <%= cl_image_tag plant.photo.key, class: "card-img", alt: "#{plant.name}" %>
-        <% else %>
-          <%= image_tag "plants/2.png", class: "card-img", alt: "#{plant.name}" %>
-        <% end %>
-        <div class="plant-card-text">
-          <h5 class="card-title"><%= plant.name %></h5>
-          <h5 class="card-price">R$ <%= plant.price.ceil %></h5>
-        </div>
-      <% end %>
-    </div>
-  </div>
-<% end %>
+  <%= render partial: 'plant' %>
+
 </div>
 
 

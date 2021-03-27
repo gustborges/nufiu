@@ -7,15 +7,15 @@ class Plant < ApplicationRecord
   has_many :cart_plants
   has_one_attached :photo
 
-  searchable do
-    # text :name, :boost => 5
-    # text :scientific_name, :description
-    text :water_level
+  searchable :auto_index => true, :auto_remove => true do
+    text :name, :boost => 5
+    text :scientific_name, :description
+    string :water_level
     boolean :pet_friendly
-    text :sun do
+    string :sun do
       sun.amount
     end
-    text :category do
+    string :category do
       category.name
     end
   end
