@@ -4,16 +4,23 @@
     <div class="col-4 inline"><h6>Rega</h6><%= image_tag "icons/down-arrow.svg", alt: "Mostrar filtros", size: "15x15", class: "arrow" %></div>
 </div>
 
-<div class="facets-deck-hidden">
+<div class="facets-deck">
   <div class="row">
   <div class="col-4 facetlist">
     <ul>
+      <!-- Para cada facet existente em Pet_Friendly, retornar uma linha (row) -->
       <% for row in @search.facet(:pet_friendly).rows %>
           <li>
+          <!-- Se o usuário não clicou em nenhum facet de Pet_Friendly, retornar todas as opções -->
           <% if params[:pet_friendly].blank? %>
-              <%= link_to(row.value, params.merge(:pet_friendly => row.value).permit!) %> <small class="rowcount"><%= row.count %></small>
+              <% if row.value == true %>
+                <input id="chck1" type="checkbox" class="facet-check-box" name="pet_friendly" value="<%= row.value %>" <% params[:pet_friendly] == row.value ? "checked" : "" %>>
+                <%= link_to("Pet-friendly", params.merge(:pet_friendly => row.value).permit!) %><small class="rowcount"><%= row.count %></small>
+              <% end %>
+              <!-- Se o usuário já clicou em uma das opções, desativar o link e adicionar um X para removar o filtro -->
               <% else %>
-              <strong><%= row.value %></strong> (<%= link_to "X", :pet_friendly => nil %>)
+                <input type="checkbox" class="facet-check-box" name="pet_friendly" value="<%= row.value %>" <% params[:pet_friendly] == row.value ? "checked" : "" %>>
+              <!-- <strong><%= row.value %></strong> (<%= link_to "X", :pet_friendly => nil %>) -->
           <% end %>
           </li>
       <% end %>
@@ -50,13 +57,25 @@
 </div>
 
 <script type="text/javascript">
-  const filter = document.querySelector('.filtrar');
-  const facetLists = document.querySelector('.facets-deck-hidden');
+  var filter = document.querySelector('.filtrar');
+  var facetsDeck = document.querySelector('.facets-deck');
     filter.addEventListener('click', (event) => {
     event.preventDefault();
-    facetLists.classList.toggle("facets-deck-hidden");
-    facetLists.classList.toggle("facets-deck-shown");
+    if (facetsDeck.style.display === "none") {
+      facetsDeck.style.display = "block";
+    } else {
+      facetsDeck.style.display = "none";
+    }
   });
+
+  // Facets with checkbox rendering new search results
+  // const chck1 = document.querySelector('#chck1');
+  // chck1.addEventListener('click', (event) => {
+  //   event.preventDefault();
+  //   console.log('hello');
+  // });
+
 </script>
+
 
 

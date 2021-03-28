@@ -13,12 +13,12 @@ class PlantsController < ApplicationController
         with(:water_level, params[:water_level]) if params[:water_level].present?
         with(:pet_friendly, params[:pet_friendly]) if params[:pet_friendly].present?
       end
-      # facet :category
       facet :sun
       facet :pet_friendly
       facet :water_level
     end
-    @plants = @search.results
+    @plants = @search.results # Sunspot Search Object (works like an array of objects)
+
   end
 
   def show; end
