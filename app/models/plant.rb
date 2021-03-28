@@ -7,7 +7,7 @@ class Plant < ApplicationRecord
   has_many :cart_plants
   has_one_attached :photo
 
-  searchable :auto_index => true, :auto_remove => true do
+  searchable do
     text :name, :boost => 5
     text :scientific_name, :description
     string :water_level
@@ -27,7 +27,5 @@ class Plant < ApplicationRecord
   def category_name
     category.name
   end
-
-
 
 end

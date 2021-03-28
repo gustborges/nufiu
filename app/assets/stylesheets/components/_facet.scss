@@ -1,24 +1,48 @@
 .facets {
-  background-color: #f8f8f7;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
 }
 
 .filtrar {
-  display: flex;
-  align-items: center;
-  justify-items: center;
-  color: #7d7a75;
+  padding: 1.4em 0;
+  background-color: #f8f8f7;
+  color: $light-black;
+  text-align: center;
+  .filter-title h6 {
+    color: #7d7a75;
+    font-size: 1em;
+    font-weight: 300;
+    padding-top: 0.2em;
+  }
+  h6 {
+    font-size: 1.4em;
+  }
+  .inline h6 {
+    display: inline-block;
+    padding-right: 1em;
+  }
 }
+
+.facets-deck-hidden {
+  background-color: #f8f8f7;
+  padding: 1.4em 0;
+  display: none;
+}
+
+.facets-deck-shown {
+  background-color: #f8f8f7;
+  padding: 1.4em 0;
+  display: block;
+}
+
 
 .facetlist {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin: 2em 0;
   h6 {
-    font-size: 2em;
+    font-size: 1.4em;
   }
   ul {
     list-style-type: none;
@@ -27,8 +51,6 @@
       color: $light-black;
     }
   }
-
-
 }
 
 
