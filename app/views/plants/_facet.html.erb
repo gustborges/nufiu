@@ -7,32 +7,40 @@
 <div class="facets-deck">
   <div class="row">
     <div class="col-4 facetlist">
-      <%= form_tag(root_path, method: :get) do %>
+      <div class="facet-aligned">
+      <%= form_tag(root_path, method: :get, id: "filtros") do %>
         <div><%= check_box_tag(:filter_pet_friendly) %>
         <%= label_tag :filter_pet_friendly, 'Pet-friendly' %></div>
+      </div>
     </div>
     <div class="col-4 facetlist">
-      <div><%= check_box_tag(:filter_by_sun, "Sol Direto", checked: @filter_by_sun) %>
-        <%= label_tag(:filter_by_sun, "Sol Direto") %></div>
-        <div><%= check_box_tag(:filter_by_sun, "Meia-sombra") %>
-        <%= label_tag(:filter_by_sun, "Meia-sombra") %></div>
-        <div><%= check_box_tag(:filter_by_sun, "Sombra") %>
-        <%= label_tag(:filter_by_sun, "Sombra") %></div>
+      <div class="facet-aligned">
+        <div><%= check_box_tag(:filter_by_sun, "Sol Direto") %>
+          <%= label_tag(:filter_by_sun, "Sol Direto") %></div>
+          <div><%= check_box_tag(:filter_by_sun, "Meia-sombra") %>
+          <%= label_tag(:filter_by_sun, "Meia-sombra") %></div>
+          <div><%= check_box_tag(:filter_by_sun, "Sombra") %>
+          <%= label_tag(:filter_by_sun, "Sombra") %></div>
+        </div>
     </div>
     <div class="col-4 facetlist">
-        <div><%= check_box_tag(:filter_by_water, "Todo dia", checked: @filter_by_water) %>
+      <div class="facet-aligned">
+        <div><%= check_box_tag(:filter_by_water, "Todo dia") %>
         <%= label_tag(:filter_by_water, "Todo dia") %></div>
         <div><%= check_box_tag(:filter_by_water, "Frequência média") %>
         <%= label_tag(:filter_by_water, "Frequência média") %></div>
         <div><%= check_box_tag(:filter_by_water, "Raramente") %>
         <%= label_tag(:filter_by_water, "Raramente") %></div>
         <div><%= submit_tag "Filtrar", class: "green-button", name: nil %></div>
+        </div>
     </div>
     <% end %>
 
     </div>
   </div>
 </div>
+
+
 
 <!-- <script type="text/javascript">
 
