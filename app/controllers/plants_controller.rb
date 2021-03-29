@@ -3,22 +3,7 @@ class PlantsController < ApplicationController
   before_action :plant_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @allowed_plants = policy_scope(Plant)
-    @search = policy_scope(Plant).search do
-      fulltext params[:q]
-
-      any_of do
-        with(:category, params[:category]) if params[:category].present?
-        with(:sun, params[:sun]) if params[:sun].present?
-        with(:water_period, params[:water_period]) if params[:water_period].present?
-        with(:pet_friendly, params[:pet_friendly]) if params[:pet_friendly].present?
-      end
-      facet :sun
-      facet :pet_friendly
-      facet :water_period
-    end
-    @plants = @search.results # Sunspot Search Object (works like an array of objects)
-
+    @plants = policy_scope(Plant)
   end
 
   def show; end

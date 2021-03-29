@@ -37,8 +37,8 @@ gem 'simple_form'
 
 # Adds tags to objects for search and filters
 gem 'acts-as-taggable-on', '~> 6.0'
-gem 'sunspot_rails'
-gem 'sunspot_solr'
+# gem 'sunspot_rails'
+# gem 'sunspot_solr'
 
 
 group :development, :test do
