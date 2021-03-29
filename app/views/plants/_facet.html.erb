@@ -42,12 +42,12 @@
 
   <div class="col-4 facetlist">
     <ul>
-      <% for row in @search.facet(:water_level).rows %>
+      <% for row in @search.facet(:water_period).rows %>
           <li>
-          <% if params[:water_level].blank? %>
-            <%= link_to(row.value, params.merge(:water_level => row.value).permit!) %> <small class="rowcount"><%= row.count %></small>
+          <% if params[:water_period].blank? %>
+            <%= link_to(row.value, params.merge(:water_period => row.value).permit!) %> <small class="rowcount"><%= row.count %></small>
           <% else %>
-            <strong><%= row.value %></strong> (<%= link_to "X", :water_level => nil %>)
+            <strong><%= row.value %></strong> (<%= link_to "X", :water_period => nil %>)
           <% end %>
           </li>
       <% end %>

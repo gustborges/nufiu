@@ -10,7 +10,8 @@ Plant.destroy_all
 User.destroy_all
 Category.destroy_all
 Color.destroy_all
-Light.destroy_all
+Sun.destroy_all
+WaterPeriod.destroy_all
 puts 'Last seeds destroyed'
 
 
@@ -44,19 +45,34 @@ cliente = User.create!(
   admin: false
   )
 
-puts 'Seeding lights'
+puts 'Seeding suns'
 
-sol = Light.create!(
-  level: "Sol"
+sol = Sun.create!(
+  amount: "Sol"
   )
 
-meia_sombra = Light.create!(
-  level: "Meia Sombra"
+meia_sombra = Sun.create!(
+  amount: "Meia Sombra"
   )
 
-sombra = Light.create!(
-  level: "Sombra"
+sombra = Sun.create!(
+  amount: "Sombra"
   )
+
+puts 'Water periods'
+
+raramente = WaterPeriod.create!(
+  amount: "Raramente"
+  )
+
+frequencia_media = WaterPeriod.create!(
+  amount: "Frequência Média"
+  )
+
+todo_dia = WaterPeriod.create!(
+  amount: "Todo dia"
+  )
+
 
 puts 'Seeding colors'
 
@@ -190,13 +206,13 @@ De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia
 ",
   price: 40,
   pet_friendly: false,
-  water_level: 1,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
-  light: sol
+  sun: sol,
+  water_period: raramente
   )
 
 
@@ -209,13 +225,13 @@ A lumina é uma planta bastante resistente, que requer muito pouca manutenção.
 ",
   price: 25.50,
   pet_friendly: true,
-  water_level: 1,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
   best_seller: false,
   user: borgesmalu,
   category: kokedama,
-  light: sol
+  sun: meia_sombra,
+  water_period: frequencia_media
   )
 
 
@@ -230,13 +246,13 @@ Em estações quentes e secas, como a primavera e o verão, as regas devem ser f
 ",
   price: 23,
   pet_friendly: false,
-  water_level: 1,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
-  light: sol
+  sun: sombra,
+  water_period: raramente
   )
 
 
@@ -250,13 +266,13 @@ A Espada de São Jorge exige poucos cuidados. Não precisa de muita adubação, 
 ",
   price: 30,
   pet_friendly: false,
-  water_level: 1,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
-  light: sol
+  sun: sol,
+  water_period: frequencia_media
   )
 
 
@@ -270,13 +286,13 @@ Diferentemente de grande parte das plantas para cultivo doméstico, não é reco
 ",
   price: 36.50,
   pet_friendly: false,
-  water_level: 1,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
   best_seller: false,
   user: borgesmalu,
   category: kokedama,
-  light: sol
+  sun: meia_sombra,
+  water_period: todo_dia
   )
 
 pacova = Plant.create!(
@@ -289,13 +305,13 @@ Recomendamos cultivá-lo em áreas de luz indireta, ou à meia-sombra – com in
 ",
   price: 62,
   pet_friendly: true,
-  water_level: 1,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
-  light: sol
+  sun: sombra,
+  water_period: todo_dia
   )
 
 

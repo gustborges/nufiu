@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_26_192018) do
+ActiveRecord::Schema.define(version: 2021_03_29_135625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,9 +100,11 @@ ActiveRecord::Schema.define(version: 2021_03_26_192018) do
     t.integer "water_level"
     t.string "water_text"
     t.bigint "sun_id"
+    t.bigint "water_period_id"
     t.index ["category_id"], name: "index_plants_on_category_id"
     t.index ["sun_id"], name: "index_plants_on_sun_id"
     t.index ["user_id"], name: "index_plants_on_user_id"
+    t.index ["water_period_id"], name: "index_plants_on_water_period_id"
   end
 
   create_table "suns", force: :cascade do |t|
@@ -155,6 +157,12 @@ ActiveRecord::Schema.define(version: 2021_03_26_192018) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "water_periods", force: :cascade do |t|
+    t.string "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cart_plants", "carts"
   add_foreign_key "cart_plants", "plants"
@@ -164,5 +172,6 @@ ActiveRecord::Schema.define(version: 2021_03_26_192018) do
   add_foreign_key "plants", "categories"
   add_foreign_key "plants", "suns"
   add_foreign_key "plants", "users"
+  add_foreign_key "plants", "water_periods"
   add_foreign_key "taggings", "tags"
 end

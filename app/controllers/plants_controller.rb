@@ -10,12 +10,12 @@ class PlantsController < ApplicationController
       any_of do
         with(:category, params[:category]) if params[:category].present?
         with(:sun, params[:sun]) if params[:sun].present?
-        with(:water_level, params[:water_level]) if params[:water_level].present?
+        with(:water_period, params[:water_period]) if params[:water_period].present?
         with(:pet_friendly, params[:pet_friendly]) if params[:pet_friendly].present?
       end
       facet :sun
       facet :pet_friendly
-      facet :water_level
+      facet :water_period
     end
     @plants = @search.results # Sunspot Search Object (works like an array of objects)
 
@@ -62,6 +62,6 @@ class PlantsController < ApplicationController
   end
 
   def plant_params
-    params.require(:plant).permit(:name, :scientific_name, :description, :water_level, :water_text, :pet_friendly, :best_seller, :size, :price, :photo, :user_id, :category_id, :sun_id, :color_ids => [])
+    params.require(:plant).permit(:name, :scientific_name, :description, :water_level, :water_text, :pet_friendly, :best_seller, :size, :price, :photo, :user_id, :category_id, :sun_id, :water_period_id, :color_ids => [])
   end
 end
