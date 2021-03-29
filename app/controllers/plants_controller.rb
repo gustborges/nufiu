@@ -3,7 +3,20 @@ class PlantsController < ApplicationController
   before_action :plant_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @plants = policy_scope(Plant)
+    @pet_friendly = params[:filter_pet_friendly] == "1" ? true : false
+    # @sun = params[:filter_by_sun] ? true : false
+    # @water = params[:filter_by_water] ? true : false
+    if params[:filter_by_sun] && params[:filter_pet_friendly]
+      @plants = policy_scope(Plant).includes(:sun)
+        .where(suns: { amount: params[:filter_by_sun]})
+        .where(pet_friendly: @pet_friendly)
+    elsif params[:filter_by_sun]
+      @plants = policy_scope(Plant).includes(:sun).where(suns: { amount: params[:filter_by_sun]})
+    elsif params[:filter_pet_friendly]
+      @plants = policy_scope(Plant).where(pet_friendly: @pet_friendly)
+    else
+      @plants = policy_scope(Plant)
+    end
   end
 
   def show; end

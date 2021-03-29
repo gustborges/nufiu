@@ -16,4 +16,8 @@ class Plant < ApplicationRecord
     category.name
   end
 
+  def water_amount
+    water_period.amount
+  end
+
 end

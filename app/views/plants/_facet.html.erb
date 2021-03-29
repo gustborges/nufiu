@@ -6,57 +6,36 @@
 
 <div class="facets-deck">
   <div class="row">
-  <div class="col-4 facetlist">
-    <ul>
-      <!-- Para cada facet existente em Pet_Friendly, retornar uma linha (row) -->
-      <% for row in @search.facet(:pet_friendly).rows %>
-          <li>
-          <!-- Se o usuário não clicou em nenhum facet de Pet_Friendly, retornar todas as opções -->
-          <% if params[:pet_friendly].blank? %>
-              <% if row.value == true %>
-                <input id="chck1" type="checkbox" class="facet-check-box" name="pet_friendly" value="<%= row.value %>" <% params[:pet_friendly] == row.value ? "checked" : "" %>>
-                <%= link_to("Pet-friendly", params.merge(:pet_friendly => row.value).permit!) %><small class="rowcount"><%= row.count %></small>
-              <% end %>
-              <!-- Se o usuário já clicou em uma das opções, desativar o link e adicionar um X para removar o filtro -->
-              <% else %>
-                <input type="checkbox" class="facet-check-box" name="pet_friendly" value="<%= row.value %>" <% params[:pet_friendly] == row.value ? "checked" : "" %>>
-              <!-- <strong><%= row.value %></strong> (<%= link_to "X", :pet_friendly => nil %>) -->
-          <% end %>
-          </li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="col-4 facetlist">
-     <ul>
-        <% for row in @search.facet(:sun).rows %>
-            <li>
-            <% if params[:sun].blank? %>
-                <%= link_to(row.value, params.merge(:sun => row.value).permit!) %> <small class="rowcount"><%= row.count %></small>
-                <% else %>
-                <strong><%= row.value %></strong> (<%= link_to "X", :sun => nil %>)
-            <% end %>
-            </li>
-        <% end %>
-    </ul>
-  </div>
+    <div class="col-4 facetlist">
+      <%= form_tag(root_path, method: :get) do %>
+        <div><%= check_box_tag(:filter_pet_friendly) %>
+        <%= label_tag :filter_pet_friendly, 'Pet-friendly' %></div>
+    </div>
+    <div class="col-4 facetlist">
+      <div><%= check_box_tag(:filter_by_sun, "Sol Direto", checked: @filter_by_sun) %>
+        <%= label_tag(:filter_by_sun, "Sol Direto") %></div>
+        <div><%= check_box_tag(:filter_by_sun, "Meia-sombra") %>
+        <%= label_tag(:filter_by_sun, "Meia-sombra") %></div>
+        <div><%= check_box_tag(:filter_by_sun, "Sombra") %>
+        <%= label_tag(:filter_by_sun, "Sombra") %></div>
+    </div>
+    <div class="col-4 facetlist">
+        <div><%= check_box_tag(:filter_by_water, "Todo dia", checked: @filter_by_water) %>
+        <%= label_tag(:filter_by_water, "Todo dia") %></div>
+        <div><%= check_box_tag(:filter_by_water, "Frequência média") %>
+        <%= label_tag(:filter_by_water, "Frequência média") %></div>
+        <div><%= check_box_tag(:filter_by_water, "Raramente") %>
+        <%= label_tag(:filter_by_water, "Raramente") %></div>
+        <div><%= submit_tag "Filtrar", class: "green-button", name: nil %></div>
+    </div>
+    <% end %>
 
-  <div class="col-4 facetlist">
-    <ul>
-      <% for row in @search.facet(:water_period).rows %>
-          <li>
-          <% if params[:water_period].blank? %>
-            <%= link_to(row.value, params.merge(:water_period => row.value).permit!) %> <small class="rowcount"><%= row.count %></small>
-          <% else %>
-            <strong><%= row.value %></strong> (<%= link_to "X", :water_period => nil %>)
-          <% end %>
-          </li>
-      <% end %>
-    </ul>
-  </div>
+    </div>
   </div>
 </div>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
+
   var filter = document.querySelector('.filtrar');
   var facetsDeck = document.querySelector('.facets-deck');
     filter.addEventListener('click', (event) => {
@@ -66,16 +45,10 @@
     } else {
       facetsDeck.style.display = "none";
     }
-  });
+   });
 
-  // Facets with checkbox rendering new search results
-  // const chck1 = document.querySelector('#chck1');
-  // chck1.addEventListener('click', (event) => {
-  //   event.preventDefault();
-  //   console.log('hello');
-  // });
 
-</script>
+</script> -->
 
 
 

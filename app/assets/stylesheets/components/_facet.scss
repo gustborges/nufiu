@@ -26,25 +26,15 @@
 .facets-deck {
   background-color: #f8f8f7;
   padding: 1.4em 0;
-  display: none;
-}
 
+}
 
 .facetlist {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  h6 {
-    font-size: 1.4em;
-  }
-  ul {
-    list-style-type: none;
-    li a {
-      text-decoration: none;
-      color: $light-black;
-    }
-  }
+  font-size: 1.2em;
 }
 
 
