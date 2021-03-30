@@ -13,18 +13,28 @@
   padding-bottom: 4em;
 }
 
+// [type="checkbox"] {
+  //   margin-right: .4em;
+  // }
+
+// [type="checkbox"]:not(:checked) + label,
+//   [type="checkbox"]:checked + label {
+//     line-height: 1.7;
+//     // cursor: pointer;
+//   }
+
 // [type="checkbox"]:not(:checked),
 //   [type="checkbox"]:checked {
-//     position: absolute;
-//     left: 0;
-//     opacity: 0.01;
+//     // position: absolute;
+//     // left: 0;
+//     opacity: 0.2;
 //   }
 
 //   [type="checkbox"]:not(:checked) + label,
 //   [type="checkbox"]:checked + label {
-//     position: relative;
+//     // position: relative;
 //     padding-left: 2.3em;
-//     font-size: 1.05em;
+//     // font-size: 1.2em;
 //     line-height: 1.7;
 //     cursor: pointer;
 //   }
@@ -34,8 +44,8 @@
 //   [type="checkbox"]:checked + label:before {
 //     content: '';
 //     position: absolute;
-//     left: 0;
-//     top: 0;
+//     left: 60px;
+//     // top: 0;
 //     width: 1.4em;
 //     height: 1.4em;
 //     border: 1px solid #aaa;
@@ -51,8 +61,8 @@
 //   [type="checkbox"]:checked + label:after {
 //     content: '✕';
 //     position: absolute;
-//     top: .65em;
-//     left: .13em;
+//     // top: 2.65em;
+//     left: 2.87em;
 //     font-size: 1.375em;
 //     color: $green;
 //     line-height: 0;

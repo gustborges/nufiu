@@ -18,12 +18,13 @@ class CartsController < ApplicationController
     products = CartPlant.where(cart: @cart)
 
     # Sum them up and show the total bill
-    @cart_sum = products.group_by { |product| product.plant.id}
+    @cart_products = products.group_by { |product| product.plant.id}
     @total_bill = []
     products.each do |product|
        @total_bill << product.plant.price
     end
     @total_bill = @total_bill.sum
+
   end
 
   def update

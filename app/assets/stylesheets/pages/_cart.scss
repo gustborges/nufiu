@@ -1,0 +1,71 @@
+.cart {
+  width: 80%;
+  margin: 4em 3em;
+  margin-bottom: 3em;
+}
+
+.cart-line {
+  margin-bottom: 1.4em;
+}
+
+.cart-plant-img {
+  img {
+    border-radius: 50%;
+    max-height: 80px;
+    object-fit: contain;
+  }
+  display: flex;
+  justify-content: center;
+
+}
+
+.cart-plant-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  #cart-plant-name {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  #cart-plant-amount {
+    margin-bottom: 0;
+  }
+}
+
+.cart-plant-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4em;
+  margin-bottom: 0;
+}
+
+.cart-total {
+  p {
+    color: $green;
+    font-size: 2em;
+    font-weight: bold;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4em;
+  #continuar-comprando {
+    margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    a {
+      text-decoration: none;
+      color: $green;
+      font-weight: bold;
+    }
+  }
+}

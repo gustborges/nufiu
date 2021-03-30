@@ -1,23 +1,38 @@
+<div class="add-margins">
+  <h1>Carrinho de Compras</h1>
+  <p>Confirme abaixo os itens adicionados.</p>
+</div>
+
 <% if @cart.status == "closed" %>
  <div>Obrigado por comprar. Aguarde.</div>
 <% end %>
 
-<div class="container">
-  <div>
+  <div class="cart">
+    <% @cart_products.each do |cart_product| %>
+        <div class="row cart-line">
+          <div class="col-3 cart-plant-img">
+            <%= cl_image_tag cart_product[1][0].plant.photo.key, alt: "#{cart_product[1][0].plant.name}"%>
+          </div>
+          <div class="col-6 cart-plant-info">
+            <p id="cart-plant-name"><%= cart_product[1][0].plant.name %></p>
+            <p id= "cart-plant-amount">Quantidade: <%= cart_product[1].length %></p>
+          </div>
+          <div class="col-3 cart-plant-price">
+            <p>R$ <%= cart_product[1][0].plant.price %></p>
+          </div>
+        </div>
+      <% end %>
+  </div>
+  <div class="cart-total">
     <p>Total: R$ <%= @total_bill %></p>
   </div>
 
-  <ol>
-    <% @cart_sum.each do |cart_plant| %>
-      <li>
-        <p><%= cart_plant[1][0].plant.name %></p>
-        <p>Quantidade: <%= cart_plant[1].length %></p>
-        <p>R$ <%= cart_plant[1][0].plant.price %></p>
-      </li>
-      <% end %>
-  </ol>
-
-  <div>
-    <%= link_to "Finalizar", cart_path(@cart), method: :put %>
+  <div class="cart-buttons">
+    <div id="continuar-comprando">
+      <%= link_to "👈 Continuar comprando", root_path %>
+    </div>
+    <div id="finalizar">
+      <%= link_to "Finalizar Compra", cart_path(@cart), method: :put, class: "green-button" %>
+    </div>
   </div>
-</div>
+

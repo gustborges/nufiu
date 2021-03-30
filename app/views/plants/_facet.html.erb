@@ -4,13 +4,12 @@
     <div class="col-4 inline"><h6>Rega</h6><%= image_tag "icons/down-arrow.svg", alt: "Mostrar filtros", size: "15x15", class: "arrow" %></div>
 </div>
 
-<div class="facets-deck">
-  <div class="row">
+<div class="facets-deck row">
     <div class="col-4 facetlist">
       <div class="facet-aligned">
       <%= form_tag(root_path, method: :get, id: "filtros") do %>
-        <div><%= check_box_tag(:filter_pet_friendly) %>
-        <%= label_tag :filter_pet_friendly, 'Pet-friendly' %></div>
+        <%= check_box_tag(:filter_pet_friendly) %>
+        <%= label_tag :filter_pet_friendly, 'Pet-friendly' %>
       </div>
     </div>
     <div class="col-4 facetlist">
@@ -36,9 +35,9 @@
     </div>
     <% end %>
 
-    </div>
-  </div>
+
 </div>
+
 
 
 
