@@ -25,14 +25,14 @@
         <li class="navbar-item active">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
-<!--         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li> -->
+        <% if @cart %>
+          <li class="navbar-item navbar-cart">
+            <%= link_to cart_path(@cart) do %>
+              <i class='fas fa-shopping-basket'></i>
+            <% end %>
+          </li>
+        <% end %>
+
       <% else %>
         <li class="navbar-item">
           <%= link_to "Sobre", new_user_session_path, class: "nav-link" %>

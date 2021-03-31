@@ -23,3 +23,14 @@
   color: black;
 }
 
+.navbar-cart {
+    display: flex;
+    align-items: center;
+  a i {
+  text-decoration: none;
+  color: $light-black;
+  padding-left: 0.8em;
+  font-size: 1.6em;
+  }
+}
+
