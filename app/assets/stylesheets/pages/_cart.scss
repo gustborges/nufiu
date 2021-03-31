@@ -1,7 +1,7 @@
 .cart {
   width: 80%;
   margin: 4em 3em;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
 
 .cart-line {
@@ -35,8 +35,16 @@
 
 .cart-plant-edit {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  p {
+    font-size: 1.2em;
+    white-space: nowrap;
+    a {
+    text-decoration: none;
+    color: #85c6b6;
+    }
+  }
 }
 
 .cart-plant-price {
@@ -58,13 +66,22 @@
   align-items: center;
 }
 
+#esvaziar {
+    margin-bottom: 2em;
+    text-align: center;
+    a {
+      text-decoration: none;
+      color: $green;
+    }
+  }
+
 .cart-buttons {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 4em;
-  #continuar-comprando, #esvaziar {
+  #continuar-comprando {
     margin-bottom: 1em;
     display: flex;
     align-items: center;
@@ -74,7 +91,7 @@
     }
   }
   #continuar-comprando {
-    margin-bottom: 2em;
+    margin-top: 2em;
     a {
       font-weight: bold;
     }

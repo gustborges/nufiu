@@ -1,6 +1,6 @@
 <div class="add-margins">
-  <h1>Carrinho de Compras</h1>
-  <p>Confirme abaixo os itens adicionados.</p>
+  <h1>🧺 Cesta de Compras</h1>
+  <p>Antes de finalizar, confira os itens que já adicionou.</p>
 </div>
 
 <% if @cart.status == "closed" %>
@@ -13,13 +13,15 @@
           <div class="col-3 cart-plant-img">
             <%= cl_image_tag cart_product[1][0].plant.photo.key, alt: "#{cart_product[1][0].plant.name}"%>
           </div>
-          <div class="col-3 cart-plant-info">
+          <div class="col-4 cart-plant-info">
             <p id="cart-plant-name"><%= cart_product[1][0].plant.name %></p>
           </div>
-          <div class="col-3 cart-plant-edit">
-            <%= link_to "<i class='fas fa-minus-circle'></i>".html_safe, root_path, class: "pr-2" %>
-            <%= cart_product[1].length %>
-            <%= link_to "<i class='fas fa-plus-circle'></i>".html_safe, root_path, class: "pl-2" %>
+          <div class="col-2 cart-plant-edit">
+            <p>
+              <%= link_to "<i class='fas fa-minus-circle'></i>".html_safe, plant_cart_plant_path(plant_id: cart_product[1][0].plant.id), method: :put, class: "pr-2" %>
+              <%= cart_product[1][0].amount %>
+              <%= link_to "<i class='fas fa-plus-circle'></i>".html_safe, plant_cart_plant_path(plant_id: cart_product[1][0].plant.id), method: :put, class: "pl-2" %>
+            </p>
           </div>
           <div class="col-3 cart-plant-price">
             <p>R$ <%= cart_product[1][0].plant.price %></p>
@@ -27,19 +29,19 @@
         </div>
       <% end %>
   </div>
+  <div id="esvaziar">
+      <%= link_to "🔥 Esvaziar carrinho", cart_path(@cart), :empty_cart => true %>
+  </div>
   <div class="cart-total">
     <p>Total: R$ <%= @total_bill %></p>
   </div>
 
   <div class="cart-buttons">
-    <div id="esvaziar">
-      <%= link_to "🔥 Esvaziar carrinho", cart_path(@cart, :empty_cart => true) %>
+    <div id="finalizar">
+      <%= link_to "Finalizar Compra", cart_path(@cart), method: :put, class: "green-button" %>
     </div>
     <div id="continuar-comprando">
       <%= link_to "👈 Continuar comprando", root_path %>
-    </div>
-    <div id="finalizar">
-      <%= link_to "Finalizar Compra", cart_path(@cart), method: :put, class: "green-button" %>
     </div>
   </div>
 

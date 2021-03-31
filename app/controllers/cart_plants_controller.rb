@@ -4,7 +4,7 @@ class CartPlantsController < ApplicationController
 
   def create
     # If there's no opened cart, create it
-    if Cart.find_by(user_id: current_user.id).nil? || current_user.carts.last.status == "closed" || current_user.carts.last.status == "clean"
+    if Cart.find_by(user_id: current_user.id).nil? || current_user.carts.last.status == "closed"
       @cart = Cart.new
       @cart.user = current_user
       @cart.save
@@ -12,27 +12,35 @@ class CartPlantsController < ApplicationController
       @cart = current_user.carts.last
     end
 
-    # Then, create the cart_plant, within a cart and with a plant and amount
-    @cart_plant = CartPlant.new
-    @cart_plant.cart = @cart
-    @cart_plant.plant_id = params[:plant_id]
-    @cart_plant.amount = 1
-    authorize @cart_plant
+    @existing_cart_plant = @cart.cart_plants.find_by(plant_id: params[:plant_id]) # Check if the plant is already in one of the card plants
 
-    # Save and go to the cart
-    if @cart_plant.save
-      redirect_to cart_path(@cart)
+    if @existing_cart_plant # If plant is already there, just add 1
+      @existing_cart_plant.amount += 1
+      authorize @existing_cart_plant
+      @existing_cart_plant.save ? (redirect_to cart_path(@cart)) : (redirect_to plant_path(@cart_plant.plant))
+
     else
-      redirect_to plant_path(@cart_plant.plant)
+      @cart_plant = CartPlant.new # If not, create a new cart_plant
+      @cart_plant.cart = @cart
+      @cart_plant.plant_id = params[:plant_id]
+      @cart_plant.amount = 1
+      authorize @cart_plant
+      @cart_plant.save ? (redirect_to cart_path(@cart)) : (redirect_to plant_path(@cart_plant.plant))
     end
   end
-
 
   def edit; end
 
   def update
-    @cart_plant = CartPlant.find_by(plant: params[:plant_id])
-    @cart_plant.amount += 1
+    @cart_plant = policy_scope(CartPlant).each do |cart_plant|
+      cart_plant.plant.id = params[:plant_id]
+    end
+    @cart_plant = @cart_plant.first
+    if params[:plant_id] == "reduce" # don't know how to do it
+      @cart_plant.amount -= 1
+    elsif params[:plant_id] == "add" # don't know how to do it
+      @cart_plant.amount += 1
+    end
     authorize @cart_plant
     @cart_plant.save
     redirect_to cart_path(@cart_plant.cart)
