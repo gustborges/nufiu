@@ -4,7 +4,7 @@ class CartPlantsController < ApplicationController
 
   def create
     # If there's no opened cart, create it
-    if Cart.find_by(user_id: current_user.id).nil? || current_user.carts.last.status == "closed"
+    if Cart.find_by(user_id: current_user.id).nil? || current_user.carts.last.status == "closed" || current_user.carts.last.status == "clean"
       @cart = Cart.new
       @cart.user = current_user
       @cart.save
@@ -37,8 +37,6 @@ class CartPlantsController < ApplicationController
     @cart_plant.save
     redirect_to cart_path(@cart_plant.cart)
   end
-
-
 
   def destroy
     @cart_plant.destroy

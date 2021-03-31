@@ -33,6 +33,12 @@
   }
 }
 
+.cart-plant-edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cart-plant-price {
   display: flex;
   align-items: center;
@@ -58,14 +64,20 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 4em;
-  #continuar-comprando {
-    margin-bottom: 2em;
+  #continuar-comprando, #esvaziar {
+    margin-bottom: 1em;
     display: flex;
     align-items: center;
     a {
       text-decoration: none;
       color: $green;
+    }
+  }
+  #continuar-comprando {
+    margin-bottom: 2em;
+    a {
       font-weight: bold;
     }
   }
 }
+

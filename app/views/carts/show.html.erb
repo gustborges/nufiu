@@ -13,9 +13,13 @@
           <div class="col-3 cart-plant-img">
             <%= cl_image_tag cart_product[1][0].plant.photo.key, alt: "#{cart_product[1][0].plant.name}"%>
           </div>
-          <div class="col-6 cart-plant-info">
+          <div class="col-3 cart-plant-info">
             <p id="cart-plant-name"><%= cart_product[1][0].plant.name %></p>
-            <p id= "cart-plant-amount">Quantidade: <%= cart_product[1].length %></p>
+          </div>
+          <div class="col-3 cart-plant-edit">
+            <%= link_to "<i class='fas fa-minus-circle'></i>".html_safe, root_path, class: "pr-2" %>
+            <%= cart_product[1].length %>
+            <%= link_to "<i class='fas fa-plus-circle'></i>".html_safe, root_path, class: "pl-2" %>
           </div>
           <div class="col-3 cart-plant-price">
             <p>R$ <%= cart_product[1][0].plant.price %></p>
@@ -28,6 +32,9 @@
   </div>
 
   <div class="cart-buttons">
+    <div id="esvaziar">
+      <%= link_to "🔥 Esvaziar carrinho", cart_path(@cart, :empty_cart => true) %>
+    </div>
     <div id="continuar-comprando">
       <%= link_to "👈 Continuar comprando", root_path %>
     </div>

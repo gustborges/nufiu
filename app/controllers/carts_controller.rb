@@ -11,33 +11,37 @@ class CartsController < ApplicationController
     # Get cart_plants to be shown in cart
     @cart_plants = @cart.cart_plants
 
+    if params[:empty_cart]
+      puts 'deleting geraaaaal!'
+      @cart_plants.each do |cart_plant|
+        cart_plant.destroy
+      end
+      redirect_to cart_path(@cart)
+    end
     # Authorize if user is the same that created it
     authorize @cart
 
     # Get products that will be shown and summed up
     products = CartPlant.where(cart: @cart)
 
-    # Sum them up and show the total bill
+    # @cart_products == @cart_plants but grouped by product
     @cart_products = products.group_by { |product| product.plant.id}
+
+    # Sum them up and show the total bill
     @total_bill = []
     products.each do |product|
        @total_bill << product.plant.price
     end
     @total_bill = @total_bill.sum
-
   end
 
   def update
     # Authorize if user is the same that created
     authorize @cart
 
-    # We will update it to "closed" when user pays, so no carts will need to be destroyed
-    @cart.status = "closed"
-    if @cart.save
-      redirect_to cart_path(@cart)
-    else
-      render :show
-    end
+    # If user clicks in "Esvaziar carrinho", deletar todas as cart_plants, senão apenas modificar o status de cart para "closed"
+      @cart.status = "closed"
+      @cart.save ? (redirect_to cart_path(@cart)) : (render :show)
   end
 
   private
