@@ -6,6 +6,7 @@ class Plant < ApplicationRecord
   has_many :plant_colors
   has_many :colors, through: :plant_colors
   has_many :cart_plants
+  has_many :orders
   has_one_attached :photo
 
   def sun_amount
