@@ -39,6 +39,7 @@ gem 'simple_form'
 gem 'acts-as-taggable-on', '~> 6.0'
 # gem 'sunspot_rails'
 # gem 'sunspot_solr'
+gem 'stripe'
 
 
 group :development, :test do

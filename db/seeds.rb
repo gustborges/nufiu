@@ -6,13 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Color.destroy_all
-Plant.destroy_all
-User.destroy_all
-Category.destroy_all
-Sun.destroy_all
-WaterPeriod.destroy_all
-puts 'Last seeds destroyed'
+if Rails.env.development?
+  Color.destroy_all
+  Plant.destroy_all
+  User.destroy_all
+  Category.destroy_all
+  Sun.destroy_all
+  WaterPeriod.destroy_all
+  puts 'Last seeds destroyed'
+end
 
 
 puts 'Seeding users'
