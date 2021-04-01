@@ -30,7 +30,9 @@ class PlantsController < ApplicationController
     # end
   end
 
-  def show; end
+  def show
+    @cart = Cart.find(current_user.cart_ids) if !current_user.nil?
+  end
 
   def new
     @plant = Plant.new
