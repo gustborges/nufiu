@@ -32,13 +32,11 @@ class CartPlantsController < ApplicationController
   def edit; end
 
   def update
-    @cart_plant = policy_scope(CartPlant).each do |cart_plant|
-      cart_plant.plant.id = params[:plant_id]
-    end
-    @cart_plant = @cart_plant.first
-    if params[:plant_id] == "reduce" # don't know how to do it
+    @cart_plant = policy_scope(CartPlant).find_by(plant_id: params[:plant_id])
+
+    if params[:fix_amount] == "reduce" # don't know how to do it
       @cart_plant.amount -= 1
-    elsif params[:plant_id] == "add" # don't know how to do it
+    elsif params[:fix_amount] == "add" # don't know how to do it
       @cart_plant.amount += 1
     end
     authorize @cart_plant

@@ -18,9 +18,9 @@
           </div>
           <div class="col-2 cart-plant-edit">
             <p>
-              <%= link_to "<i class='fas fa-minus-circle'></i>".html_safe, plant_cart_plant_path(plant_id: cart_product[1][0].plant.id), method: :put, class: "pr-2" %>
+              <%= link_to "<i class='fas fa-minus-circle'></i>".html_safe, plant_cart_plant_path(plant_id: cart_product[1][0].plant.id, fix_amount: "reduce"), method: :put, class: "pr-2" %>
               <%= cart_product[1][0].amount %>
-              <%= link_to "<i class='fas fa-plus-circle'></i>".html_safe, plant_cart_plant_path(plant_id: cart_product[1][0].plant.id), method: :put, class: "pl-2" %>
+              <%= link_to "<i class='fas fa-plus-circle'></i>".html_safe, plant_cart_plant_path(plant_id: cart_product[1][0].plant.id, fix_amount: "add"), method: :put, class: "pl-2" %>
             </p>
           </div>
           <div class="col-3 cart-plant-price">
