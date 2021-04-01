@@ -3,7 +3,7 @@ class PlantsController < ApplicationController
   before_action :plant_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cart = Cart.find(current_user.cart_ids)
+    @cart = Cart.find(current_user.cart_ids) if !current_user.nil?
     @pet_friendly = params[:filter_pet_friendly] == "1" ? true : false
     @sun = params[:filter_by_sun] ? true : false
     @water = params[:filter_by_water] ? true : false
