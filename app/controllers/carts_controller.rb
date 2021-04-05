@@ -4,7 +4,7 @@ class CartsController < ApplicationController
 
   def index
     @carts = current_user.carts
-    authorize @cart
+    authorize @carts
   end
 
   def show
@@ -12,7 +12,6 @@ class CartsController < ApplicationController
     @cart_plants = @cart.cart_plants
 
     if params[:empty_cart]
-      puts 'deleting geraaaaal!'
       @cart_plants.each do |cart_plant|
         cart_plant.destroy
       end
@@ -33,6 +32,8 @@ class CartsController < ApplicationController
        @total_bill << product.plant.price
     end
     @total_bill = @total_bill.sum
+    @cart.total = @total_bill
+    @cart.save
   end
 
   def update

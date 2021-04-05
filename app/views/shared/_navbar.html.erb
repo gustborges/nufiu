@@ -25,14 +25,14 @@
         <li class="navbar-item active">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
-        <% if @cart %>
+        
+        <% if !current_user.carts.empty? %>
           <li class="navbar-item navbar-cart">
             <%= link_to cart_path(@cart) do %>
               <i class='fas fa-shopping-basket'></i>
             <% end %>
           </li>
         <% end %>
-
       <% else %>
         <li class="navbar-item">
           <%= link_to "Sobre", new_user_session_path, class: "nav-link" %>

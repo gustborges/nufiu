@@ -3,10 +3,6 @@
   <p>Antes de finalizar, confira os itens que já adicionou.</p>
 </div>
 
-<% if @cart.status == "closed" %>
- <div>Obrigado por comprar. Aguarde.</div>
-<% end %>
-
   <div class="cart">
     <% @cart_products.each do |cart_product| %>
         <div class="row cart-line">
@@ -38,7 +34,10 @@
 
   <div class="cart-buttons">
     <div id="finalizar">
-      <%= link_to "Finalizar Compra", cart_path(@cart), method: :put, class: "green-button" %>
+      <%= form_tag cart_orders_path(@cart, @order) do %>
+        <%= hidden_field_tag 'cart_id', @cart.id %>
+        <%= submit_tag 'Finalizar Compra', class: 'green-button' %>
+      <% end %>
     </div>
     <div id="continuar-comprando">
       <%= link_to "👈 Continuar comprando", root_path %>

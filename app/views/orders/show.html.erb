@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="col-md-3">imagens</div>
+    <div class="col">
+      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
+      <ul class="list-unstyled">
+        <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
+        <li><strong>Produtos:</strong> </li>
+        <li><strong>TOTAL</strong> R$ <%= @order.amount %></li>
+        </li>
+      </ul>
+      <p>Estimativa de entrega: <strong>7 dias úteis</strong></p>
+    </div>
+  </div>
+</div>

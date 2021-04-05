@@ -27,11 +27,7 @@
       <% end %>
     </div>
     <div class="buy-button">
-      <%= form_tag orders_path do %>
-        <%= hidden_field_tag 'plant_id', @plant.id %>
-        <%= submit_tag 'Quero comprar', class: 'green-button' %>
-      <% end %>
-      <!-- <%= link_to "Quero comprar", plant_cart_plants_path(@plant), method: :post, class: "green-button" %> -->
+      <%= link_to "Quero comprar", plant_cart_plants_path(@plant), method: :post, class: "green-button" %>
     </div>
   </div>
 </div>
