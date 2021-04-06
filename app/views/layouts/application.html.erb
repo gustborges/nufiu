@@ -10,9 +10,7 @@
   </head>
   <body>
     <div class="container-fluid">
-      <% unless controller_name == "orders" || controller_name == "payments" %>
-        <%= render 'shared/navbar' %>
-      <% end %>
+      <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
       <%= yield %>
       <%= render 'shared/footer' %>

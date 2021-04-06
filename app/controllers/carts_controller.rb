@@ -1,38 +1,28 @@
 class CartsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :cart_find, only: [:show, :update]
-
-  def index
-    @carts = current_user.carts
-    authorize @carts
-  end
+  before_action :cart_find, only: [:show, :create, :update]
 
   def show
     # Get cart_plants to be shown in cart
     @cart_plants = @cart.cart_plants
 
+    # Button: Esvaziar carrinho
     if params[:empty_cart]
       @cart_plants.each do |cart_plant|
         cart_plant.destroy
       end
       redirect_to cart_path(@cart)
     end
-    # Authorize if user is the same that created it
-    authorize @cart
-
-    # Get products that will be shown and summed up
-    products = CartPlant.where(cart: @cart)
-
-    # @cart_products == @cart_plants but grouped by product
-    @cart_products = products.group_by { |product| product.plant.id}
 
     # Sum them up and show the total bill
     @total_bill = []
-    products.each do |product|
-       @total_bill << product.plant.price
+    @cart.cart_plants.each do |cart_plant|
+       @total_bill << (cart_plant.plant.price * cart_plant.amount)
     end
-    @total_bill = @total_bill.sum
-    @cart.total = @total_bill
+    @cart.amount = @total_bill.sum.to_i * 100
+    
+    # Authorize if user is the same that created it
+    authorize @cart
     @cart.save
   end
 
@@ -52,6 +42,6 @@ class CartsController < ApplicationController
   end
 
   def cart_params
-    params.require(:cart).permit(:user_id, :status)
+    params.require(:cart).permit(:user_id, :state, :amount, :checkout_session_id, :plant_sku)
   end
 end

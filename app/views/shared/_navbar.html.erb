@@ -28,11 +28,12 @@
         
         <% if !current_user.carts.empty? %>
           <li class="navbar-item navbar-cart">
-            <%= link_to cart_path(@cart) do %>
+            <%= link_to cart_path(current_user.carts.last) do %>
               <i class='fas fa-shopping-basket'></i>
             <% end %>
           </li>
         <% end %>
+        
       <% else %>
         <li class="navbar-item">
           <%= link_to "Sobre", new_user_session_path, class: "nav-link" %>

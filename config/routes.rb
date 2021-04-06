@@ -5,11 +5,8 @@ Rails.application.routes.draw do
   resources :plants do
     resources :cart_plants, only: [:create, :update]
   end
-  resources :carts, only: [:show, :update] do
+  resources :carts, only: [:show, :create, :update] do
     resources :cart_plants, only: [:destroy]
-    resources :orders, only: [:show, :create] do
-      resources :payments, only: :new
-    end
-  end
-  
+    resources :payments, only: :new
+  end  
 end
