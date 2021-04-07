@@ -1,5 +1,4 @@
 class CartsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
   skip_after_action :verify_authorized, only: :thanks
   before_action :cart_find, only: [:show, :create, :update]
 

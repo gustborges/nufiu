@@ -1,5 +1,4 @@
 class CartPlantsController < ApplicationController
-  skip_before_action :authenticate_user!
   before_action :cart_plants_find, only: [:edit, :destroy]
 
   def create

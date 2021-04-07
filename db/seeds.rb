@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+require 'uri'
+OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
+OpenURI::Buffer.const_set 'StringMax', 0
+
 if Rails.env.development?
   Color.destroy_all
   Plant.destroy_all
@@ -24,7 +29,11 @@ borgesmalu = User.create!(
   email: "borges.malu@gmail.com",
   password: "nni6mug8",
   phone: "(21)993444535",
-  address: "R. Vice Gov. Rubens Berardo, 65 - Bloco 2 - apt 307",
+  address: "R. Vice Gov. Rubens Berardo, 65",
+  address_complement:  "Bloco 2 - apt 307",
+  suburb: "Gávea",
+  zip_code: "22451070",
+  location_details: "Em frente ao Planetário da Gávea",
   admin: true
   )
 
@@ -34,7 +43,11 @@ gustavoborges = User.create!(
   email: "gustborges@gmail.com",
   password: "nni7mug9",
   phone: "(21)967808889",
-  address: "R. Almirante Alexandrino, 1310 - apt 201",
+  address: "R. Almirante Alexandrino, 1310",
+  address_complement: "Apt 201",
+  suburb: "Santa Teresa",
+  zip_code: "20241260",
+  location_details: "Ao lado da Clínica Saint Romain",
   admin: true
   )
 
@@ -42,12 +55,16 @@ cliente = User.create!(
   name: "Max Lima",
   email: "maxlimascm@gmail.com",
   password: "raguzinho",
-  phone: "(21)98312099021",
-  address: "Santa Teresa",
+  phone: "(21)983120921",
+  address: "R. Almirante Alexandrino, 1310",
+  address_complement: "Apt 201",
+  suburb: "Santa Teresa",
+  zip_code: "20241260",
+  location_details: "Em frente ao Castelinho Valentim",
   admin: false
   )
 
-puts 'Seeding suns'
+puts 'Capturing sun light'
 
 sol = Sun.create!(
   amount: "Sol"
@@ -61,7 +78,7 @@ sombra = Sun.create!(
   amount: "Sombra"
   )
 
-puts 'Water periods'
+puts 'Watering'
 
 raramente = WaterPeriod.create!(
   amount: "Raramente"
@@ -76,7 +93,7 @@ todo_dia = WaterPeriod.create!(
   )
 
 
-puts 'Seeding colors'
+puts 'Putting some colors on it'
 
 bandeira = Color.create!(
   name: "Verde Bandeira",
@@ -188,7 +205,7 @@ surpreendame = Color.create!(
   hex: "#FFF"
   )
 
-puts 'Seeding categories'
+puts 'Adding categories'
 
 kokedama = Category.create!(
   name: "Kokedama"
@@ -198,7 +215,7 @@ pote = Category.create!(
   name: "Pote"
   )
 
-puts 'Seeding plants'
+puts 'Finally, seeding plants'
 
 costela_de_adao = Plant.create!(
   name: "Costela de Adão",
@@ -206,7 +223,7 @@ costela_de_adao = Plant.create!(
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 40,
+  price: 94,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
@@ -217,6 +234,11 @@ De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia
   water_period: raramente
   )
 
+url = "https://res.cloudinary.com/gustborges/image/upload/v1615407820/nufiu/5qib3rn3j5n6st48r4cm87dn4cih.png"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+costela_de_adao.photo.attach(io: file, filename: filename)
+costela_de_adao.save!
 
 lumina = Plant.create!(
   name: "Lumina",
@@ -225,7 +247,7 @@ lumina = Plant.create!(
 
 A lumina é uma planta bastante resistente, que requer muito pouca manutenção. Seu cultivo é bem tranquilo, de modo que a planta lumina é uma opção ideal para os jardineiros de apartamento. Embora seja uma espécie de origem tropical, o Chlorophytum orchidastrum não gosta do sol pleno, situação que pode causar danos e queimaduras às suas folhas. O ideal é que a lumina seja mantida em um lugar com bastante luminosidade indireta, próxima a uma janela, protegida da incidência direta dos raios solares.
 ",
-  price: 25.50,
+  price: 56,
   pet_friendly: true,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
@@ -235,6 +257,12 @@ A lumina é uma planta bastante resistente, que requer muito pouca manutenção.
   sun: meia_sombra,
   water_period: frequencia_media
   )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1615408360/nufiu/we7lhorssbyx6cykt7n6i5emv372.png"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+lumina.photo.attach(io: file, filename: filename)
+lumina.save!
 
 
 jiboia = Plant.create!(
@@ -246,7 +274,7 @@ Sua folhagem se adapta bem aos ambientes com sombra, mas cresce melhor e mais r�
 
 Em estações quentes e secas, como a primavera e o verão, as regas devem ser feitas de duas a três vezes por semana. Já no outono e no inverno, quando o ar está mais frio e úmido, é preciso diminuir a frequência da irrigação: uma a duas vezes por semana é o suficiente.
 ",
-  price: 23,
+  price: 52,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
@@ -256,7 +284,12 @@ Em estações quentes e secas, como a primavera e o verão, as regas devem ser f
   sun: sombra,
   water_period: raramente
   )
-
+  
+url = "https://res.cloudinary.com/gustborges/image/upload/v1617817308/nufiu/Screen_Shot_2021-03-10_at_17.44.40_nbtgk2.png"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+jiboia.photo.attach(io: file, filename: filename)
+jiboia.save!
 
 espada = Plant.create!(
   name: "Espada de São Jorge",
@@ -266,7 +299,7 @@ espada = Plant.create!(
 A Espada de São Jorge exige poucos cuidados. Não precisa de muita adubação, se adapta bem tanto ao Sol, quanto à sombra e não precisa de muita rega. Ou seja, é ideal para quem quer uma planta em casa, mas sem ter muito trabalho. É uma planta bastante resistente e que sobrevive em áreas rnas com sol e também em áreas internas com menos incidência de luz e vento.
 
 ",
-  price: 30,
+  price: 48,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
@@ -277,6 +310,11 @@ A Espada de São Jorge exige poucos cuidados. Não precisa de muita adubação, 
   water_period: frequencia_media
   )
 
+url = "https://res.cloudinary.com/gustborges/image/upload/v1617817308/nufiu/Screen_Shot_2021-03-10_at_17.45.12_k05bto.png"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+espada.photo.attach(io: file, filename: filename)
+espada.save!
 
 comigo_ninguem_pode = Plant.create!(
   name: "Comigo ninguém pode",
@@ -286,7 +324,7 @@ comigo_ninguem_pode = Plant.create!(
 Diferentemente de grande parte das plantas para cultivo doméstico, não é recomendado que essa planta seja exposta diretamente ao sol durante todo o tempo, de modo que é melhor que ela esteja em áreas onde há abundância de sombra durante a movimentação do sol.
 É importante frisar que, apesar de bastante bonitas, algumas plantas ornamentais possuem grande potencial para provocar acidentes graves, como é o caso da comigo-ninguém-pode. Assim sendo, antes de adquirir qualquer produto, é importante avaliar os riscos e quem poderá ter acesso a essas plantas.
 ",
-  price: 36.50,
+  price: 60,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
@@ -296,6 +334,11 @@ Diferentemente de grande parte das plantas para cultivo doméstico, não é reco
   sun: meia_sombra,
   water_period: todo_dia
   )
+  url = "https://res.cloudinary.com/gustborges/image/upload/v1615409006/nufiu/iegp8ec407hjtgh0tiexczdh3at6.png"
+  filename = File.basename(URI.parse(url).path)
+  file = URI.open(url)
+  comigo_ninguem_pode.photo.attach(io: file, filename: filename)
+  comigo_ninguem_pode.save!
 
 pacova = Plant.create!(
   name: "Pacová",
@@ -305,7 +348,7 @@ pacova = Plant.create!(
 Recomendamos cultivá-lo em áreas de luz indireta, ou à meia-sombra – com incidência de sol ameno do início ou fim do dia. Gosta de rega moderada, em geral 1 vez por semana é suficiente. Apesar de ser uma espécie tropical, é preciso sempre observar como ela reage à luminosidade.
 
 ",
-  price: 62,
+  price: 103,
   pet_friendly: true,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
@@ -316,6 +359,9 @@ Recomendamos cultivá-lo em áreas de luz indireta, ou à meia-sombra – com in
   water_period: todo_dia
   )
 
-
-
+url = "https://res.cloudinary.com/gustborges/image/upload/v1615408945/nufiu/3msh6ih103srqgwn7atr19cqtm78.png"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+pacova.photo.attach(io: file, filename: filename)
+pacova.save!
 puts 'All done!'
