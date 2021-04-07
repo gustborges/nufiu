@@ -8,3 +8,5 @@ class PaymentPolicy < ApplicationPolicy
   def new?
     user_is_owner_or_admin?
   end
+
+end
