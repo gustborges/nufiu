@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+  skip_after_action :verify_authorized, only: :thanks
   before_action :cart_find, only: [:show, :create, :update]
 
   def show
@@ -34,6 +35,8 @@ class CartsController < ApplicationController
       @cart.status = "closed"
       @cart.save ? (redirect_to cart_path(@cart)) : (render :show)
   end
+
+  def thanks; end
 
   private
 
