@@ -40,6 +40,7 @@ gem 'acts-as-taggable-on', '~> 6.0'
 # gem 'sunspot_rails'
 # gem 'sunspot_solr'
 gem 'stripe'
+gem 'stripe_event'
 
 
 group :development, :test do

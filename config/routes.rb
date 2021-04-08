@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :cart_plants, only: [:destroy]
     resources :payments, only: [:new]
     get "thanks", to: "carts#thanks"
-  end  
+  end
+  mount StripeEvent::Engine, at: '/stripe-webhooks'  
 end
