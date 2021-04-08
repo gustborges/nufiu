@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     resources :cart_plants, only: [:create, :update]
   end
   resources :carts, only: [:show, :create, :update] do
-    resources :cart_plants, only: [:destroy]
+    resources :cart_plants, only: [:destroy] do 
+      collection do
+        delete "delete_all"
+      end
+    end
     resources :payments, only: [:new]
     get "thanks", to: "carts#thanks"
   end

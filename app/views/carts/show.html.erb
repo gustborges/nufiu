@@ -26,7 +26,7 @@
       <% end %>
   </div>
   <div id="esvaziar">
-      <%= link_to "🔥 Esvaziar carrinho", cart_path(@cart), :empty_cart => true %>
+      <%= link_to "🔥 Esvaziar carrinho", delete_all_cart_cart_plants_path(@cart), method: :delete %>
   </div>
   <div class="cart-total">
     <p>Total: R$ <%= @cart.amount / 100 %></p> 

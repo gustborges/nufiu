@@ -1,18 +1,10 @@
 class CartsController < ApplicationController
   skip_after_action :verify_authorized, only: :thanks
-  before_action :cart_find, only: [:show, :create, :update]
+  before_action :cart_find, only: [:show, :create, :update, :empty_cart]
 
   def show
     # Get cart_plants to be shown in cart
     @cart_plants = @cart.cart_plants
-
-    # Button: Esvaziar carrinho
-    if params[:empty_cart]
-      @cart_plants.each do |cart_plant|
-        cart_plant.destroy
-      end
-      redirect_to cart_path(@cart)
-    end
 
     # Sum them up and show the total bill
     @total_bill = []

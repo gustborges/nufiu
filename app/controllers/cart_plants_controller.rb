@@ -66,6 +66,13 @@ class CartPlantsController < ApplicationController
     redirect_to cart_path(@cart_plant.cart)
   end
 
+  def delete_all
+    cart = Cart.find(params[:cart_id])
+    authorize cart
+    cart.cart_plants.destroy_all
+    cart_path(params[:cart_id]) 
+  end
+
 
   private
 
