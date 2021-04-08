@@ -3,6 +3,7 @@
   <p>Agora, deixa com a gente!</p>
 </div>
 <div class="pedido-finalizado">
+  <p>Status do Pedido: <%= @cart.state == "paid" ? "pago" : "aguardando pagamento (em processamento)" %></p>
   <p>Seu pedido foi confirmado e vamos começar a preparar tudo com muito carinho.</p>
   <p>Você receberá um e-mail com todas as informações, mas caso tenha alguma dúvida pode entrar em contato com a gente pelo e-mail <a href="mailto:nufiujardinagem@gmail.com">nufiujardinagem@gmail.com</a>.</p>
 </div>

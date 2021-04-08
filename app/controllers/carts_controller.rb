@@ -35,7 +35,9 @@ class CartsController < ApplicationController
       @cart.save ? (redirect_to cart_path(@cart)) : (render :show)
   end
 
-  def thanks; end
+  def thanks
+    @cart = policy_scope(Cart).where(user: current_user).find(params[:cart_id])
+  end
 
   private
 
