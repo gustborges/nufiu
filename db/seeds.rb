@@ -231,7 +231,8 @@ De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia
   user: borgesmalu,
   category: kokedama,
   sun: sol,
-  water_period: raramente
+  water_period: raramente,
+  published: true
   )
 
 url = "https://res.cloudinary.com/gustborges/image/upload/v1615407820/nufiu/5qib3rn3j5n6st48r4cm87dn4cih.png"
@@ -255,7 +256,8 @@ A lumina é uma planta bastante resistente, que requer muito pouca manutenção.
   user: borgesmalu,
   category: kokedama,
   sun: meia_sombra,
-  water_period: frequencia_media
+  water_period: frequencia_media,
+  published: true
   )
 
 url = "https://res.cloudinary.com/gustborges/image/upload/v1615408360/nufiu/we7lhorssbyx6cykt7n6i5emv372.png"
@@ -282,7 +284,8 @@ Em estações quentes e secas, como a primavera e o verão, as regas devem ser f
   user: borgesmalu,
   category: kokedama,
   sun: sombra,
-  water_period: raramente
+  water_period: raramente,
+  published: true
   )
   
 url = "https://res.cloudinary.com/gustborges/image/upload/v1617817308/nufiu/Screen_Shot_2021-03-10_at_17.44.40_nbtgk2.png"
@@ -307,7 +310,8 @@ A Espada de São Jorge exige poucos cuidados. Não precisa de muita adubação, 
   user: borgesmalu,
   category: kokedama,
   sun: sol,
-  water_period: frequencia_media
+  water_period: frequencia_media,
+  published: true
   )
 
 url = "https://res.cloudinary.com/gustborges/image/upload/v1617817308/nufiu/Screen_Shot_2021-03-10_at_17.45.12_k05bto.png"
@@ -332,7 +336,8 @@ Diferentemente de grande parte das plantas para cultivo doméstico, não é reco
   user: borgesmalu,
   category: kokedama,
   sun: meia_sombra,
-  water_period: todo_dia
+  water_period: todo_dia,
+  published: true
   )
   url = "https://res.cloudinary.com/gustborges/image/upload/v1615409006/nufiu/iegp8ec407hjtgh0tiexczdh3at6.png"
   filename = File.basename(URI.parse(url).path)
@@ -356,7 +361,8 @@ Recomendamos cultivá-lo em áreas de luz indireta, ou à meia-sombra – com in
   user: borgesmalu,
   category: kokedama,
   sun: sombra,
-  water_period: todo_dia
+  water_period: todo_dia,
+  published: true
   )
 
 url = "https://res.cloudinary.com/gustborges/image/upload/v1615408945/nufiu/3msh6ih103srqgwn7atr19cqtm78.png"

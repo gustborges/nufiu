@@ -2,7 +2,11 @@ class PlantPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.all
+      if user.nil? || !user.admin?
+        scope.where(published: true)
+      else
+        scope.all
+      end
     end
   end
 

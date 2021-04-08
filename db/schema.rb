@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_06_133849) do
+ActiveRecord::Schema.define(version: 2021_04_08_220327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_133849) do
     t.string "water_text"
     t.bigint "sun_id"
     t.bigint "water_period_id"
+    t.boolean "published"
     t.index ["category_id"], name: "index_plants_on_category_id"
     t.index ["sun_id"], name: "index_plants_on_sun_id"
     t.index ["user_id"], name: "index_plants_on_user_id"
