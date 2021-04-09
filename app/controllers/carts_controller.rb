@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   skip_after_action :verify_authorized, only: :thanks
-  before_action :cart_find, only: [:show, :create, :update, :empty_cart]
+  before_action :cart_find, only: [:show, :create, :update]
 
   def show
     # Get cart_plants to be shown in cart

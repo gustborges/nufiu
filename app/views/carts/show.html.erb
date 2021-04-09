@@ -3,28 +3,8 @@
   <p>Antes de finalizar, confira os itens que já adicionou.</p>
 </div>
 
-  <div class="cart">
-    <% @cart_plants.each do |cart_plant| %>
-        <div class="row cart-line">
-          <div class="col-3 cart-plant-img">
-            <%= cl_image_tag cart_plant.plant.photo.key, alt: "#{cart_plant.plant.name}"%>
-          </div>
-          <div class="col-4 cart-plant-info">
-            <p id="cart-plant-name"><%= cart_plant.plant.name %></p>
-          </div>
-          <div class="col-2 cart-plant-edit">
-            <p>
-              <%= link_to "<i class='fas fa-minus-circle'></i>".html_safe, plant_cart_plant_path(plant_id: cart_plant.plant.id, fix_amount: "reduce"), method: :put, class: "pr-2" %>
-              <%= cart_plant.amount %>
-              <%= link_to "<i class='fas fa-plus-circle'></i>".html_safe, plant_cart_plant_path(plant_id: cart_plant.plant.id, fix_amount: "add"), method: :put, class: "pl-2" %>
-            </p>
-          </div>
-          <div class="col-3 cart-plant-price">
-            <p>R$ <%= cart_plant.plant.price * cart_plant.amount %></p>
-          </div>
-        </div>
-      <% end %>
-  </div>
+<%= render partial: "cart" %>
+
   <div id="esvaziar">
       <%= link_to "🔥 Esvaziar carrinho", delete_all_cart_cart_plants_path(@cart), method: :delete %>
   </div>

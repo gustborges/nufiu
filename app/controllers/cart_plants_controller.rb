@@ -70,7 +70,10 @@ class CartPlantsController < ApplicationController
     cart = Cart.find(params[:cart_id])
     authorize cart
     cart.cart_plants.destroy_all
-    cart_path(params[:cart_id]) 
+    respond_to do |format|
+      format.html { redirect_to cart_path(params[:cart_id]) }
+      format.json { head :no_content }
+    end
   end
 
 
