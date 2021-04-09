@@ -5,8 +5,10 @@
   background-color: $green;
   color: white;
   border: none;
-  a {
-    text-decoration: none;
+  text-decoration: none;
+  &:hover{
+    background-color: #029A75;
+    color: white;
   }
 }
 
