@@ -1,64 +1,42 @@
-<nav class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
-  <%= link_to root_path, class: "navbar-brand" do %>
+<nav class="main-navbar"> 
+  <%= link_to root_path, class: "logo" do %>
       <%= image_tag "logo.jpg", alt: "Nufiu Jardinagem"%>
   <% end %>
-  <div class="ml-auto"></div>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-    <ul class="navbar-nav">
-      <% if user_signed_in? %>
-        <li class="navbar-item">
-          <%= link_to "Sobre", "#", class: "nav-link" %>
-        </li>
-        <li class="navbar-item">
-          <%= link_to "Workshops", "#", class: "nav-link" %>
-        </li>
-        <li class="navbar-item">
-          <%= link_to "Contato", "#", class: "nav-link" %>
-        </li>
-        <li class="navbar-item active">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-        </li>
-        
-        <% if !current_user.carts.empty? %>
-          <li class="navbar-item navbar-cart">
-            <%= link_to cart_path(current_user.carts.last) do %>
-              <i class='fas fa-shopping-basket'></i>
-            <% end %>
-          </li>
+  <ul class="navlinks">
+  
+    <li>
+      <%= link_to "Sobre", "#" %>
+    </li>
+    <li>
+      <%= link_to "Workshops", "#" %>
+    </li>
+    <li>
+      <%= link_to "Contato", "#" %>
+    </li>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "Login", new_user_session_path %>
+      </li>  
+    <% end %>
+    <% if !current_user.carts.empty? %>
+      <li class="navbar-cart">
+        <%= link_to cart_path(current_user.carts.last) do %>
+          <i class='fas fa-shopping-basket'></i>
         <% end %>
-        
-      <% else %>
-        <li class="navbar-item">
-          <%= link_to "Sobre", new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="navbar-item">
-          <%= link_to "Workshops", new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="navbar-item">
-          <%= link_to "Contato", new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="navbar-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
+      </li>
+    <% end %>
+  </ul>
+  <div class="burger">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
   </div>
 </nav>
 
-<script>
-  var nav = document.querySelector('nav');
-  window.addEventListener('scroll', function(){
-    if (window.pageYOffset > 100){
-      nav.classList.add('bg-light');
-    } else {
-      nav.classList.remove('bg-light');
-    }
-  });
-</script>
+<%= javascript_pack_tag 'navbar_slider' %>
+
