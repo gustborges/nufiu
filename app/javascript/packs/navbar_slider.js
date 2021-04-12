@@ -1,11 +1,11 @@
 const navSlide = () => {
   const burger = document.querySelector('.burger');
-  const nav = document.querySelector('.navlinks');
+  const navLinks = document.querySelector('.navlinks');
   const navItems = document.querySelectorAll('.navlinks li');
   // Toggle menu
   burger.addEventListener('click', ()=>{
-    nav.classList.toggle('navlinks');
-    nav.classList.toggle('nav-active');
+    navLinks.classList.toggle('navlinks');
+    navLinks.classList.toggle('nav-active');
   
       // Animate Links
       navItems.forEach((link, index) => {
@@ -20,4 +20,18 @@ const navSlide = () => {
   });
 }
 
+const navScroll = () => {
+  const nav = document.querySelector('.navbar-container');
+  window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (currentScrollPos > 80) {
+      console.log('currentScrollPos > 30')
+      nav.style.transform = "translateY(-100%)";
+    } else {
+      nav.style.transform = "translateY(0%)";
+    }
+ }
+}  
+
 navSlide();
+navScroll();
