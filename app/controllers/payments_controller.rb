@@ -11,7 +11,7 @@ class PaymentsController < ApplicationController
         quantity: 1
       }],
       mode: 'payment',
-      success_url: cart_thanks_url(@cart.id),
+      success_url: cart_obrigada_url(@cart.id),
       cancel_url: cart_url(@cart.id)
     )
     @cart.update(checkout_session_id: session.id)

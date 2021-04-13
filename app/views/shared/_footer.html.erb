@@ -1,24 +1,26 @@
 <div class="row footer">
   <div class="col-6 col-md-3 left-side-menu order-md-1">
     <ul>
-      <li><%= link_to "Sobre", root_path %></li>
-      <li><%= link_to "FAQ", root_path %></li>
-      <li><%= link_to "Entregas", root_path %></li>
+      <li><%= link_to "Sobre", sobre_path %></li>
+      <li><%= link_to "FAQ", faq_path %></li>
+      <li><%= link_to "Entregas", entregas_path %></li>
     </ul>
   </div>
   <div class="col-6 col-md-3 right-side-menu order-md-3">
     <ul>
-      <li><%= link_to "Workshops Online", root_path %></li>
-      <li><%= link_to "Formas de Pagamento", root_path %></li>
-      <li><%= link_to "Contato", root_path %></li>
+      <li><%= link_to "Workshops Online", workshop_path %></li>
+      <li><%= link_to "Formas de Pagamento", pagamento_path %></li>
+      <li><%= link_to "Contato", contato_path %></li>
     </ul>
   </div>
-  <div class="col-12 col-md-6 subscribe order-md-2">
+
+  <div class="col-12 col-md-6 subscribe order-md-2" id="mc_embed_signup">
     <h2>Receba novidades</h2>
-    <form action="mailto:nufiujardinagem@gmail.com">
-      <input type="text" placeholder="Adicione seu email aqui">
+    <form action="https://nufiu.us7.list-manage.com/subscribe/post?u=345e1d7dee611b2b074786a17&amp;id=5f50d8a5e2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Adicione seu e-mail" required>
+      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_345e1d7dee611b2b074786a17_5f50d8a5e2" tabindex="-1" value=""></div>
+      <div class="clear"><input type="submit" value="Inscrever-se para receber novidades. Sem spam!" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
     </form>
-    <button>Só com novidades importantes. Nada de spam!</button>
     <ul class="pl-0">
       <a href="https://www.facebook.com/NuFiu"><i class="fab fa-facebook-f mr-3"></i>  </a>
       <a href="https://www.instagram.com/nufiu_jardinagem/"><i class="fab fa-instagram"></i></a>
@@ -28,7 +30,7 @@
     <p>Copyright 2021 Nufiu</p>
   </div>
   <div class="col-12 terms order-md-5">
-    <%= link_to "Termos de Uso", root_path, class: "mr-3" %>
-    <%= link_to "Políticas de Privacidade", root_path %>
+    <%= link_to "Termos de Uso", privacidade_path, class: "mr-3" %>
+    <%= link_to "Políticas de Privacidade", privacidade_path %>
   </div>
 </div>
