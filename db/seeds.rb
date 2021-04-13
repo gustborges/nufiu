@@ -218,12 +218,12 @@ pote = Category.create!(
 puts 'Finally, seeding plants'
 
 caperata = Plant.create!(
-  name: "Peperômia",
+  name: "Peperômia Melancia",
   scientific_name: "Peperomia Caperata",
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 79,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
@@ -242,19 +242,19 @@ caperata.photo.attach(io: file, filename: filename)
 caperata.save!
 
 maranta = Plant.create!(
-  name: "Maranta",
+  name: "Maranta P",
   scientific_name: "Maranta Leuconeura",
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 98,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 20 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
-  sun: sol,
+  sun: sombra,
   water_period: raramente,
   published: true
   )
@@ -272,14 +272,14 @@ singonio = Plant.create!(
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 79,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 40 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
-  sun: sol,
+  sun: meia_sombra,
   water_period: raramente,
   published: true
   )
@@ -297,7 +297,7 @@ elefante = Plant.create!(
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 89,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
@@ -342,19 +342,19 @@ lanca.save!
 
 
 hedera = Plant.create!(
-  name: "Hera / Hedera",
+  name: "Hedera Verde ou Variegata",
   scientific_name: "Hedera helix",
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 98,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Base com 15 cm de diâmetro",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
-  sun: sol,
+  sun: meia_sombra,
   water_period: raramente,
   published: true
   )
@@ -366,16 +366,16 @@ hedera.photo.attach(io: file, filename: filename)
 hedera.save!
 
 
-dracena = Plant.create!(
-  name: "Dracena",
+dracena_compacta = Plant.create!(
+  name: "Dracena Compacta",
   scientific_name: "Dracaena",
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 80,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 20 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
@@ -387,8 +387,8 @@ De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia
 url = "https://res.cloudinary.com/gustborges/image/upload/v1618321985/nufiu/dracena-2_jvywst.jpg"
 filename = File.basename(URI.parse(url).path)
 file = URI.open(url)
-dracena.photo.attach(io: file, filename: filename)
-dracena.save!
+dracena_compacta.photo.attach(io: file, filename: filename)
+dracena_compacta.save!
 
 
 filodendro = Plant.create!(
@@ -397,14 +397,14 @@ filodendro = Plant.create!(
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 98,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 40 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
-  sun: sol,
+  sun: meia_sombra,
   water_period: raramente,
   published: true
   )
@@ -417,12 +417,12 @@ filodendro.save!
 
 
 felicidade_femea = Plant.create!(
-  name: "Árvore da Felicidade (fêmea)",
+  name: "Árvore da Felicidade (macho ou fêmea)",
   scientific_name: "Polyscias fruticosa",
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 107,
   pet_friendly: false,
   water_text: "Rega 2 vezes por semana",
   size: "Altura média de 35 cm",
@@ -442,19 +442,19 @@ felicidade_femea.save!
 
 
 espadinha = Plant.create!(
-  name: "Espadinha de Santa Bárbara",
+  name: "Espadinha de São Jorge",
   scientific_name: "Sansevieria trifasciata",
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 68,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 20 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
-  sun: sol,
+  sun: meia_sombra,
   water_period: raramente,
   published: true
   )
@@ -466,16 +466,16 @@ espadinha.photo.attach(io: file, filename: filename)
 espadinha.save!
 
 
-asplenio = Plant.create!(
-  name: "Asplênio",
+asplenio_g = Plant.create!(
+  name: "Asplênio G",
   scientific_name: "Asplenium nidus",
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 161,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 25 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
@@ -487,20 +487,70 @@ De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia
 url = "https://res.cloudinary.com/gustborges/image/upload/v1618321964/nufiu/asplenio-2_mprrwy.jpg"
 filename = File.basename(URI.parse(url).path)
 file = URI.open(url)
-asplenio.photo.attach(io: file, filename: filename)
-asplenio.save!
+asplenio_g.photo.attach(io: file, filename: filename)
+asplenio_g.save!
+
+
+asplenio_m = Plant.create!(
+  name: "Asplênio M",
+  scientific_name: "Asplenium nidus",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 98,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 20 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321964/nufiu/asplenio-2_mprrwy.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+asplenio_m.photo.attach(io: file, filename: filename)
+asplenio_m.save!
+
+
+asplenio_p = Plant.create!(
+  name: "Asplênio P",
+  scientific_name: "Asplenium nidus",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 71,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 10 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321964/nufiu/asplenio-2_mprrwy.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+asplenio_p.photo.attach(io: file, filename: filename)
+asplenio_p.save!
 
 
 aspargus = Plant.create!(
-  name: "Aspargo alfinete",
+  name: "Aspargo alfinete G",
   scientific_name: "Aspargus densiflorus",
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 98,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Base com diâmetro de 20cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
@@ -522,10 +572,10 @@ croton = Plant.create!(
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 134,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 45 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
@@ -547,10 +597,10 @@ columeia = Plant.create!(
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 89,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 25 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
@@ -572,10 +622,10 @@ bromelia = Plant.create!(
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 134,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Base com diâmetro de 15cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
@@ -596,14 +646,14 @@ cheflera = Plant.create!(
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 134,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 45 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
-  sun: sol,
+  sun: meia_sombra,
   water_period: raramente,
   published: true
   )
@@ -639,19 +689,19 @@ cissus.photo.attach(io: file, filename: filename)
 cissus.save!
 
 chameadora = Plant.create!(
-  name: "Camedória-elegante/Palmeirinha",
+  name: "Areca/Camedória-elegante",
   scientific_name: "Chamaedorea elegans",
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 71,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
-  sun: sol,
+  sun: meia_sombra,
   water_period: raramente,
   published: true
   )
@@ -663,15 +713,15 @@ chameadora.photo.attach(io: file, filename: filename)
 chameadora.save!
 
 mini_cactus = Plant.create!(
-  name: "Mini Cactus",
+  name: "Cactus Mini",
   scientific_name: "Cactus (diversos)",
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 53,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 15 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
@@ -692,10 +742,10 @@ anturio = Plant.create!(
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 89,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura de até 40cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
@@ -716,14 +766,14 @@ afelandra = Plant.create!(
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 80,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 25 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
-  sun: sol,
+  sun: meia_sombra,
   water_period: raramente,
   published: true
   )
@@ -735,19 +785,19 @@ afelandra.photo.attach(io: file, filename: filename)
 afelandra.save!
 
 costela_de_adao = Plant.create!(
-  name: "Costela de Adão",
+  name: "Costela de Adão P",
   scientific_name: "Monstera deliciosa",
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
 ",
-  price: 94,
+  price: 260,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 45 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
-  sun: sol,
+  sun: meia_sombra,
   water_period: raramente,
   published: true
   )
@@ -758,6 +808,30 @@ file = URI.open(url)
 costela_de_adao.photo.attach(io: file, filename: filename)
 costela_de_adao.save!
 
+costela_de_adao_g = Plant.create!(
+  name: "Costela de Adão G",
+  scientific_name: "Monstera deliciosa",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 350,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 70 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: meia_sombra,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321969/nufiu/Costela_de_ada%CC%83o_-_NUEM0036-2_cf35v2.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+costela_de_adao_g.photo.attach(io: file, filename: filename)
+costela_de_adao_g.save!
+
 lumina = Plant.create!(
   name: "Lumina",
   scientific_name: "Chlorophytum orchidastrum",
@@ -765,10 +839,10 @@ lumina = Plant.create!(
 
 A lumina é uma planta bastante resistente, que requer muito pouca manutenção. Seu cultivo é bem tranquilo, de modo que a planta lumina é uma opção ideal para os jardineiros de apartamento. Embora seja uma espécie de origem tropical, o Chlorophytum orchidastrum não gosta do sol pleno, situação que pode causar danos e queimaduras às suas folhas. O ideal é que a lumina seja mantida em um lugar com bastante luminosidade indireta, próxima a uma janela, protegida da incidência direta dos raios solares.
 ",
-  price: 56,
+  price: 116,
   pet_friendly: true,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 25 cm",
   best_seller: false,
   user: borgesmalu,
   category: kokedama,
@@ -793,10 +867,10 @@ Sua folhagem se adapta bem aos ambientes com sombra, mas cresce melhor e mais r�
 
 Em estações quentes e secas, como a primavera e o verão, as regas devem ser feitas de duas a três vezes por semana. Já no outono e no inverno, quando o ar está mais frio e úmido, é preciso diminuir a frequência da irrigação: uma a duas vezes por semana é o suficiente.
 ",
-  price: 52,
+  price: 89,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 25 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
@@ -812,21 +886,21 @@ jiboia.photo.attach(io: file, filename: filename)
 jiboia.save!
 
 espada = Plant.create!(
-  name: "Espada de São Jorge",
+  name: "Espada de São Jorge P",
   scientific_name: "Epipremnum pinnatum",
   description: "Ligada por muitos ao místico, a espada de São Jorge é uma planta lindíssima e que está super em alta. É conhecida por ser uma das melhores espécies de plantas com ação purificadora para os ambientes e energias. Suas propriedades permitem que ela absorva substâncias tóxicas do ar durante o dia, enquanto à noite libera oxigênio limpo. Esse efeito auxilia na purificação dos cômodos da casa.
 
 A Espada de São Jorge exige poucos cuidados. Não precisa de muita adubação, se adapta bem tanto ao Sol, quanto à sombra e não precisa de muita rega. Ou seja, é ideal para quem quer uma planta em casa, mas sem ter muito trabalho. É uma planta bastante resistente e que sobrevive em áreas rnas com sol e também em áreas internas com menos incidência de luz e vento.
 
 ",
-  price: 48,
+  price: 71,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
-  size: "Altura média de 35 cm",
+  size: "Altura média de 30 cm",
   best_seller: true,
   user: borgesmalu,
   category: kokedama,
-  sun: sol,
+  sun: meia_sombra,
   water_period: frequencia_media,
   published: true
   )
@@ -845,7 +919,7 @@ comigo_ninguem_pode = Plant.create!(
 Diferentemente de grande parte das plantas para cultivo doméstico, não é recomendado que essa planta seja exposta diretamente ao sol durante todo o tempo, de modo que é melhor que ela esteja em áreas onde há abundância de sombra durante a movimentação do sol.
 É importante frisar que, apesar de bastante bonitas, algumas plantas ornamentais possuem grande potencial para provocar acidentes graves, como é o caso da comigo-ninguém-pode. Assim sendo, antes de adquirir qualquer produto, é importante avaliar os riscos e quem poderá ter acesso a essas plantas.
 ",
-  price: 60,
+  price: 116,
   pet_friendly: false,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",
@@ -870,7 +944,7 @@ pacova = Plant.create!(
 Recomendamos cultivá-lo em áreas de luz indireta, ou à meia-sombra – com incidência de sol ameno do início ou fim do dia. Gosta de rega moderada, em geral 1 vez por semana é suficiente. Apesar de ser uma espécie tropical, é preciso sempre observar como ela reage à luminosidade.
 
 ",
-  price: 103,
+  price: 134,
   pet_friendly: true,
   water_text: "Rega a cada 1-2 semanas",
   size: "Altura média de 35 cm",

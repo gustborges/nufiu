@@ -9,14 +9,24 @@
 }
 
 .cart-plant-img {
-  img {
-    border-radius: 50%;
-    max-height: 80px;
-    object-fit: contain;
-  }
+  // img {
+  //   border-radius: 50%;
+  //   max-height: 80px;
+  //   object-fit: contain;
+  // }
   display: flex;
   justify-content: center;
-
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  img {
+    display: inline;
+    margin: 0 auto;
+    min-height: 80px;
+    min-width: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 }
 
 .cart-plant-info {
