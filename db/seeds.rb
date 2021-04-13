@@ -217,6 +217,523 @@ pote = Category.create!(
 
 puts 'Finally, seeding plants'
 
+caperata = Plant.create!(
+  name: "Peperômia",
+  scientific_name: "Peperomia Caperata",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618322000/nufiu/Peperomia_caperata_7-2_fdliiu.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+caperata.photo.attach(io: file, filename: filename)
+caperata.save!
+
+maranta = Plant.create!(
+  name: "Maranta",
+  scientific_name: "Maranta Leuconeura",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321999/nufiu/maranta1-2_r3ghjg.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+maranta.photo.attach(io: file, filename: filename)
+maranta.save!
+
+
+singonio = Plant.create!(
+  name: "Singônio",
+  scientific_name: "Syngonium angustatum",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321997/nufiu/Singo%CC%82nio_-_NUEM0016-2_eojadc.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+singonio.photo.attach(io: file, filename: filename)
+singonio.save!
+
+
+elefante = Plant.create!(
+  name: "Pata de Elefante",
+  scientific_name: "Beucarnea recurvata",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321996/nufiu/Produtos_Nuv_OOO-84-2_nb0mod.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+elefante.photo.attach(io: file, filename: filename)
+elefante.save!
+
+
+lanca = Plant.create!(
+  name: "Lança de São Jorge",
+  scientific_name: "Sansevieria cylindrica",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321990/nufiu/lanc%CC%A7a-2_mstykr.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+lanca.photo.attach(io: file, filename: filename)
+lanca.save!
+
+
+hedera = Plant.create!(
+  name: "Hera / Hedera",
+  scientific_name: "Hedera helix",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321988/nufiu/hedera-2_xertry.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+hedera.photo.attach(io: file, filename: filename)
+hedera.save!
+
+
+dracena = Plant.create!(
+  name: "Dracena",
+  scientific_name: "Dracaena",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321985/nufiu/dracena-2_jvywst.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+dracena.photo.attach(io: file, filename: filename)
+dracena.save!
+
+
+filodendro = Plant.create!(
+  name: "Filodendro/Guaimbê",
+  scientific_name: "Philodendron bipinnatifidum",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321983/nufiu/filodendro-2_ywqnxe.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+filodendro.photo.attach(io: file, filename: filename)
+filodendro.save!
+
+
+felicidade_femea = Plant.create!(
+  name: "Árvore da Felicidade (fêmea)",
+  scientific_name: "Polyscias fruticosa",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega 2 vezes por semana",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: meia_sombra,
+  water_period: frequencia_media,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321976/nufiu/felicidade_femea1-2_neaonw.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+felicidade_femea.photo.attach(io: file, filename: filename)
+felicidade_femea.save!
+
+
+espadinha = Plant.create!(
+  name: "Espadinha de Santa Bárbara",
+  scientific_name: "Sansevieria trifasciata",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321976/nufiu/espadinha_coroa-2_dfda2a.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+espadinha.photo.attach(io: file, filename: filename)
+espadinha.save!
+
+
+asplenio = Plant.create!(
+  name: "Asplênio",
+  scientific_name: "Asplenium nidus",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321964/nufiu/asplenio-2_mprrwy.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+asplenio.photo.attach(io: file, filename: filename)
+asplenio.save!
+
+
+aspargus = Plant.create!(
+  name: "Aspargo alfinete",
+  scientific_name: "Aspargus densiflorus",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321971/nufiu/aspargus_alfinete-2_sscbhz.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+aspargus.photo.attach(io: file, filename: filename)
+aspargus.save!
+
+
+croton = Plant.create!(
+  name: "Cróton",
+  scientific_name: "Codiaeum variegatum",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321970/nufiu/cro%CC%81ton-2_xbfwrw.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+croton.photo.attach(io: file, filename: filename)
+croton.save!
+
+
+columeia = Plant.create!(
+  name: "Columeia-peixinho",
+  scientific_name: "Nematanthus wettsteinii",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321970/nufiu/columeia-2_cgtthc.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+columeia.photo.attach(io: file, filename: filename)
+columeia.save!
+
+
+bromelia = Plant.create!(
+  name: "Bromélia Neoregelia",
+  scientific_name: "Neoregelia vandarm",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321967/nufiu/bromelia1-2_q2yywb.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+bromelia.photo.attach(io: file, filename: filename)
+bromelia.save!
+
+cheflera = Plant.create!(
+  name: "Cheflera",
+  scientific_name: "Schefflera arboricola",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321967/nufiu/cheflera-2_ymjh1k.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+cheflera.photo.attach(io: file, filename: filename)
+cheflera.save!
+
+cissus = Plant.create!(
+  name: "Cissus",
+  scientific_name: "Cissus rhombifolia",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321966/nufiu/Cissus_-_NUEM0035-2_r0cz5t.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+cissus.photo.attach(io: file, filename: filename)
+cissus.save!
+
+chameadora = Plant.create!(
+  name: "Camedória-elegante/Palmeirinha",
+  scientific_name: "Chamaedorea elegans",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321964/nufiu/chameadora-2_vazfni.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+chameadora.photo.attach(io: file, filename: filename)
+chameadora.save!
+
+mini_cactus = Plant.create!(
+  name: "Mini Cactus",
+  scientific_name: "Cactus (diversos)",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321958/nufiu/cactus_mini-2_cfabhu.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+mini_cactus.photo.attach(io: file, filename: filename)
+mini_cactus.save!
+
+anturio = Plant.create!(
+  name: "Antúrio",
+  scientific_name: "Anthurium andraeanum",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321957/nufiu/anturio1-2_cpg8g9.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+anturio.photo.attach(io: file, filename: filename)
+anturio.save!
+
+afelandra = Plant.create!(
+  name: "Afelandra",
+  scientific_name: "Aphelandra squarrosa",
+  description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
+De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto
+",
+  price: 94,
+  pet_friendly: false,
+  water_text: "Rega a cada 1-2 semanas",
+  size: "Altura média de 35 cm",
+  best_seller: true,
+  user: borgesmalu,
+  category: kokedama,
+  sun: sol,
+  water_period: raramente,
+  published: true
+  )
+
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321776/nufiu/afelandra_pdpyq2.jpg"
+filename = File.basename(URI.parse(url).path)
+file = URI.open(url)
+afelandra.photo.attach(io: file, filename: filename)
+afelandra.save!
+
 costela_de_adao = Plant.create!(
   name: "Costela de Adão",
   scientific_name: "Monstera deliciosa",
@@ -235,7 +752,7 @@ De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia
   published: true
   )
 
-url = "https://res.cloudinary.com/gustborges/image/upload/v1615407820/nufiu/5qib3rn3j5n6st48r4cm87dn4cih.png"
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321969/nufiu/Costela_de_ada%CC%83o_-_NUEM0036-2_cf35v2.jpg"
 filename = File.basename(URI.parse(url).path)
 file = URI.open(url)
 costela_de_adao.photo.attach(io: file, filename: filename)
@@ -260,7 +777,7 @@ A lumina é uma planta bastante resistente, que requer muito pouca manutenção.
   published: true
   )
 
-url = "https://res.cloudinary.com/gustborges/image/upload/v1615408360/nufiu/we7lhorssbyx6cykt7n6i5emv372.png"
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321987/nufiu/Lumina_-_NUEM0024-2_rkjlel.jpg"
 filename = File.basename(URI.parse(url).path)
 file = URI.open(url)
 lumina.photo.attach(io: file, filename: filename)
@@ -288,7 +805,7 @@ Em estações quentes e secas, como a primavera e o verão, as regas devem ser f
   published: true
   )
   
-url = "https://res.cloudinary.com/gustborges/image/upload/v1617817308/nufiu/Screen_Shot_2021-03-10_at_17.44.40_nbtgk2.png"
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321991/nufiu/jiboia-2_ggdbj1.jpg"
 filename = File.basename(URI.parse(url).path)
 file = URI.open(url)
 jiboia.photo.attach(io: file, filename: filename)
@@ -314,7 +831,7 @@ A Espada de São Jorge exige poucos cuidados. Não precisa de muita adubação, 
   published: true
   )
 
-url = "https://res.cloudinary.com/gustborges/image/upload/v1617817308/nufiu/Screen_Shot_2021-03-10_at_17.45.12_k05bto.png"
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321989/nufiu/espada-2_ntpgek.jpg"
 filename = File.basename(URI.parse(url).path)
 file = URI.open(url)
 espada.photo.attach(io: file, filename: filename)
@@ -339,7 +856,7 @@ Diferentemente de grande parte das plantas para cultivo doméstico, não é reco
   water_period: todo_dia,
   published: true
   )
-  url = "https://res.cloudinary.com/gustborges/image/upload/v1615409006/nufiu/iegp8ec407hjtgh0tiexczdh3at6.png"
+  url = "https://res.cloudinary.com/gustborges/image/upload/v1618321969/nufiu/Comigo-Ningue%CC%81m-Pode_-_NUEM0003-2_csujev.jpg"
   filename = File.basename(URI.parse(url).path)
   file = URI.open(url)
   comigo_ninguem_pode.photo.attach(io: file, filename: filename)
@@ -365,7 +882,7 @@ Recomendamos cultivá-lo em áreas de luz indireta, ou à meia-sombra – com in
   published: true
   )
 
-url = "https://res.cloudinary.com/gustborges/image/upload/v1615408945/nufiu/3msh6ih103srqgwn7atr19cqtm78.png"
+url = "https://res.cloudinary.com/gustborges/image/upload/v1618321995/nufiu/pacova-2_hkzjqr.jpg"
 filename = File.basename(URI.parse(url).path)
 file = URI.open(url)
 pacova.photo.attach(io: file, filename: filename)

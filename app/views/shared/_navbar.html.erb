@@ -23,7 +23,7 @@
         <%= link_to "Login", new_user_session_path %>
       </li>  
     <% end %>
-    <% if !current_user.carts.empty? %>
+    <% if current_user && !current_user.carts.empty? %>
       <li class="navbar-cart">
         <%= link_to cart_path(current_user.carts.last) do %>
           <i class='fas fa-shopping-basket'></i>
