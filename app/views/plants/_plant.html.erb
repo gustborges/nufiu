@@ -3,7 +3,7 @@
     <div class="plant-card m-0" id="plant">
       <%= link_to plant_path(plant) do %>
         <% if plant.photo.attached? %>
-          <%= cl_image_tag plant.photo.key, class: "card-img", alt: "#{plant.name}", size: "224x299" %>
+          <%= cl_image_tag plant.photo.key, class: "card-img", alt: "#{plant.name}" %>
         <% else %>
           <%= image_tag "plants/2.png", class: "card-img", alt: "#{plant.name}" %>
         <% end %>
