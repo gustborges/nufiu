@@ -14,7 +14,9 @@
 
   <div class="cart-buttons">
     <div id="pagar">
+    <% if !@cart.cart_plants.empty? %>
       <%= link_to "Finalizar compras", new_cart_payment_path(cart_id: @cart.id), class: "green-button" %>
+      <% end %>
     </div>
     <div id="continuar-comprando">
       <%= link_to "👈 Continuar comprando", root_path %>

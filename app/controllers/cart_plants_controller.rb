@@ -44,7 +44,7 @@ class CartPlantsController < ApplicationController
     @cart_plant = @cart.cart_plants.find_by(plant_id: params[:plant_id])
 
     if params[:fix_amount] == "reduce" # don't know how to do it
-      @cart_plant.amount -= 1
+      @cart_plant.amount -= 1 if @cart_plant.amount > 0
     elsif params[:fix_amount] == "add" # don't know how to do it
       @cart_plant.amount += 1
     end
