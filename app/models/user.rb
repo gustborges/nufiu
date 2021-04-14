@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create :send_welcome_email
   has_many :carts, dependent: :destroy
   has_many :plants
 
@@ -9,5 +10,11 @@ class User < ApplicationRecord
 
   def admin?
     admin == true
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
   end
 end

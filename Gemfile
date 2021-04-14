@@ -41,7 +41,8 @@ gem 'acts-as-taggable-on', '~> 6.0'
 # gem 'sunspot_solr'
 gem 'stripe'
 gem 'stripe_event'
-
+gem 'letter_opener', group: :development
+gem 'postmark-rails'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -2,6 +2,15 @@
   <h1>Contato</h1>
   <p>Tem alguma dúvida, sugestão ou um pedido diferente? Fale com a gente!</p>
 </div>
+<!--
+<%# 
 <div class="static-page-body">
-  <p>Em breve, o formulário de contato será adicionado.</p>
-</div>
+  <% if !current_user.nil? %>
+    <p>Nome: <%= current_user.name %></p>
+    <p>E-mail: <%= current_user.email %></p>
+  <% else %>
+    <%= form_tag do %>
+    <% end %>
+  <% end %>
+</div> %>
+-->
