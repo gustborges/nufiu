@@ -43,6 +43,7 @@ gem 'stripe'
 gem 'stripe_event'
 gem 'letter_opener', group: :development
 gem 'postmark-rails'
+gem 'mail_form'
 
 group :development, :test do
   gem 'pry-byebug'

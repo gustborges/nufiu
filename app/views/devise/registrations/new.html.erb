@@ -1,6 +1,6 @@
 <div class="add-margins">
-  <h1>Cadastre-se</h1>
-  <p>Criar um novo usuário.</p>
+  <h1>Cadastre-se no site</h1>
+  <p>Apenas se você for realizar uma compra. Leva menos de 1 minuto!</p>
 </div>
 
 <div class="form-container">
@@ -16,7 +16,7 @@
         <%= f.input :password,
                     required: true,
                     label: "Senha",
-                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    hint: ("Mínimo de #{@minimum_password_length} caracteres" if @minimum_password_length),
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :password_confirmation,
                     required: true,

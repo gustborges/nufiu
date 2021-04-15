@@ -29,6 +29,7 @@ class CartsController < ApplicationController
 
   def thanks
     @cart = policy_scope(Cart).where(user: current_user).find(params[:cart_id])
+    mail = CartMailer.with(cart: @cart).payment_confirmation
   end
 
   private

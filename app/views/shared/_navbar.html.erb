@@ -4,25 +4,25 @@
   <% end %>
 
   <ul class="navlinks">
-  
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to "Minha Conta", edit_user_registration_path %> | <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+      </li>     
+    <% else %>
+      <li>
+        <%= link_to "Entrar", new_user_session_path %>
+      </li>  
+    <% end %>  
     <li>
-      <%= link_to "Sobre", sobre_path %>
+      <%= link_to "Sobre a Nufiu", sobre_path %>
     </li>
     <li>
       <%= link_to "Workshops", workshop_path %>
     </li>
     <li>
-      <%= link_to "Contato", contato_path %>
+      <%= link_to "Contato", new_contact_path %>
     </li>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "Login", new_user_session_path %>
-      </li>  
-    <% end %>
+
     <% if current_user && !current_user.carts.empty? %>
       <li class="navbar-cart">
         <%= link_to cart_path(current_user.carts.last) do %>

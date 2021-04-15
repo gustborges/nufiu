@@ -18,21 +18,21 @@
         <%= f.input :suburb, label: "Bairro", hint: "Entregamos apenas na cidade do Rio de Janeiro", required: true %>
         <%= f.input :zip_code, label: "CEP", placeholder: "00000-00", required: true %>
         <%= f.input :location_details, label: "Referência", placeholder: "Próximo a..." %>
-        <%= f.input :phone, label: "Telefone", placeholder: "(21) 00000-0000", required: true %>
-      
+        <%= f.input :phone, label: "Telefone", placeholder: "(21) 00000-0000", required: true %><br />
+        <p><strong>Preencha os itens abaixo apenas se quiser mudar a senha</strong></p>
        <%= f.input :password,
                     label: "Nova senha",
-                    hint: "Deixe em branco se preferir manter o mesmo",
+                    hint: "Deixe em branco se preferir manter a mesma",
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :password_confirmation, 
                     label: "Confirme sua nova senha",
-                    hint: "Digite sua senha novamente apenas se você modificou",
+                    hint: "Digite-a novamente",
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :current_password,
                     label: "Senha atual",
-                    hint: "Precisamos da sua senha para confirmar as mudanças",
+                    hint: "Precisamos da sua senha anterior para confirmar",
                     required: true,
                     input_html: { autocomplete: "current-password" } %>
       </div>

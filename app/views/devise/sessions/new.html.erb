@@ -1,9 +1,10 @@
 <div class="add-margins">
-  <h1>Log in</h1>
-  <p>Digite seu login e senha para acessar funcionalidades de administrador da página.</p>
+  <h1>Entrar na sua conta</h1>
+  <p>Digite seu e-mail e senha para acessar e poder editar seus dados.</p>
 </div>
 
 <div class="form-container">
+<p><strong>Ainda não tem conta?</strong> <%= link_to "Cadastre-se aqui", new_user_registration_path %>.</p>
   <div class="new-plant-form">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
@@ -19,11 +20,11 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Acessar", class: "green-button" %>
+        <%= f.button :submit, "Acessar", :style => 'padding-left: 2.3em; padding-right: 2.3em;', class: "green-button" %>
       </div>
     <% end %>
     <div style="margin-top: 14px">
-      <%= render "devise/shared/links" %>
+      <%= link_to "Esqueceu a sua senha?", new_password_path(resource_name) %><br />
     </div>
   </div>
 </div>
