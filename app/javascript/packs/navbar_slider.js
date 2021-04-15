@@ -6,11 +6,18 @@ const navSlide = () => {
   burger.addEventListener('click', ()=>{
     navLinks.classList.toggle('navlinks');
     navLinks.classList.toggle('nav-active');
-  
+    if (navLinks.classList.contains('nav-active')) {
+      document.body.style['overflow-y'] = 'hidden';
+    } else {
+      document.body.style['overflow-y'] = 
+      'visible';
+    }
+    
       // Animate Links
       navItems.forEach((link, index) => {
         if(link.style.animation) {
           link.style.animation = '';
+          body.classList.add('.stop-y');
         } else {
           link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.6}s`;
         }
