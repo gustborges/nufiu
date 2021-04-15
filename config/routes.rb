@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/edit'
+  get 'users/update'
   scope(path_names: { new: 'novo', edit: 'editar' }) do
-    devise_for :users
+    devise_for :users, controllers: { registrations: "registrations" }
     root to: 'plants#index'
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
     get 'sobre', to: 'pages#about'
@@ -9,7 +11,8 @@ Rails.application.routes.draw do
     get 'entregas', to: 'pages#delivery'
     get 'workshop', to: 'pages#workshop'
     get 'pagamento', to: 'pages#payment'
-    get 'contato', to: 'pages#contact'
+    resources :contacts, path: 'contato', only: [:index, :show, :new, :create]
+    
     resources :plants, path: 'kokedamas' do
       resources :cart_plants, only: [:create, :update]
     end

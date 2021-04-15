@@ -1,0 +1,19 @@
+<p>Olá, <%= @user.name %>! O seu pagamento no site da Nufiu foi confirmado.</p>
+
+<p>Produtos Nufiu:</p>
+<% @cart.cart_plants.each do | cart_plant| %>
+   <ul>
+      <li><%= cart_plant.plant.name %></li>
+    </ul>
+<% end %>
+
+<p>Agora, deixa com a gente! Vamos selecionar suas plantinhas e preparar os arranjos com muito carinho. Você também deverá receber um contato nosso em breve para que escolha as cores da amarração de sua kokedama e também para confirmarmos dados de entrega. </p>
+
+<p>Aliás, o prazo de entrega pode variar um pouquinho de acordo com a disponibilidade das espécies de plantas que você selecionou, mas vamos fazer o máximo para que elas cheguem ao seu em até 7 dias corridos. </p>
+
+<p>Qualquer dúvida, é só responder este e-mail, ok? </p>
+
+<p>Até mais!</p>
+<p>Malu Borges</p>
+<p>Nufiu Jardinagem</p>
+<p>www.nufiu.com.br</p>
