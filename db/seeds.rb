@@ -13,6 +13,7 @@ OpenURI::Buffer.const_set 'StringMax', 0
 
 if Rails.env.development?
   Color.destroy_all
+  Suburb.destroy_all
   Plant.destroy_all
   User.destroy_all
   Category.destroy_all
@@ -31,7 +32,6 @@ borgesmalu = User.create!(
   phone: "(21)993444535",
   address: "R. Vice Gov. Rubens Berardo, 65",
   address_complement:  "Bloco 2 - apt 307",
-  suburb: "Gávea",
   zip_code: "22451070",
   location_details: "Em frente ao Planetário da Gávea",
   admin: true
@@ -45,7 +45,6 @@ gustavoborges = User.create!(
   phone: "(21)967808889",
   address: "R. Almirante Alexandrino, 1310",
   address_complement: "Apt 201",
-  suburb: "Santa Teresa",
   zip_code: "20241260",
   location_details: "Ao lado da Clínica Saint Romain",
   admin: true
@@ -58,11 +57,173 @@ cliente = User.create!(
   phone: "(21)983120921",
   address: "R. Almirante Alexandrino, 1310",
   address_complement: "Apt 201",
-  suburb: "Santa Teresa",
   zip_code: "20241260",
   location_details: "Em frente ao Castelinho Valentim",
   admin: false
   )
+
+puts 'Adding suburbs to ship'
+
+gavea = Suburb.create!(
+name: "Gávea",
+shipping: 4
+)
+
+leblon = Suburb.create!(
+name: "Leblon",
+shipping: 4
+)
+
+jb = Suburb.create!(
+name: "Jardim Botânico",
+shipping: 5
+)
+
+lagoa = Suburb.create!(
+name: "Lagoa",
+shipping: 5
+)
+
+humaita = Suburb.create!(
+name: "Humaitá",
+shipping: 6
+)
+
+botafogo = Suburb.create!(
+name: "Botafogo",
+shipping: 9
+)
+
+ipanema = Suburb.create!(
+name: "Ipanema",
+shipping: 6
+)
+
+arpoador = Suburb.create!(
+name: "Arpoador",
+shipping: 7
+)
+
+copacabana = Suburb.create!(
+name: "Copacabana",
+shipping: 9
+)
+
+leme = Suburb.create!(
+name: "Leme",
+shipping: 10
+)
+
+flamengo = Suburb.create!(
+name: "Flamengo",
+shipping: 11
+)
+
+machado = Suburb.create!(
+name: "Largo do Machado",
+shipping: 11
+)
+
+catete = Suburb.create!(
+name: "Catete",
+shipping: 11
+)
+
+laranjeiras = Suburb.create!(
+name: "Laranjeiras",
+shipping: 11
+)
+ 
+cosme = Suburb.create!(
+name: "Cosme Velho",
+shipping: 11
+)
+
+santa = Suburb.create!(
+name: "Santa Teresa",
+shipping: 11
+)
+
+gloria = Suburb.create!(
+name: "Glória",
+shipping: 11
+)
+
+urca = Suburb.create!(
+name: "Urca",
+shipping: 11
+)
+
+cidade_nova = Suburb.create!(
+name: "Cidade Nova",
+shipping: 17
+)
+
+bandeira = Suburb.create!(
+  name: "Praça da Bandeira",
+  shipping: 18
+  )  
+
+estacio = Suburb.create!(
+name: "Estácio",
+shipping: 17
+)
+
+conrado = Suburb.create!(
+name: "São Conrado",
+shipping: 15
+)
+
+barra = Suburb.create!(
+name: "Barra",
+shipping: 25
+)
+
+recreio = Suburb.create!(
+name: "Recreio",
+shipping: 35
+)
+
+jacarepagua = Suburb.create!(
+name: "Jacarepaguá",
+shipping: 45
+)
+
+itanhanga = Suburb.create!(
+name: "Itanhangá",
+shipping: 24
+)
+
+centro = Suburb.create!(
+name: "Centro",
+shipping: 16
+)
+
+lapa = Suburb.create!(
+name: "Lapa",
+shipping: 16
+)
+
+joa = Suburb.create!(
+name: "Joá",
+shipping: 22
+)  
+
+maracana = Suburb.create!(
+name: "Maracanã",
+shipping: 23
+)
+
+vila_isabel = Suburb.create!(
+name: "Vila Isabel",
+shipping: 25
+)
+  
+tijuca = Suburb.create!(
+name: "Tijuca",
+shipping: 30
+)
+                                                                  
 
 puts 'Capturing sun light'
 

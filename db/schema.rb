@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_162744) do
+ActiveRecord::Schema.define(version: 2021_04_15_203749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,13 @@ ActiveRecord::Schema.define(version: 2021_04_15_162744) do
     t.index ["water_period_id"], name: "index_plants_on_water_period_id"
   end
 
+  create_table "suburbs", force: :cascade do |t|
+    t.string "name"
+    t.integer "shipping"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "suns", force: :cascade do |t|
     t.string "level"
     t.datetime "created_at", precision: 6, null: false
@@ -161,9 +168,10 @@ ActiveRecord::Schema.define(version: 2021_04_15_162744) do
     t.string "zip_code"
     t.string "address_complement"
     t.string "location_details"
-    t.string "suburb"
+    t.bigint "suburb_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["suburb_id"], name: "index_users_on_suburb_id"
   end
 
   create_table "water_periods", force: :cascade do |t|
@@ -183,4 +191,5 @@ ActiveRecord::Schema.define(version: 2021_04_15_162744) do
   add_foreign_key "plants", "users"
   add_foreign_key "plants", "water_periods"
   add_foreign_key "taggings", "tags"
+  add_foreign_key "users", "suburbs"
 end

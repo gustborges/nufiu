@@ -15,7 +15,7 @@
         <% end %>
         <%= f.input :address, label: "Endereço", required: true %>
         <%= f.input :address_complement, label: "Complemento do Endereço", hint: "Apartamento, casa, bloco", required: true %>
-        <%= f.input :suburb, label: "Bairro", hint: "Entregamos apenas na cidade do Rio de Janeiro", required: true %>
+        <%= f.association :suburb, label: "Bairro", hint: "Entregamos apenas em parte da cidade do Rio de Janeiro", label_method: :name %>
         <%= f.input :zip_code, label: "CEP", placeholder: "00000-00", required: true %>
         <%= f.input :location_details, label: "Referência", placeholder: "Próximo a..." %>
         <%= f.input :phone, label: "Telefone", placeholder: "(21) 00000-0000", required: true %><br />
