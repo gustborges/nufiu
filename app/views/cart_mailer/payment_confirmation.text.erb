@@ -1,15 +1,22 @@
-Olá, <%= @user.name %>! O seu pagamento no site da Nufiu foi confirmado. 
+Olá, <%= @user.name ? @user.name : @user.email.split('@').first %>! O seu pagamento no site da Nufiu foi confirmado.
 
 Produtos Nufiu:
 <% @cart.cart_plants.each do | cart_plant| %>
-    -<%= cart_plant.plant.name %>
+  - <%= cart_plant.amount %> x <%= cart_plant.plant.name %> = R$ <%= cart_plant.plant.price * cart_plant.amount %>
+<% end %>
+<% if @user.shipping.pick_up == true %>
+  Frete para <%= @user.shipping.suburb.name %> : R$ <%= @user.shipping.suburb.shipping_price %>
+  Total: R$ <%= (@cart.amount / 100) + @user.shipping.suburb.shipping_price  %>
+<% else %>
+  Total: R$ <%= (@cart.amount / 100) %>
 <% end %>
 
-Agora, deixa com a gente! Vamos selecionar suas plantinhas e preparar os arranjos com muito carinho. Você também deverá receber um contato nosso em breve para que escolha as cores da amarração de sua kokedama e também para confirmarmos dados de entrega. 
 
-Aliás, o prazo de entrega pode variar um pouquinho de acordo com a disponibilidade das espécies de plantas que você selecionou, mas vamos fazer o máximo para que elas cheguem ao seu em até 7 dias corridos. 
+Agora, deixa com a gente! Vamos selecionar suas plantinhas e preparar os arranjos com muito carinho. Você também deverá receber um contato nosso em breve para que escolha as cores da amarração de sua kokedama e também para confirmarmos dados de entrega.
 
-Qualquer dúvida, é só responder este e-mail, ok? 
+Aliás, o prazo de entrega pode variar um pouquinho de acordo com a disponibilidade das espécies de plantas que você selecionou, mas vamos fazer o máximo para que elas cheguem ao seu endereço em até 7 dias corridos.
+
+Qualquer dúvida, é só responder este e-mail, ok?
 
 Até mais!
 Malu Borges

@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
       @shipping = current_user.shipping
     end
 
-    @shipping_price = @user.shipping.suburb.shipping_price * 100
+    @shipping_price = @shipping.pick_up ? 0 : (@user.shipping.suburb.shipping_price * 100)
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],

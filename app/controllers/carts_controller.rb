@@ -29,7 +29,7 @@ class CartsController < ApplicationController
 
   def thanks
     @cart = policy_scope(Cart).where(user: current_user).find(params[:cart_id])
-    sleep(20)
+    sleep(3)
     mail = CartMailer.with(cart: @cart).payment_confirmation(@cart).deliver_now if @cart.state == "paid"
   end
 
