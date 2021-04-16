@@ -66,164 +66,164 @@ puts 'Adding suburbs to ship'
 
 gavea = Suburb.create!(
 name: "Gávea",
-shipping: 4
+shipping_price: 4
 )
 
 leblon = Suburb.create!(
 name: "Leblon",
-shipping: 4
+shipping_price: 4
 )
 
 jb = Suburb.create!(
 name: "Jardim Botânico",
-shipping: 5
+shipping_price: 5
 )
 
 lagoa = Suburb.create!(
 name: "Lagoa",
-shipping: 5
+shipping_price: 5
 )
 
 humaita = Suburb.create!(
 name: "Humaitá",
-shipping: 6
+shipping_price: 6
 )
 
 botafogo = Suburb.create!(
 name: "Botafogo",
-shipping: 9
+shipping_price: 9
 )
 
 ipanema = Suburb.create!(
 name: "Ipanema",
-shipping: 6
+shipping_price: 6
 )
 
 arpoador = Suburb.create!(
 name: "Arpoador",
-shipping: 7
+shipping_price: 7
 )
 
 copacabana = Suburb.create!(
 name: "Copacabana",
-shipping: 9
+shipping_price: 9
 )
 
 leme = Suburb.create!(
 name: "Leme",
-shipping: 10
+shipping_price: 10
 )
 
 flamengo = Suburb.create!(
 name: "Flamengo",
-shipping: 11
+shipping_price: 11
 )
 
 machado = Suburb.create!(
 name: "Largo do Machado",
-shipping: 11
+shipping_price: 11
 )
 
 catete = Suburb.create!(
 name: "Catete",
-shipping: 11
+shipping_price: 11
 )
 
 laranjeiras = Suburb.create!(
 name: "Laranjeiras",
-shipping: 11
+shipping_price: 11
 )
- 
+
 cosme = Suburb.create!(
 name: "Cosme Velho",
-shipping: 11
+shipping_price: 11
 )
 
 santa = Suburb.create!(
 name: "Santa Teresa",
-shipping: 11
+shipping_price: 11
 )
 
 gloria = Suburb.create!(
 name: "Glória",
-shipping: 11
+shipping_price: 11
 )
 
 urca = Suburb.create!(
 name: "Urca",
-shipping: 11
+shipping_price: 11
 )
 
 cidade_nova = Suburb.create!(
 name: "Cidade Nova",
-shipping: 17
+shipping_price: 17
 )
 
 bandeira = Suburb.create!(
   name: "Praça da Bandeira",
-  shipping: 18
-  )  
+  shipping_price: 18
+  )
 
 estacio = Suburb.create!(
 name: "Estácio",
-shipping: 17
+shipping_price: 17
 )
 
 conrado = Suburb.create!(
 name: "São Conrado",
-shipping: 15
+shipping_price: 15
 )
 
 barra = Suburb.create!(
 name: "Barra",
-shipping: 25
+shipping_price: 25
 )
 
 recreio = Suburb.create!(
 name: "Recreio",
-shipping: 35
+shipping_price: 35
 )
 
 jacarepagua = Suburb.create!(
 name: "Jacarepaguá",
-shipping: 45
+shipping_price: 45
 )
 
 itanhanga = Suburb.create!(
 name: "Itanhangá",
-shipping: 24
+shipping_price: 24
 )
 
 centro = Suburb.create!(
 name: "Centro",
-shipping: 16
+shipping_price: 16
 )
 
 lapa = Suburb.create!(
 name: "Lapa",
-shipping: 16
+shipping_price: 16
 )
 
 joa = Suburb.create!(
 name: "Joá",
-shipping: 22
-)  
+shipping_price: 22
+)
 
 maracana = Suburb.create!(
 name: "Maracanã",
-shipping: 23
+shipping_price: 23
 )
 
 vila_isabel = Suburb.create!(
 name: "Vila Isabel",
-shipping: 25
+shipping_price: 25
 )
-  
+
 tijuca = Suburb.create!(
 name: "Tijuca",
-shipping: 30
+shipping_price: 30
 )
-                                                                  
+
 
 puts 'Capturing sun light'
 
@@ -1039,7 +1039,7 @@ Em estações quentes e secas, como a primavera e o verão, as regas devem ser f
   water_period: raramente,
   published: true
   )
-  
+
 url = "https://res.cloudinary.com/gustborges/image/upload/v1618321991/nufiu/jiboia-2_ggdbj1.jpg"
 filename = File.basename(URI.parse(url).path)
 file = URI.open(url)

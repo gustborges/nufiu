@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   skip_after_action :verify_authorized, only: :thanks
-  before_action :cart_find, only: [:show, :create, :update]
+  before_action :cart_find, only: [:show, :create, :update, :update_shipping_price]
 
   def show
     # Get cart_plants to be shown in cart
@@ -11,8 +11,8 @@ class CartsController < ApplicationController
     @cart.cart_plants.each do |cart_plant|
        @total_bill << (cart_plant.plant.price * cart_plant.amount)
     end
-    @cart.amount = @total_bill.sum.to_i * 100
-    
+    @cart.amount = (@total_bill.sum.to_i) * 100
+
     # Authorize if user is the same that created it
     authorize @cart
     @cart.save
@@ -22,15 +22,15 @@ class CartsController < ApplicationController
     # Authorize if user is the same that created
     authorize @cart
 
-    # If user clicks in "Esvaziar carrinho", deletar todas as cart_plants, senão apenas modificar o status de cart para "closed"
-      @cart.status = "closed"
-      @cart.save ? (redirect_to cart_path(@cart)) : (render :show)
+  # If user clicks in "Esvaziar carrinho", deletar todas as cart_plants, senão apenas modificar o status de cart para "closed"
+    @cart.status = "closed"
+    @cart.save ? (redirect_to cart_path(@cart)) : (render :show)
   end
 
   def thanks
     @cart = policy_scope(Cart).where(user: current_user).find(params[:cart_id])
     sleep(20)
-    mail = CartMailer.with(cart: @cart).payment_confirmation(@cart).deliver_now if @cart.state == "paid"   
+    mail = CartMailer.with(cart: @cart).payment_confirmation(@cart).deliver_now if @cart.state == "paid"
   end
 
   private

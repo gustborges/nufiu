@@ -2,7 +2,8 @@ class User < ApplicationRecord
   after_create :send_welcome_email
   has_many :carts, dependent: :destroy
   has_many :plants
-  belongs_to :suburb
+  belongs_to :suburb, optional: true
+  has_one :shipping, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

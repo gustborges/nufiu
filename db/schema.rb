@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_203749) do
+ActiveRecord::Schema.define(version: 2021_04_16_194042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,9 +112,22 @@ ActiveRecord::Schema.define(version: 2021_04_15_203749) do
     t.index ["water_period_id"], name: "index_plants_on_water_period_id"
   end
 
+  create_table "shippings", force: :cascade do |t|
+    t.string "address"
+    t.string "address_complement"
+    t.string "zip_code"
+    t.bigint "suburb_id"
+    t.string "location_details"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["suburb_id"], name: "index_shippings_on_suburb_id"
+    t.index ["user_id"], name: "index_shippings_on_user_id"
+  end
+
   create_table "suburbs", force: :cascade do |t|
     t.string "name"
-    t.integer "shipping"
+    t.integer "shipping_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -190,6 +203,8 @@ ActiveRecord::Schema.define(version: 2021_04_15_203749) do
   add_foreign_key "plants", "suns"
   add_foreign_key "plants", "users"
   add_foreign_key "plants", "water_periods"
+  add_foreign_key "shippings", "suburbs"
+  add_foreign_key "shippings", "users"
   add_foreign_key "taggings", "tags"
   add_foreign_key "users", "suburbs"
 end

@@ -5,32 +5,32 @@
 </div>
 
 <div class="row orders">
+  <div class="col-12 col-md-6 order-col2">
+    <h6 class="order-col-title2"><strong>Dados para entrega</strong></h6>
+     <%= simple_form_for @shipping, html: { method: :put }, :onchange => 'this.form.submit()' do |f| %>
+      <%= f.input :address, label: "Endereço", required: true %>
+      <%= f.input :address_complement, label: "Complemento do Endereço", hint: "Apartamento, casa, bloco", required: true %>
+      <%= f.association :suburb, label: "Bairro", hint: "Entregamos apenas nos bairros listados", label_method: :name %>
+      <%= f.input :zip_code, label: "CEP", placeholder: "00000-00", required: true %>
+      <%= f.input :location_details, label: "Referência", placeholder: "Próximo a..." %>
+      <%= f.button :submit, "Confirmar", class: "green-button" %>
+    <% end %>
+  </div>
+  <div class="col-1"></div>
   <div class="col-12 col-md-5 order-col1">
     <h6 class="order-col-title1"><strong>Seu pedido</strong></h6>
     <% current_user.carts.last.cart_plants.each do |cart_plant| %>
       <p><%= cart_plant.amount %> x <%= cart_plant.plant.name %> = R$ <%= cart_plant.plant.price * cart_plant.amount %></p>
     <% end %>
+    <p>Frete: R$ <%= @shipping_price/100 if !@shipping.suburb.nil? %> </p>
     <hr>
-    <p><strong>Total: R$ <%= @cart.amount / 100 %></strong></p>
-  </div>
-  <div class="col-1"></div>
-  <div class="col-12 col-md-6 order-col2">
-    <h6 class="order-col-title2"><strong>Dados para entrega</strong></h6>
-      <p><%= link_to 'Atualize seus dados', edit_user_registration_path(@cart.user) %></p>
-      <p><strong>Nome:</strong> <%= current_user.name %></p>
-      <p><strong>Telefone:</strong> <%= current_user.phone %></p>
-      <p><strong>E-mail:</strong> <%= current_user.email %></p>
-      <p><strong>Endereço:</strong> <%= current_user.address %></p>
-      <p><strong>Complemento:</strong> <%= current_user.address_complement %></p>
-      <p><strong>Bairro:</strong> <%= current_user.suburb %></p>
-      <p><strong>CEP:</strong> <%= current_user.zip_code %></p>
-      <p><strong>Referência:</strong> <%= current_user.location_details %></p>
+    <p><strong>Total: R$ <%= (@cart.amount + @shipping_price) / 100 %></strong></p>
   </div>
 </div>
 <div class="row order-pay">
   <div class="col-12">
       <button id="pay" class="green-button">Preencher dados de pagamento</button>
-      
+
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');
