@@ -7,7 +7,7 @@
   <div class="new-plant-form">
     <%= simple_form_for @contact do |f| %>
       <%= f.input :name, label: 'Nome', required: true %>
-      <%= f.input :email, label: 'Email', required: true %>
+      <%= f.input :email, label: 'E-mail', required: true %>
       <%= f.input :phone, label: 'Telefone (opcional)' %>
       <%= f.input :subject, label: 'Assunto' %>
       <%= f.input :message, label: 'Mensagem', :input_html => {:rows => 10}  %>

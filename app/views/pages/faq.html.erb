@@ -8,11 +8,39 @@
   <p><strong>Que formas de pagamentos vocês oferecem?</strong></p>
   <p>Aqui pelo site, você pode pagar com cartão de crédito ou débito. Veja mais informações na <%= link_to "página sobre formas de pagamento", pagamento_path %>.</p><br />
   <p><strong>Onde a Nufiu faz entregas?</strong></p>
-  <p>Fazemos entregas na cidade do Rio de Janeiro, RJ. Para pedidos maiores, podemos abrir exceção, mas precisamos avaliar individualmente. Se esse for o caso, você pode entrar em <%= link_to "contato conosco", contato_path %>.</p> <br />
-  <p><strong>Quanto tempo leva para você receber seu pedido?</strong></p>
-  <p>Levamos até 7 dias corridos para preparar os seus produtos e realizar a entrega. Caso você faça um pedido grande, com mais de 7 kokedamas/terrários, entraremos em contato para combinar uma nova data de entrega.</p> <br />
+  <p>Fazemos entregas em alguns bairros da cidade do Rio de Janeiro, RJ. Para pedidos maiores, podemos abrir exceção, mas precisamos avaliar individualmente. Se esse for o caso, você pode entrar em <%= link_to "contato conosco", new_contact_path %>.</p>
+  <p>Veja a lista de bairros:
+    <% Suburb.all.each_with_index do |suburb, index| %>
+      <% if index == Suburb.all.size - 1 %>
+        <%= "#{suburb.name}." %>
+      <% else %>
+        <%= "#{suburb.name}, " %>
+      <% end %>
+    <% end %>
+  </p>
+  <br />
+  <p><strong>Quanto tempo leva para receber meu pedido?</strong></p>
+  <p>Levamos até 7 dias corridos para preparar os seus produtos e realizar a entrega. Caso você faça um pedido grande, com mais de 7 kokedamas/terrários, ou haja falta de insumos no momento da compra, entraremos em contato para combinar uma nova data de entrega. Fique tranquilo: se não houver acordo em relação ao novo prazo, nós fazemos o estorno do valor da compra.</p> <br />
+
   <p><strong>Quanto custa o frete?</strong></p>
-  <p>O frete no nosso site é dinâmico e dependerá da sua localização. Mas fique tranquilo: a informação aparecerá na Cesta de Compras, antes de você finalizar o seu pedido.</p><br />
+  <p>O frete no nosso site é dinâmico e dependerá da sua localização. A informação aparecerá na Cesta de Compras, antes de você finalizar o seu pedido.</p>
+  <p>Veja os preços praticados atualmente por bairro:
+  <% Suburb.all.each_with_index do |suburb, index| %>
+      <% if index == Suburb.all.size - 1 %>
+        <%= "#{suburb.name} - (R$ #{suburb.shipping_price})." %>
+      <% else %>
+        <%= "#{suburb.name} - (R$ #{suburb.shipping_price}), " %>
+      <% end %>
+    <% end %>
+  </p>
+  <br />
+
+  <p><strong>Se optar por pegar os produtos na Nufiu (Gávea), preciso pagar frete?</strong></p>
+  <p>Não. Você poderá fazer essa opção na última etapa da Cesta de Compras, antes do pagamento. Se selecionar que quer pegar os produtos, você economiza o valor total do frete.</p><br />
+
   <p><strong>Como é feito o envio?</strong></p>
-  <p>Produtos como kokedamas e terrários são sensíveis. Por isso, não enviamos estes produtos por correio. Nossa entrega é feita pessoalmente, em horário combinado com o cliente.</p>
+  <p>Produtos como kokedamas e terrários são sensíveis. Por isso, não enviamos estes produtos por correio. Nossa entrega é feita pessoalmente, em horário combinado com o cliente.</p><br />
+
+  <p><strong>Não estarei em casa para receber. E agora?</strong></p>
+  <p>Nós geralmente combinamos um dia/horário em que você possa receber. Se for melhor, também podemos deixar em portarias ou casa de vizinhos.</p>
 </div>

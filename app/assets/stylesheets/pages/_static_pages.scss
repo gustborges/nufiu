@@ -9,11 +9,17 @@
   }
 }
 
+.static-page-body-nonflex {
+  width: 80%;
+  margin: 4em 4em;
+  margin-bottom: 4em;
+}
+
 @media screen and (min-width: 900px){
   .static-page-body {
     display: flex;
     .static-page-image {
-      margin-right: 2em;  
+      margin-right: 2em;
     }
   }
 }

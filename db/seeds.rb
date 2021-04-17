@@ -553,7 +553,7 @@ dracena_compacta.save!
 
 
 filodendro = Plant.create!(
-  name: "Filodendro/Guaimbê",
+  name: "Filodendro (Guaimbê)",
   scientific_name: "Philodendron bipinnatifidum",
   description: "Essa planta tem uma folhagem muito exuberante, de linhas orgânicas bem características, cheias de recortes. O melhor é que ela se adapta muito bem a ambientes internos.
 De uma maneira geral, plantas de cor verde bem escuro se desenvolvem bem à meia sombra; por isso, são perfeitas para quem mora em apartamento onde não bate tanto sol direto

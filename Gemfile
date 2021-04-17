@@ -43,7 +43,10 @@ gem 'stripe'
 gem 'stripe_event'
 gem 'letter_opener', group: :development
 gem 'postmark-rails'
-gem 'mail_form'
+
+# For VsCode
+gem 'solargraph', group: :development
+gem 'rubocop', group: :development
 
 group :development, :test do
   gem 'pry-byebug'

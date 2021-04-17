@@ -113,3 +113,33 @@
   margin: 4em 4em;
 }
 
+@media screen and (max-width: 520px) {
+  .cart-plant-img {
+    width: 50px;
+    height: 50px;
+    img {
+      min-height: 50px;
+      min-width: 50px;
+    }
+  }
+  .cart-plant-info {
+    padding-left: 0;
+    #cart-plant-name {
+      font-size: 1em;
+    }
+  }
+  .cart-total {
+  p {
+    font-size: 1.6em;
+   }
+  }
+  .cart-plant-edit {
+  p {
+    font-size: 1em;
+    }
+  }
+  .cart-plant-price {
+    font-size: 1em;
+  }
+}
+
