@@ -1,5 +1,4 @@
 class CartMailer < ApplicationMailer
-
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -9,7 +8,7 @@ class CartMailer < ApplicationMailer
   def payment_confirmation(cart)
     @cart = cart
     @user = @cart.user
-    
-    mail(to: @user.email, subject: "Recebemos o seu pagamento")
+
+    mail(to: @user.email, subject: 'Recebemos o seu pagamento')
   end
 end

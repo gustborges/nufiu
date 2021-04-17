@@ -2,7 +2,7 @@
   overflow-y: hidden;
 }
 
-nav { 
+nav {
   position: fixed;
   top: 0;
   width: 100%;
@@ -21,10 +21,10 @@ nav {
   .navlinks {
     display: flex;
     justify-content: space-around;
-    align-items: center; 
+    align-items: center;
     width: 50%;
     margin-bottom: 0;
-    a { 
+    a {
       text-decoration: none;
       color: $light-black;
       font-weight: bold;
@@ -47,7 +47,7 @@ nav {
   }
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
   nav {
     .navlinks {
       width: 70%;
@@ -55,7 +55,7 @@ nav {
   }
 }
 
-@media screen and (max-width:768px){
+@media screen and (max-width: 768px) {
   body {
     overflow-x: hidden;
   }
@@ -128,14 +128,14 @@ nav {
   }
 }
 
-.toggle .line1{
+.toggle .line1 {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
 
-.toggle .line2{
+.toggle .line2 {
   opacity: 0;
 }
 
-.toggle .line3{
+.toggle .line3 {
   transform: rotate(45deg) translate(-5px, -6px);
 }

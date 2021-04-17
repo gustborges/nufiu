@@ -1,5 +1,5 @@
 class RenameColumnFromPlants < ActiveRecord::Migration[6.0]
-   def self.up
+  def self.up
     rename_column :plants, :light_id, :sun_id
   end
 

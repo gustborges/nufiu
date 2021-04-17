@@ -14,23 +14,22 @@ class ContactsController < ApplicationController
     @contact = Contact.new
     authorize @contact
   end
-  
+
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
       redirect_to contact_path(@contact)
       authorize @contact
-      mail = ContactMailer.with(contact: @contact).send_message(@contact).deliver_now
+      mail =
+        ContactMailer.with(contact: @contact).send_message(@contact).deliver_now
     else
       render :new
     end
   end
-  
+
   private
 
   def contact_params
     params.require(:contact).permit(:subject, :message, :name, :email, :phone)
   end
-
-
 end

@@ -1,16 +1,25 @@
 ---
 include:
-- "**/*.rb"
+  - "app/*.rb"
 exclude:
-- spec/**/*
-- test/**/*
-- vendor/**/*
-- ".bundle/**/*"
-require: []
+  - spec/**/*
+  - test/**/*
+  - vendor/**/*
+  - ".bundle/**/*"
+require:
+  - actioncable
+  - actionmailer
+  - actionpack
+  - actionview
+  - activejob
+  - activemodel
+  - activerecord
+  - activestorage
+  - activesupport
 domains: []
 reporters:
-- rubocop
-- require_not_found
+  - rubocop
+  - require_not_found
 formatter:
   rubocop:
     cops: safe

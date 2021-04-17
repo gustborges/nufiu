@@ -1,5 +1,5 @@
 class RenameLights < ActiveRecord::Migration[6.0]
- def self.up
+  def self.up
     rename_table :lights, :suns
   end
 

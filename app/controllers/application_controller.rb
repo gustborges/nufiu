@@ -19,7 +19,21 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :current_password, :address, :address_complement, :suburb_id, :zip_code, :phone, :location_details])
+    devise_parameter_sanitizer.permit(
+      :account_update,
+      keys: %i[
+        name
+        email
+        password
+        current_password
+        address
+        address_complement
+        suburb_id
+        zip_code
+        phone
+        location_details
+      ]
+    )
 
     # For additional in app/views/devise/registrations/edit.html.erb
     # devise_parameter_sanitizer.permit(:account_update, keys: [:name])
@@ -32,11 +46,11 @@ class ApplicationController < ActionController::Base
   end
 
   def storable_location?
-    request.get? && is_navigational_format? && !devise_controller? && !request.xhr?
+    request.get? && is_navigational_format? && !devise_controller? &&
+      !request.xhr?
   end
 
   def store_user_location!
     store_location_for(:user, request.fullpath)
   end
-
 end

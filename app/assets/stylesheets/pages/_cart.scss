@@ -51,8 +51,8 @@
     font-size: 1.2em;
     white-space: nowrap;
     a {
-    text-decoration: none;
-    color: #85c6b6;
+      text-decoration: none;
+      color: #85c6b6;
     }
   }
 }
@@ -77,13 +77,13 @@
 }
 
 #esvaziar {
-    margin-bottom: 2em;
-    text-align: center;
-    a {
-      text-decoration: none;
-      color: $green;
-    }
+  margin-bottom: 2em;
+  text-align: center;
+  a {
+    text-decoration: none;
+    color: $green;
   }
+}
 
 .cart-buttons {
   display: flex;
@@ -129,17 +129,16 @@
     }
   }
   .cart-total {
-  p {
-    font-size: 1.6em;
-   }
+    p {
+      font-size: 1.6em;
+    }
   }
   .cart-plant-edit {
-  p {
-    font-size: 1em;
+    p {
+      font-size: 1em;
     }
   }
   .cart-plant-price {
     font-size: 1em;
   }
 }
-

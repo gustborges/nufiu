@@ -6,7 +6,11 @@
   color: $light_black;
 }
 
-.left-side-menu, .right-side-menu, .social-media-menu, .copyright, .terms {
+.left-side-menu,
+.right-side-menu,
+.social-media-menu,
+.copyright,
+.terms {
   padding: 0 2em;
   text-align: center;
   list-style-type: none;
@@ -69,7 +73,6 @@
   line-height: 1em;
 }
 
-
 .terms {
   display: flex;
   justify-content: center;
@@ -83,6 +86,6 @@
 
 @media (min-width: 768px) {
   .right-side-menu {
-  border-left: 0.5px solid #bfb8af;
+    border-left: 0.5px solid #bfb8af;
   }
 }

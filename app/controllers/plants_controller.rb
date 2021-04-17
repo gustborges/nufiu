@@ -1,21 +1,37 @@
 class PlantsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :plant_find, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :plant_find, only: %i[show edit update destroy]
 
   def index
     @cart = Cart.find(current_user.cart_ids) if !current_user.nil?
-    @pet_friendly = params[:filter_pet_friendly] == "1" ? true : false
+    @pet_friendly = params[:filter_pet_friendly] == '1' ? true : false
     @sun = params[:filter_by_sun] ? true : false
     @water = params[:filter_by_water] ? true : false
     @plants = policy_scope(Plant).includes(:sun, :water_period)
 
-    @plants = @plants.where(pet_friendly: true, suns: { amount: params[:filter_by_sun] }) if @pet_friendly && @sun && @water
-    @plants = @plants.where(pet_friendly: true, suns: { amount: params[:filter_by_sun] }) if @pet_friendly && @sun
+    @plants =
+      @plants.where(
+        pet_friendly: true,
+        suns: {
+          amount: params[:filter_by_sun]
+        }
+      ) if @pet_friendly && @sun && @water
+    @plants =
+      @plants.where(
+        pet_friendly: true,
+        suns: {
+          amount: params[:filter_by_sun]
+        }
+      ) if @pet_friendly && @sun
     @plants = @plants.where(pet_friendly: true) if @pet_friendly
     @plants = @plants.where(suns: { amount: params[:filter_by_sun] }) if @sun
-    @plants = @plants.where(water_periods: { amount: params[:filter_by_water] }) if @water
+    @plants =
+      @plants.where(
+        water_periods: {
+          amount: params[:filter_by_water]
+        }
+      ) if @water
     @plants = policy_scope(@plants)
-
 
     # if params[:filter_by_sun] && params[:filter_pet_friendly]
     #   @plants = policy_scope(Plant).includes(:sun)
@@ -73,6 +89,25 @@ class PlantsController < ApplicationController
   end
 
   def plant_params
-    params.require(:plant).permit(:name, :scientific_name, :description, :water_level, :water_text, :pet_friendly, :best_seller, :size, :price, :photo, :user_id, :category_id, :sun_id, :water_period_id, :published, :color_ids => [])
+    params
+      .require(:plant)
+      .permit(
+        :name,
+        :scientific_name,
+        :description,
+        :water_level,
+        :water_text,
+        :pet_friendly,
+        :best_seller,
+        :size,
+        :price,
+        :photo,
+        :user_id,
+        :category_id,
+        :sun_id,
+        :water_period_id,
+        :published,
+        color_ids: []
+      )
   end
 end

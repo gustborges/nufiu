@@ -3,10 +3,11 @@
   margin: 4em 3em 0 3em;
 }
 
-.order-col1, .order-col2 {
+.order-col1,
+.order-col2 {
   margin-bottom: 3em;
   padding: 2em 2em;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   a {
     padding-bottom: 1em;
     color: $green;
@@ -19,7 +20,6 @@
   .order-col-title2 {
     color: $green;
   }
-  
 }
 
 .order-pay {
@@ -28,4 +28,3 @@
   padding: 0;
   display: block;
 }
-

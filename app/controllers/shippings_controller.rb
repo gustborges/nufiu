@@ -1,5 +1,5 @@
 class ShippingsController < ApplicationController
-  before_action :find_shipping, only: [:create, :update]
+  before_action :find_shipping, only: %i[create update]
 
   def new
     @shipping = Shipping.new
@@ -15,7 +15,8 @@ class ShippingsController < ApplicationController
   def update
     authorize @shipping
     if @shipping.update(shipping_params)
-      redirect_back fallback_location: new_cart_payment_path(@shipping.user.carts.last)
+      redirect_back fallback_location:
+                      new_cart_payment_path(@shipping.user.carts.last)
     end
   end
 
@@ -26,7 +27,15 @@ class ShippingsController < ApplicationController
   end
 
   def shipping_params
-    params.require(:shipping).permit(:address, :address_complement, :location_details, :zip_code, :suburb_id, :pick_up)
+    params
+      .require(:shipping)
+      .permit(
+        :address,
+        :address_complement,
+        :location_details,
+        :zip_code,
+        :suburb_id,
+        :pick_up
+      )
   end
-
 end

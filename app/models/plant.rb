@@ -19,5 +19,4 @@ class Plant < ApplicationRecord
   def water_amount
     water_period.amount
   end
-
 end

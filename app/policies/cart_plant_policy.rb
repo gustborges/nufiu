@@ -18,8 +18,8 @@ class CartPlantPolicy < ApplicationPolicy
   end
 
   private
+
   def user_is_owner_or_admin?
     (record.cart.user == user) || user.admin
   end
-
 end
