@@ -14,9 +14,10 @@
 
 <div class="row justify-content-end mt-5 mr-5 mb-0">
   <% if !current_user.nil? && current_user.admin %>
-    <%= link_to "Adicionar itens", new_plant_path, class: "green-button" %>
-  <% end %></div>
+    <%= link_to "Adicionar itens" , new_plant_path, class: "green-button" %>
+      <% end %>
+</div>
 
-<div class="row justify-content-center add-margins-home">
+<div class="index-plants row justify-content-center add-margins-home">
   <%= render partial: 'plant' %>
 </div>

@@ -1,42 +1,43 @@
-<nav class="navbar-container"> 
+<nav class="navbar-container">
   <%= link_to root_path, class: "logo" do %>
-      <%= image_tag "logo.jpg", alt: "Nufiu Jardinagem"%>
-  <% end %>
+    <%=
+      cl_image_tag "https://res.cloudinary.com/gustborges/image/upload/v1618697536/nufiu/logo_nufiu_transparent_blnzjp.png", alt: "Nufiu Jardinagem" %>
+      <% end %>
 
-  <ul class="navlinks">
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "Minha Conta", edit_user_registration_path %> | <%= link_to "Sair", destroy_user_session_path, method: :delete %>
-      </li>     
-    <% else %>
-      <li>
-        <%= link_to "Entrar", new_user_session_path %>
-      </li>  
-    <% end %>  
-    <li>
-      <%= link_to "Sobre a Nufiu", sobre_path %>
-    </li>
-    <li>
-      <%= link_to "Workshops", workshop_path %>
-    </li>
-    <li>
-      <%= link_to "Contato", new_contact_path %>
-    </li>
+        <ul class="navlinks">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "Minha Conta" , edit_user_registration_path %> | <%= link_to "Sair" ,
+                  destroy_user_session_path, method: :delete %>
+            </li>
+            <% else %>
+              <li>
+                <%= link_to "Entrar" , new_user_session_path %>
+              </li>
+              <% end %>
+                <li>
+                  <%= link_to "Sobre a Nufiu" , sobre_path %>
+                </li>
+                <li>
+                  <%= link_to "Workshops" , workshop_path %>
+                </li>
+                <li>
+                  <%= link_to "Contato" , new_contact_path %>
+                </li>
 
-    <% if current_user && !current_user.carts.empty? %>
-      <li class="navbar-cart">
-        <%= link_to cart_path(current_user.carts.last) do %>
-          <i class='fas fa-shopping-basket'></i>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-  <div class="burger">
-    <div class="line1"></div>
-    <div class="line2"></div>
-    <div class="line3"></div>
-  </div>
+                <% if current_user && !current_user.carts.empty? %>
+                  <li class="navbar-cart">
+                    <%= link_to cart_path(current_user.carts.last) do %>
+                      <i class='fas fa-shopping-basket'></i>
+                      <% end %>
+                  </li>
+                  <% end %>
+        </ul>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
 </nav>
 
 <%= javascript_pack_tag 'navbar_slider' %>
-

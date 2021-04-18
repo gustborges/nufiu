@@ -5,10 +5,8 @@ class CartPlantsController < ApplicationController
     plant = policy_scope(Plant).find(params[:plant_id])
 
     # If there's no opened cart, create it
-    if Cart.find_by(user_id: current_user.id).nil? ||
-         current_user.carts.last.state == 'closed'
-      @cart =
-        Cart.new(user: current_user, state: 'pending', amount: plant.price)
+    if Cart.find_by(user_id: current_user.id).nil? || current_user.carts.last.state == 'closed'
+      @cart = Cart.new(user: current_user, state: 'pending', amount: plant.price)
       authorize @cart
     else
       @cart = current_user.carts.last
@@ -23,21 +21,16 @@ class CartPlantsController < ApplicationController
       @existing_cart_plant.amount += 1
       authorize @existing_cart_plant
       @existing_cart_plant.save
-      if @cart.save
-        redirect_to cart_path(@cart)
-      else
-        redirect_to plant_path(params[:plant_id])
-      end
     else
       @cart_plant =
         CartPlant.new(cart: @cart, plant_id: params[:plant_id], amount: 1)
       authorize @cart_plant
       @cart_plant.save
-      if @cart.save
-        redirect_to cart_path(@cart)
-      else
-        redirect_to plant_path(params[:plant_id])
-      end
+    end
+    if @cart.save
+      redirect_to cart_path(@cart)
+    else
+      redirect_to plant_path(params[:plant_id])
     end
   end
 

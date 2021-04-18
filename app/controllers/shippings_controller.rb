@@ -15,8 +15,7 @@ class ShippingsController < ApplicationController
   def update
     authorize @shipping
     if @shipping.update(shipping_params)
-      redirect_back fallback_location:
-                      new_cart_payment_path(@shipping.user.carts.last)
+      redirect_back fallback_location: new_cart_payment_path(@shipping.user.carts.last)
     end
   end
 

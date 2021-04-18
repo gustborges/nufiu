@@ -7,7 +7,7 @@ class CartsController < ApplicationController
 
   def show
     # Get cart_plants to be shown in cart
-    @cart_plants = @cart.cart_plants
+    @cart_plants = @cart.cart_plants.includes(:plant).order(Arel.sql('plants.name'))
 
     # Sum them up and show the total bill
     @total_bill = []
@@ -30,9 +30,7 @@ class CartsController < ApplicationController
   def thanks
     @cart = policy_scope(Cart).where(user: current_user).find(params[:cart_id])
     sleep(3)
-    if @cart.state == 'paid'
-      CartMailer.with(cart: @cart).payment_confirmation(@cart).deliver_now
-    end
+    CartMailer.with(cart: @cart).payment_confirmation(@cart).deliver_now if @cart.state == 'paid'
   end
 
   private

@@ -104,3 +104,12 @@
 //   [type="checkbox"]:not(:checked):focus + label:before {
 //     box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 6px rgba(1, 171, 131, .2);
 //   }
+
+@media screen and (max-width: 520px) {
+  .add-margins {
+    margin-left: 3em;
+  }
+  .form-container {
+    padding-left: 3em;
+  }
+}

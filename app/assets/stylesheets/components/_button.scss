@@ -5,10 +5,13 @@
   background-color: $green;
   color: white;
   border: none;
+  border-radius: 2px;
   text-decoration: none;
   &:hover {
     background-color: #029a75;
     color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
   }
 }
 

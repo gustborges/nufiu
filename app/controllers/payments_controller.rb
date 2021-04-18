@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
     @cart = policy_scope(Cart).where(user: current_user).find(params[:cart_id])
     @user = current_user
     if @user.shipping.nil?
-      @user.suburb.nil? ? @suburb = Suburb.first : @suburb = @user.suburb
+      @suburb = @user.suburb
       @shipping =
         Shipping.create!(
           suburb: @suburb,
@@ -22,7 +22,7 @@ class PaymentsController < ApplicationController
     end
 
     @shipping_price =
-      @shipping.pick_up ? 0 : (@user.shipping.suburb.shipping_price * 100)
+      @shipping.pick_up || @shipping.suburb.nil? ? 0 : (@user.shipping.suburb.shipping_price * 100)
 
     session =
       Stripe::Checkout::Session.create(
