@@ -1,3 +1,4 @@
+.static-page-body-with-image,
 .static-page-body {
   width: 80%;
   margin: 4em 4em;
@@ -15,8 +16,17 @@
   margin-bottom: 4em;
 }
 
+@media screen and (max-width: 520px) {
+  .static-page-body,
+  .static-page-body-nonflex,
+  .static-page-body-with-image {
+    margin-left: 3em;
+    margin-right: 3em;
+  }
+}
+
 @media screen and (min-width: 900px) {
-  .static-page-body {
+  .static-page-body-with-image {
     display: flex;
     .static-page-image {
       margin-right: 2em;
