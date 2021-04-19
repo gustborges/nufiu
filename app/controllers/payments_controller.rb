@@ -13,13 +13,14 @@ class PaymentsController < ApplicationController
           address: @user.address,
           address_complement: @user.address_complement,
           zip_code: @user.zip_code,
-          location_details: @user.location_details
+          location_details: @user.location_details,
+          pick_up: false
         )
-      authorize @shipping
-      @shipping.save
     else
       @shipping = current_user.shipping
     end
+    authorize @shipping
+    @shipping.save
 
     @shipping_price =
       @shipping.pick_up || @shipping.suburb.nil? ? 0 : (@user.shipping.suburb.shipping_price * 100)
