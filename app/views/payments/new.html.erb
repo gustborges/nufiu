@@ -7,42 +7,48 @@
 <div class="row orders">
   <div class="col-12 col-md-7 order-col2">
     <h6 class="order-col-title2"><strong>Dados para entrega</strong></h6>
-     <%= simple_form_for @shipping, html: { method: :put }, :onchange => 'this.form.submit()' do |f| %>
-      <%= f.association :suburb, label: "Bairro", hint: "Entregamos apenas nos bairros listados", label_method: :name %>
-      <%= f.input :address, label: "Endereço", required: true %>
-      <%= f.input :address_complement, label: "Complemento do Endereço", hint: "Apartamento, casa, bloco", required: true %>
-      <%= f.input :zip_code, label: "CEP", placeholder: "00000-00", required: true %>
-      <%= f.input :location_details, label: "Referência", placeholder: "Próximo a..." %>
-      <%= f.input :pick_up, label: "Pegar na Gávea e economizar frete", as: :boolean %>
-      <%= f.button :submit, "Confirmar", class: "green-button" %>
-    <% end %>
+    <%= simple_form_for @shipping, html: { method: :put }, :onchange=> 'this.form.submit()' do |f| %>
+      <%= f.association :suburb, label: "Bairro" , hint: "Entregamos apenas nos bairros listados" , label_method: :name
+        %>
+        <%= f.input :address, label: "Endereço" , required: true %>
+          <%= f.input :address_complement, label: "Complemento do Endereço" , hint: "Apartamento, casa, bloco" ,
+            required: true %>
+            <%= f.input :zip_code, label: "CEP" , placeholder: "00000-00" , required: true %>
+              <%= f.input :location_details, label: "Referência" , placeholder: "Próximo a..." %>
+                <%= f.input :pick_up, label: "Pegar na Gávea e economizar frete" , as: :boolean %>
+                  <%= f.button :submit, "Confirmar" , class: "green-button" %>
+                    <% end %>
   </div>
   <div class="col-1 m-0 p-0"></div>
   <div class="col-12 col-md-4 order-col1">
     <h6 class="order-col-title1"><strong>Seu pedido</strong></h6>
-    <% current_user.carts.last.cart_plants.each do |cart_plant| %>
-      <p><%= cart_plant.amount %> x <%= cart_plant.plant.name %> = R$ <%= cart_plant.plant.price * cart_plant.amount %></p>
-    <% end %>
-    <% if @shipping.pick_up == false %>
-      <p>Frete<%= (" para " + @shipping.suburb.name) if @shipping.suburb %>: R$ <%= @shipping.suburb.nil? ? "Aguardando endereço" : @shipping_price/100 %> </p>
-    <% end %>
-    <hr>
-    <p><strong>Total: R$ <%= (@cart.amount + @shipping_price) / 100 %></strong></p>
+    <% @cart.cart_plants.each do |cart_plant| %>
+      <p>
+        <%= cart_plant.amount %> x <%= cart_plant.plant.name %> = R$ <%= cart_plant.plant.price * cart_plant.amount %>
+      </p>
+      <% end %>
+        <% if @shipping.pick_up==false %>
+          <p>Frete<%= (" para " + @shipping.suburb.name) if @shipping.suburb %>: R$ <%= @shipping.suburb.nil? ? "
+              Aguardando endereço" : @shipping_price/100 %>
+          </p>
+          <% end %>
+            <hr>
+            <p><strong>Total: R$ <%= (@cart.amount + @shipping_price) / 100 %></strong></p>
   </div>
 </div>
 <div class="row order-pay">
   <div class="col-12">
-      <button id="pay" class="green-button">Ir para pagamento</button>
+    <button id="pay" class="green-button">Ir para pagamento</button>
 
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @cart.checkout_session_id %>'
-          });
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      const paymentButton = document.getElementById('pay');
+      paymentButton.addEventListener('click', () => {
+        const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+        stripe.redirectToCheckout({
+          sessionId: '<%= @cart.checkout_session_id %>'
         });
-      </script>
+      });
+    </script>
   </div>
 </div>

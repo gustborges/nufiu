@@ -2,42 +2,24 @@
 # frozen_string_literal: true
 
 class CartsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :show
   skip_after_action :verify_authorized, only: :thanks
-  before_action :cart_find, only: %i[show create update update_shipping_price]
 
   def show
-    # Get cart_plants to be shown in cart
     @cart_plants = @cart.cart_plants.includes(:plant).order(Arel.sql('plants.name'))
-
-    # Sum them up and show the total bill
-    @total_bill = []
-    @cart.cart_plants.each do |cart_plant|
-      @total_bill << (cart_plant.plant.price * cart_plant.amount)
+    @total_bill = @cart.cart_plants.map do |cart_plant|
+      cart_plant.plant.price * cart_plant.amount
     end
-    @cart.amount = @total_bill.sum.to_i * 100
-
-    # Authorize if user is the same that created it
     authorize @cart
+    @cart.amount = @total_bill.sum.to_i * 100
     @cart.save
   end
 
-  def update
-    authorize @cart
-    @cart.status = 'closed'
-    @cart.save ? (redirect_to cart_path(@cart)) : (render :show)
-  end
-
   def thanks
-    @cart = policy_scope(Cart).where(user: current_user).find(params[:cart_id])
-    sleep(3)
     CartMailer.with(cart: @cart).payment_confirmation(@cart).deliver_now if @cart.state == 'paid'
   end
 
   private
-
-  def cart_find
-    @cart = Cart.find(params[:id])
-  end
 
   def cart_params
     params

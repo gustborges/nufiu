@@ -1,8 +1,11 @@
 class PaymentsController < ApplicationController
-  skip_before_action :authenticate_user!
-
   def new
-    @cart = policy_scope(Cart).where(user: current_user).find(params[:cart_id])
+    transfer_guest_cart_to_user
+    set_shipping_address_and_price
+    go_to_payment
+  end
+
+  def set_shipping_address_and_price
     @user = current_user
     if @user.shipping.nil?
       @suburb = @user.suburb
@@ -24,7 +27,27 @@ class PaymentsController < ApplicationController
 
     @shipping_price =
       @shipping.pick_up || @shipping.suburb.nil? ? 0 : (@user.shipping.suburb.shipping_price * 100)
+  end
 
+  def transfer_guest_cart_to_user
+    if session[:cart]
+      guest_cart = Cart.find(session[:cart])
+      guest_cart.cart_plants.each do |cart_plant|
+        CartPlant.create(
+          cart_id: session[:cart_id],
+          plant_id: cart_plant.plant,
+          amount: cart_plant.amount
+        )
+      end
+      guest_cart.user_id = current_user.id
+      guest_cart.save
+      # CartPlant.where(cart_id: guest_cart.id).delete_all
+      # guest_cart.destroy
+      # session[:cart] = nil
+    end
+  end
+
+  def go_to_payment
     session =
       Stripe::Checkout::Session.create(
         payment_method_types: ['card'],

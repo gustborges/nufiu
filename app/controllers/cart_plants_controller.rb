@@ -1,19 +1,7 @@
 class CartPlantsController < ApplicationController
-  before_action :cart_plants_find, only: %i[edit destroy]
+  skip_before_action :authenticate_user!
 
   def create
-    plant = policy_scope(Plant).find(params[:plant_id])
-
-    # If there's no opened cart, create it
-    if Cart.find_by(user_id: current_user.id).nil? || current_user.carts.last.state == 'closed'
-      @cart = Cart.new(user: current_user, state: 'pending', amount: plant.price)
-      authorize @cart
-    else
-      @cart = current_user.carts.last
-    end
-    @cart.save
-
-    # If cart_plant exists, add 1. If not, create another one.
     @existing_cart_plant =
       @cart.cart_plants.find_by(plant_id: params[:plant_id])
 
@@ -34,10 +22,8 @@ class CartPlantsController < ApplicationController
     end
   end
 
-  def edit; end
-
   def update
-    @cart = Cart.find(params[:id])
+    # @cart = Cart.find(params[:id])
     @cart_plant = @cart.cart_plants.find_by(plant_id: params[:plant_id])
 
     if params[:fix_amount] == 'reduce'
@@ -60,15 +46,9 @@ class CartPlantsController < ApplicationController
     redirect_to cart_path(@cart_plant.cart)
   end
 
-  def destroy
-    @cart_plant.destroy
-    redirect_to cart_path(@cart_plant.cart)
-  end
-
   def delete_all
-    cart = Cart.find(params[:cart_id])
-    authorize cart
-    cart.cart_plants.destroy_all
+    @cart.cart_plants.destroy_all
+    authorize @cart
     respond_to do |format|
       format.html { redirect_to cart_path(params[:cart_id]) }
       format.json { head :no_content }
@@ -77,11 +57,7 @@ class CartPlantsController < ApplicationController
 
   private
 
-  def cart_plants_find
-    @cart_plant = CartPlant.find(params[:id])
-  end
-
   def cart_plants_params
-    params.require(:cart_plant).permit(:plant_id)
+    params.require(:cart_plant).permit(:plant_id, :amount)
   end
 end

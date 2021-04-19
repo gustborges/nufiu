@@ -25,7 +25,7 @@ Rails
         resources :cart_plants, only: [:destroy] do
           collection { delete 'delete_all' }
         end
-        resources :payments, path: 'pagar', only: [:new]
+        resources :payments, path: 'pagar', only: :new
         get 'obrigada', to: 'carts#thanks'
       end
       mount StripeEvent::Engine, at: '/stripe-webhooks'

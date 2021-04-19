@@ -6,7 +6,7 @@ class PaymentPolicy < ApplicationPolicy
   end
 
   def new?
-    user_is_owner_or_admin?
+    true
   end
 
   private

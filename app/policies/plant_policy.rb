@@ -5,12 +5,12 @@ class PlantPolicy < ApplicationPolicy
     end
   end
 
-  def create?
-    user_is_owner_or_admin?
-  end
-
   def show?
     true
+  end
+
+  def create?
+    user_is_owner_or_admin?
   end
 
   def update?

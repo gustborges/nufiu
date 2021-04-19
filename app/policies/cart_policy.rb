@@ -5,11 +5,15 @@ class CartPolicy < ApplicationPolicy
     end
   end
 
-  def create?
-    user_is_owner_or_admin?
+  def show?
+    true
   end
 
-  def show?
+  def new?
+    true
+  end
+
+  def create?
     user_is_owner_or_admin?
   end
 
@@ -17,8 +21,9 @@ class CartPolicy < ApplicationPolicy
     user_is_owner_or_admin?
   end
 
+  # check if it's needed
   def delete_all?
-    user_is_owner_or_admin?
+    true
   end
 
   private

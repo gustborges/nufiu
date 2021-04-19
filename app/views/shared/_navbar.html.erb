@@ -24,14 +24,12 @@
                 <li>
                   <%= link_to "Contato" , new_contact_path %>
                 </li>
-
-                <% if current_user && !current_user.carts.empty? %>
                   <li class="navbar-cart">
-                    <%= link_to cart_path(current_user.carts.last) do %>
+                    <%= link_to cart_path(@cart) do %>
                       <i class='fas fa-shopping-basket'></i>
                       <% end %>
                   </li>
-                  <% end %>
+                
         </ul>
         <div class="burger">
           <div class="line1"></div>

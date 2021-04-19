@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :current_cart
   before_action :store_user_location!, if: :storable_location?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -37,6 +38,18 @@ class ApplicationController < ActionController::Base
 
     # For additional in app/views/devise/registrations/edit.html.erb
     # devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+  end
+
+  def current_cart
+    if user_signed_in?
+      @cart = Cart.find(session[:cart]).cart_plants.empty? ? current_user.carts.last : Cart.find(session[:cart])
+    elsif session[:cart]
+      @cart = Cart.find(session[:cart])
+    else
+      @cart = Cart.create
+      session[:cart] = @cart.id
+      @cart.save
+    end
   end
 
   private
