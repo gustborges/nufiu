@@ -14,7 +14,7 @@
           </h5>
           <h5 class="card-price">R$ <%= plant.price.ceil %>
           </h5>
-          <% if current_user.admin %>
+          <% if !current_user.nil? && current_user.admin %>
             <%= link_to "<i class='fas fa-edit'></i>" .html_safe, edit_plant_path(plant) %>
           <% end %>
         </div>
