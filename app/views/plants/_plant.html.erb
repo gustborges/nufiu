@@ -3,16 +3,22 @@
     <div class="plant-card m-0" id="plant">
       <%= link_to plant_path(plant) do %>
         <% if plant.photo.attached? %>
-          <%= cl_image_tag plant.photo.key, class: "card-img", alt: "Kokedama de #{plant.name}", fetch_format: :auto, quality: 'auto' %>
-        <% else %>
-          <%= image_tag "plants/2.png", class: "card-img", alt: "#{plant.name}" %>
-        <% end %>
+          <%= cl_image_tag plant.photo.key, class: "card-img", alt: "Kokedama de #{plant.name}", fetch_format: :auto,
+            quality: 'auto' %>
+          <% else %>
+            alt: "#{plant.name}" %>
+          <% end %>
         <div class="plant-card-text">
-          <h5 class="card-title"><%= plant.name %></h5>
-          <h5 class="card-price">R$ <%= plant.price.ceil %></h5>
+          <h5 class="card-title">
+            <%= plant.name %>
+          </h5>
+          <h5 class="card-price">R$ <%= plant.price.ceil %>
+          </h5>
+          <% if current_user.admin %>
+            <%= link_to "<i class='fas fa-edit'></i>" .html_safe, edit_plant_path(plant) %>
+          <% end %>
         </div>
-      <% end %>
+        <% end %>
     </div>
   </div>
-<% end %>
-
+  <% end %>
