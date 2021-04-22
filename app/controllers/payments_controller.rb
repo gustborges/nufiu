@@ -1,6 +1,11 @@
 class PaymentsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :new
+
   def new
-    transfer_guest_cart_to_user
+    if current_user.nil?
+      authenticate_user!
+      transfer_guest_cart_to_user
+    end
     set_shipping_address_and_price
     go_to_payment
   end

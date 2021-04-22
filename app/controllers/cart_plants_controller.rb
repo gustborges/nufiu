@@ -14,6 +14,7 @@ class CartPlantsController < ApplicationController
       authorize @cart_plant
       @cart_plant.save
     end
+    @cart.user_id = current_user.id if current_user
     if @cart.save
       redirect_to cart_path(@cart)
     else
@@ -22,7 +23,6 @@ class CartPlantsController < ApplicationController
   end
 
   def update
-    # @cart = Cart.find(params[:id])
     @cart_plant = @cart.cart_plants.find_by(plant_id: params[:plant_id])
 
     if params[:fix_amount] == 'reduce'

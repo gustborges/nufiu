@@ -42,13 +42,7 @@ class ApplicationController < ActionController::Base
 
   def current_cart
     if user_signed_in?
-      if session[:cart].nil? || current_user.carts.nil?
-        @cart = Cart.create
-        session[:cart] = @cart.id
-        @cart.save
-      else
-        @cart = Cart.find(session[:cart]).cart_plants.empty? ? current_user.carts.last : Cart.find(session[:cart])
-      end
+      @cart = Cart.find(session[:cart]).cart_plants.empty? ? current_user.carts.last : Cart.find(session[:cart])
     elsif session[:cart]
       @cart = Cart.find(session[:cart])
     else
