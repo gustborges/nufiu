@@ -24,9 +24,11 @@
                   <%= link_to "Contato" , new_contact_path %>
                 </li>
                 <li class="navbar-cart">
-                  <%= link_to cart_path(@cart) do %>
-                    <i class='fas fa-shopping-basket'></i>
+                  <% if @cart %>
+                    <%= link_to cart_path(@cart) do %>
+                      <i class='fas fa-shopping-basket'></i>
                     <% end %>
+                  <% end %>
                 </li>
 
         </ul>
