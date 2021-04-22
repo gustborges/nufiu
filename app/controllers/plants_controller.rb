@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :plant_find, only: %i[show edit update destroy]
+  before_action :plant_find, only: %i[show edit update destroy edit_published]
 
   def index
     # Faceted search
@@ -65,6 +65,19 @@ class PlantsController < ApplicationController
       redirect_to plant_path(@plant)
     else
       render :edit
+    end
+  end
+
+  def edit_published
+    @plant.published = if @plant.published
+                         false
+                       else
+                         true
+                       end
+    @plant.save
+    respond_to do |format|
+      format.html { redirect_to plants_path }
+      format.json { head :no_content }
     end
   end
 

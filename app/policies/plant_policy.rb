@@ -21,6 +21,10 @@ class PlantPolicy < ApplicationPolicy
     user_is_owner_or_admin?
   end
 
+  def edit_published?
+    user_is_owner_or_admin?
+  end
+
   private
 
   def user_is_owner_or_admin?

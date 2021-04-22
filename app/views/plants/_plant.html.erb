@@ -16,7 +16,13 @@
           </h5>
           <% if !current_user.nil? && current_user.admin %>
             <%= link_to "<i class='fas fa-edit'></i>" .html_safe, edit_plant_path(plant) %>
+            <% if plant.published %>
+              <%= link_to "Publicado", edit_published_plant_path(plant), method: :patch %>
+              <% else %>
+                <%= link_to "Não publicado", edit_published_plant_path(plant), method: :patch %>
+              <% end %>
           <% end %>
+         
         </div>
         <% end %>
     </div>

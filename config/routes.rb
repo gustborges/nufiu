@@ -19,6 +19,7 @@ Rails
       resources :contacts, path: 'contato', only: %i[index show new create]
       resources :shippings, only: %i[create update]
       resources :plants, path: 'kokedamas' do
+        patch :edit_published, on: :member
         resources :cart_plants, only: %i[create update]
       end
       resources :carts, path: 'compras', only: %i[show create update] do
