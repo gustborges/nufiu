@@ -2,7 +2,7 @@ class CartPlantsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def create
-    @existing_cart_plant = @cart.cart_plants.find_by(plant_id: params[:plant_id]) if @cart.cart_plants
+    @existing_cart_plant = @cart.cart_plants.find_by(plant_id: params[:plant_id])
 
     if @existing_cart_plant
       @existing_cart_plant.amount += 1
