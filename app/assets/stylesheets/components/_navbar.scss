@@ -1,6 +1,5 @@
 .stop-scrolling {
   overflow-y: hidden;
-  overflow-x: hidden;
 }
 
 nav {
@@ -14,7 +13,7 @@ nav {
   min-height: 8vh;
   transition: transform 0.3s ease;
   .logo img {
-    width: 106.2px;
+    width: 150px;
     margin-left: 1em;
   }
   .navlinks {

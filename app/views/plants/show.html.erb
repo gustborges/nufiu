@@ -25,6 +25,7 @@
       <% if @plant.pet_friendly? %>
         <p> <%= image_tag "icons/pet-friendly.svg", alt: "Pet-friendly", size: '30x30', style: 'margin-right: 10px' %>Pet-friendly </p>
       <% end %>
+      <p> <%= image_tag "icons/ruler.png", alt: "Tamanho", size: '30x30', style: 'margin-right: 10px' %><%= @plant.size %> </p>
     </div>
     <div class="buy-button">
       <%= link_to "Quero comprar", plant_cart_plants_path(@plant.id), method: :post, class: "green-button" %>

@@ -3,7 +3,7 @@ class ContactMailer < ApplicationMailer
     @contact = contact
     mail(
       from: 'gustavo@nufiu.com.br',
-      to: 'maria@nufiu.com.br',
+      to: 'malu@nufiu.com.br',
       subject: "nufiu.com.br: #{@contact.subject}"
     )
   end
