@@ -1,6 +1,6 @@
 <nav class="navbar-container">
   <%= link_to root_path, class: "logo" do %>
-    <%= cl_image_tag "https://res.cloudinary.com/gustborges/image/upload/v1619018429/nufiu/logo_preto_bold_kyh6ra.png", alt: "Nufiu Jardinagem", fetch_format: :auto, quality: 'auto' %>
+    <%= cl_image_tag "https://res.cloudinary.com/gustborges/image/upload/v1619018429/nufiu/logo_preto_bold_kyh6ra.png", alt: "Nufiu Jardinagem", fetch_format: :auto, quality: 'auto', width: 130, crop: "scale" %>
   <% end %>
   <ul class="navlinks">
     <% if user_signed_in? %>

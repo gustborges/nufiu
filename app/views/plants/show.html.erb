@@ -1,7 +1,11 @@
+<% content_for :meta_title, "Kokedama de #{@plant.name} em Nufiu" %>
+<% content_for :meta_description, @plant.description %>
+<% content_for :meta_image, cl_image_path(@plant.photo.key) %>
+
 <div class="row">
   <div class="col-12 col-md-6 plant-photo">
     <% if @plant.photo.attached? %>
-      <%= cl_image_tag @plant.photo.key, alt: "Kokedama de #{@plant.name}", fetch_format: :auto, quality: 'auto' %>
+      <%= cl_image_tag @plant.photo.key, alt: "Kokedama de #{@plant.name}", fetch_format: :auto, quality: 'auto', width: :auto, crop: 'scale', responsive: true %>
     <% else %>
       <%= image_tag "plants/2.png", alt: "Kokedama de #{@plant.name}", fetch_format: :auto, quality: 'auto' %>
     <% end %>
@@ -19,13 +23,13 @@
     <p class="plant-description"><%= @plant.description %></p>
     <div class="plant-profile">
       <% if @plant.sun != nil %>
-        <p><%= image_tag "icons/sun.svg", alt: "Iluminação", size: '30x30', style: 'margin-right: 10px' %><%= @plant.sun.amount %></p>
+        <p><%= image_tag "icons/sun.svg", alt: "Iluminação", width: 30, height: 30, style: 'margin-right: 10px', fetch_format: :auto, quality: 'auto' %><%= @plant.sun.amount %></p>
       <% end %>
-      <p><%= image_tag "icons/two-drops.svg", alt: "Rega", size: '30x30', style: 'margin-right: 10px' %><%= @plant.water_text %></p>
+      <p><%= image_tag "icons/two-drops.svg", alt: "Rega", size: '30x30', style: 'margin-right: 10px', fetch_format: :auto, quality: 'auto' %><%= @plant.water_text %></p>
       <% if @plant.pet_friendly? %>
         <p> <%= image_tag "icons/pet-friendly.svg", alt: "Pet-friendly", size: '30x30', style: 'margin-right: 10px' %>Pet-friendly </p>
       <% end %>
-      <p> <%= image_tag "icons/ruler.png", alt: "Tamanho", size: '30x30', style: 'margin-right: 10px' %><%= @plant.size %> </p>
+      <p> <%= image_tag "icons/ruler.png", alt: "Tamanho", size: '30x30', style: 'margin-right: 10px', fetch_format: :auto, quality: 'auto' %><%= @plant.size %> </p>
     </div>
     <div class="buy-button">
       <%= link_to "Quero comprar", plant_cart_plants_path(@plant.id), method: :post, class: "green-button" %>

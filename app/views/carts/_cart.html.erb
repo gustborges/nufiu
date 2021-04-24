@@ -2,8 +2,7 @@
   <% @cart_plants.each do |cart_plant| %>
     <div class="row cart-line">
       <div class="col-2 cart-plant-img">
-        <%= cl_image_tag cart_plant.plant.photo.key, alt: "#{cart_plant.plant.name}" , fetch_format: :auto,
-          quality: 'auto' %>
+        <%= cl_image_tag cart_plant.plant.photo.key, alt: "#{cart_plant.plant.name}", fetch_format: :auto, quality: 'auto', width: :auto, crop: 'scale' %>
       </div>
       <div class="col-5 cart-plant-info">
         <p id="cart-plant-name">
