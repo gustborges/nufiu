@@ -11,6 +11,7 @@
       <%= f.association :sun, label: "Luz", label_method: :amount %>
       <%= f.association :water_period, label: "Quantidade de Água", label_method: :amount %>
       <%= f.input :water_text, label: "Descrição da rega", hint: "Ex. Rega a cada 2-4 dias" %>
+      <%= f.input :size, label: "Tamanho", hint: "Ex. Altura média de 20cm" %>
       <%= f.input :photo, label: "Foto", as: :file %>
       <%= f.input :published, label: "Exibir na home?", as: :boolean %>
       <%= f.button :submit, "Concluir", class: "green-button" %>
