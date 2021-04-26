@@ -19,18 +19,11 @@ class CartsController < ApplicationController
     CartMailer.with(cart: @cart).payment_confirmation(@cart).deliver_now if @cart.state == 'paid'
   end
 
-  def comment_cart
-    @cart.comment = params[:comment]
-    authorize @cart
-    @cart.save
-    raise
-  end
-
   private
 
   def cart_params
     params
       .require(:cart)
-      .permit(:user_id, :state, :amount, :checkout_session_id, :plant_sku)
+      .permit(:user_id, :state, :amount, :comment, :checkout_session_id, :plant_sku)
   end
 end
