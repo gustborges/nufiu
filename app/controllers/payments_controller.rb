@@ -46,13 +46,11 @@ class PaymentsController < ApplicationController
       end
       guest_cart.user_id = current_user.id
       guest_cart.save
-      # CartPlant.where(cart_id: guest_cart.id).delete_all
-      # guest_cart.destroy
-      # session[:cart] = nil
     end
   end
 
   def go_to_payment
+    details = @cart.cart_plants.map { |cp| " #{cp.amount} x #{cp.plant.name} (R$#{cp.plant.price}/cada)" }
     session =
       Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
@@ -61,7 +59,8 @@ class PaymentsController < ApplicationController
             name: 'Suas Compras',
             amount: @cart.amount + @shipping_price,
             currency: 'brl',
-            quantity: 1
+            quantity: 1,
+            description: details.join(',')
           }
         ],
         mode: 'payment',

@@ -1,4 +1,4 @@
-Olá, <%= @user.name ? @user.name : @user.email.split('@').first %>! O seu pagamento no site da Nufiu foi confirmado.
+Olá, <%= @user.name ? @user.name.capitalize : @user.email.split('@').first.capitalize %>! O seu pagamento no site da Nufiu foi confirmado.
 
 Produtos Nufiu:
 <% @cart.cart_plants.each do | cart_plant| %>
