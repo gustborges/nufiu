@@ -4,10 +4,14 @@
 </div>
 
 <%= render partial: "cart" %>
-
   <div id="esvaziar">
       <%= link_to "🔥 Esvaziar carrinho", delete_all_cart_cart_plants_path(@cart), method: :delete %>
   </div>
+  <div class="cart-disclaimer">
+    <p><strong>Importante:</strong> Plantas podem variar de tamanhos, formatos, cores e desenhos. Portanto, as imagens do site são apenas ilustrativas.</p>
+    <p><strong>Preferências:</strong> Caso você tenha preferências de cores de fios, você pode enviar uma mensagem para a gente após a sua compra.</p>
+  </div>
+
   <div class="cart-total">
     <p>Total: R$ <%= @cart.amount / 100 %></p> 
   </div>
@@ -15,11 +19,10 @@
   <div class="cart-buttons">
     <div id="pagar">
     <% if !@cart.cart_plants.empty? %>
-      <%= link_to "Finalizar compras", new_cart_payment_path(cart_id: @cart.id), class: "green-button" %>
+      <%= link_to "Finalizar compras", new_cart_payment_path(cart_id: @cart.id), class: "green-button", id: "finalizar-compras" %>
       <% end %>
     </div>
     <div id="continuar-comprando">
       <%= link_to "👈 Continuar comprando", root_path %>
     </div>
   </div>
-

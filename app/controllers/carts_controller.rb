@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 class CartsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: %i[show comment_cart]
   skip_after_action :verify_authorized, only: :thanks
 
   def show
@@ -17,6 +17,13 @@ class CartsController < ApplicationController
 
   def thanks
     CartMailer.with(cart: @cart).payment_confirmation(@cart).deliver_now if @cart.state == 'paid'
+  end
+
+  def comment_cart
+    @cart.comment = params[:comment]
+    authorize @cart
+    @cart.save
+    raise
   end
 
   private
