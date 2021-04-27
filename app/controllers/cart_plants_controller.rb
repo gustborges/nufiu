@@ -26,12 +26,11 @@ class CartPlantsController < ApplicationController
     @cart_plant = @cart.cart_plants.find_by(plant_id: params[:plant_id])
 
     if params[:fix_amount] == 'reduce'
-      # don't know how to do it
       @cart_plant.amount -= 1 if @cart_plant.amount > 0
     elsif params[:fix_amount] == 'add'
-      # don't know how to do it
       @cart_plant.amount += 1
     end
+    @cart_plant.destroy if @cart_plant.amount == 0
     authorize @cart_plant
     @cart_plant.save
 
@@ -43,6 +42,12 @@ class CartPlantsController < ApplicationController
     @cart.amount = @total_bill.sum.to_i
     @cart.save
     redirect_to cart_path(@cart_plant.cart)
+  end
+
+  def destroy
+    @cart = Cart.find(params[:cart_id])
+    @cart_plant = CartPlant.find(cart_plant_params)
+    redirect_to cart_path(@cart) if @cart_plant.destroy
   end
 
   def delete_all
