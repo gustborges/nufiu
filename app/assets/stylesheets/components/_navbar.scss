@@ -16,19 +16,20 @@ nav {
     margin-left: 1.2em;
     margin-top: 1em;
   }
+
   .navlinks {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 50%;
     margin-bottom: 0;
-    a {
-      text-decoration: none;
-      color: $light-black;
-      font-weight: regular;
-    }
     li {
       list-style: none;
+      a {
+        text-decoration: none;
+        color: $light-black;
+        font-weight: regular;
+      }
     }
   }
   .burger {
