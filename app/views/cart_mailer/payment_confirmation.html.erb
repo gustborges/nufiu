@@ -1,25 +1,32 @@
-<p><strong>Olá, <%= @user.name ? @user.name.capitalize : @user.email.split('@').first.capitalize %></strong>! O seu pagamento no site da Nufiu foi confirmado.</p>
+<p><strong>Olá, <%= @user.name ? @user.name.titlecase : @user.email.split('@').first.titlecase %></strong>! O seu pagamento no site da Nufiu foi confirmado.</p>
 
-<p><strong>Produtos Nufiu:</strong></p>
+<p><strong>Produtos adquiridos:</strong></p>
 <% @cart.cart_plants.each do | cart_plant| %>
    <ul>
       <li><%= cart_plant.amount %> x <%= cart_plant.plant.name %> = R$ <%= cart_plant.plant.price * cart_plant.amount %></li>
-    </ul>
 <% end %>
-<% if @user.shipping.pick_up == true %>
-  <p>Frete para <%= @user.shipping.suburb.name %> : R$ <%= @user.shipping.suburb.shipping_price %> </p>
-  <p>Total: R$ <%= (@cart.amount / 100) + @user.shipping.suburb.shipping_price  %></p>
-<% else %>
-  <p>Total: R$ <%= (@cart.amount / 100) %></p>
+    <% if @user.shipping.pick_up == false %>
+      <li>Frete para <%= @user.shipping.suburb.name %> : R$ <%= @user.shipping.suburb.shipping_price %> </li>
+      <li>Total: R$ <%= (@cart.amount / 100) + @user.shipping.suburb.shipping_price  %></li>
+    <% else %>
+      <li>Total: R$ <%= (@cart.amount / 100) %></li>
 <% end %>
+</ul>
 
-<p>Agora, deixa com a gente! Vamos selecionar suas plantinhas e preparar os arranjos com muito carinho. Você também deverá receber um contato nosso em breve para que escolha as cores da amarração de sua kokedama e também para confirmarmos dados de entrega. </p><br />
-
-<p>Aliás, o prazo de entrega pode variar um pouquinho de acordo com a disponibilidade das espécies de plantas que você selecionou, mas vamos fazer o máximo para que elas cheguem ao seu endereço em até 7 dias corridos. </p><br />
-
-<p>Qualquer dúvida, é só responder este e-mail, ok? </p><br />
-
-<p>Até mais!</p>
-<p>Malu Borges</p>
+<p><strong>Endereço de entrega:</strong></p>
+<ul>
+  <li>Endereço: <%= @user.shipping.address %></li>
+  <li>Complemento: <%= @user.shipping.address_complement %></li>
+  <li>Bairro: <%= @user.shipping.suburb.name %></li>
+  <li>CEP: <%= @user.shipping.zip_code %></li>
+  <% if @user.shipping.location_details %>
+    <li>Detalhes adicionais: <%= @user.shipping.location_details %></li>
+  <% end %>
+</ul>
+<p><strong>Se você deseja adicionar algum detalhe</strong>, como escolher uma cor para os fios de sua kokedama, basta responder a esse e-mail com seus comentários.</p>
+<p>Vamos selecionar suas plantinhas e preparar os arranjos com muito carinho. Você também deverá receber um contato nosso em breve para confirmarmos dados de entrega. </p>
+<p>Aliás, o prazo de entrega pode variar um pouquinho de acordo com a disponibilidade das espécies de plantas que você selecionou, mas vamos fazer o máximo para que elas cheguem ao seu endereço em até 7 dias corridos. </p>
+<p>Qualquer dúvida, estamos disponíveis e, mais uma vez, obrigada.</p>
+<p><strong>Malu Borges</strong></p>
 <p>Nufiu Jardinagem</p>
-<p>www.nufiu.com.br</p>
+<p><a href="www.nufiu.com.br">www.nufiu.com.br</a></p>
