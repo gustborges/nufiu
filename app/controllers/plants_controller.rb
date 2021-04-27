@@ -89,7 +89,7 @@ class PlantsController < ApplicationController
   private
 
   def plant_find
-    @plant = Plant.find(params[:id])
+    @plant = Plant.friendly.find(params[:id])
     authorize @plant
   end
 

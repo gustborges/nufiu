@@ -30,8 +30,8 @@ gem 'cloudinary', '~> 1.16.0'
 # Authorization with Pundit
 gem 'pundit'
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
 gem 'autoprefixer-rails'
+gem 'bootsnap', '>= 1.4.2', require: false
 gem 'font-awesome-sass'
 gem 'simple_form'
 
@@ -39,19 +39,20 @@ gem 'simple_form'
 gem 'acts-as-taggable-on', '~> 6.0'
 # gem 'sunspot_rails'
 # gem 'sunspot_solr'
-gem 'stripe'
-gem 'stripe_event'
+gem 'friendly_id', '~> 5.4.0'
 gem 'letter_opener', group: :development
 gem 'postmark-rails'
 gem 'prettier'
+gem 'stripe'
+gem 'stripe_event'
 
 # For VsCode
 gem 'solargraph', group: :development
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'dotenv-rails'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -59,8 +60,8 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
+  gem 'web-console', '>= 3.3.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

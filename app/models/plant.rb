@@ -1,4 +1,6 @@
 class Plant < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
   belongs_to :user
   belongs_to :category
   belongs_to :sun
