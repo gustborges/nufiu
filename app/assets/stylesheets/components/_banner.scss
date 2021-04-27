@@ -1,5 +1,5 @@
 .main-banner {
-  background: url("https://res.cloudinary.com/gustborges/image/upload/v1619500499/nufiu/Dia_das_M%C3%A3es_3_h7mhbz.jpg");
+  background: url("https://res.cloudinary.com/gustborges/image/upload/v1619501772/nufiu/Dia_das_Ma%CC%83es_5_oqxtgn.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -9,6 +9,7 @@
   padding-right: 15vw;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   height: 70vh;
   width: 100vw;
   margin: 0;
@@ -19,13 +20,13 @@
   h1 {
     color: white;
     font: {
-      size: 7em;
+      size: 6em;
     }
   }
   p {
     color: white;
     font: {
-      size: 1.8em;
+      size: 1.6em;
     }
   }
 }
