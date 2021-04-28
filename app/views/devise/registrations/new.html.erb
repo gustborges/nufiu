@@ -4,6 +4,7 @@
 </div>
 
 <div class="form-container">
+  <p><strong>Já tem conta? </strong><%= link_to "Acesse aqui.", new_user_session_path, style: "text-decoration: underline;" %></p>
   <div class="new-plant-form">
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
@@ -22,6 +23,7 @@
         <%= f.input :password_confirmation,
                     required: true,
                     label: "Confirme a sua senha",
+                    hint: ("Mínimo de #{@minimum_password_length} caracteres" if @minimum_password_length),
                     input_html: { autocomplete: "new-password" } %>
       </div>
 
