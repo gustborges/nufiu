@@ -2,7 +2,7 @@
   <div class="col-6 col-md-4 col-lg-3" id="plants">
     <%= link_to plant_path(plant) do %>
       <% if plant.photo.attached? %>
-        <%= cl_image_tag plant.photo.key, class: "card-img", alt: "Kokedama de #{plant.name}", fetch_format: :auto, width: :auto, crop: 'scale' %>
+        <%= cl_image_tag plant.photo.key, class: "card-img", alt: "Kokedama de #{plant.name}", fetch_format: :auto, quality: 70, width: :auto, crop: 'scale' %>
       <% end %>
       <div class="plant-card-text">
         <h5 class="card-title"><%= plant.name %></h5>

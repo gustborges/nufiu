@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-12 col-md-6 plant-photo">
     <% if @plant.photo.attached? %>
-      <%= cl_image_tag @plant.photo.key, alt: "Kokedama de #{@plant.name}", fetch_format: :auto, quality: 'auto', width: :auto, crop: 'scale', responsive: true %>
+      <%= cl_image_tag @plant.photo.key, alt: "Kokedama de #{@plant.name}", fetch_format: :auto, quality: 70, width: :auto, crop: 'scale', responsive: true %>
     <% else %>
       <%= image_tag "plants/2.png", alt: "Kokedama de #{@plant.name}", fetch_format: :auto, quality: 'auto' %>
     <% end %>

@@ -17,6 +17,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <script
       src="https://unpkg.com/cloudinary-core@latest/cloudinary-core-shrinkwrap.js"
@@ -30,11 +31,11 @@
       <%= yield %>
       <%= render 'shared/footer' %>
     </div>
+    <% if controller_name == 'plants' %>
+    <a href="https://api.whatsapp.com/send?phone=5521993444535" class="float" target="_blank"><i class="fa fa-whatsapp my-float"></i></a>
+    <% end %>
   </body>
-<script type="text/javascript">
-    var cl = cloudinary.Cloudinary.new({cloud_name: "gustborges"}); 
-    cl.responsive();
-</script>
+  <%= javascript_pack_tag 'cloudinary' %>
 </html>
 
 
