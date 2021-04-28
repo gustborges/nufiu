@@ -19,7 +19,7 @@ class CartPlantsController < ApplicationController
       redirect_to cart_path(@cart)
     else
       redirect_to plant_path(params[:plant_id])
-    end
+     
   end
 
   def update
