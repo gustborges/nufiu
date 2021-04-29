@@ -8,6 +8,19 @@ class PaymentsController < ApplicationController
     end
     set_shipping_address_and_price
     go_to_payment
+    if user_signed_in?
+      Analytics.track(
+        user_id: current_user.id,
+        event: 'Conferindo pedido',
+        properties: {
+          name: current_user.name,
+          email: current_user.email,
+          cart: @cart.id,
+          amount: @cart.amount / 100,
+          shipping_location: current_user.shipping.suburb.name || current_user.suburb.name
+        }
+      )
+    end
   end
 
   def set_shipping_address_and_price

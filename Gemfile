@@ -39,6 +39,7 @@ gem 'simple_form'
 gem 'acts-as-taggable-on', '~> 6.0'
 # gem 'sunspot_rails'
 # gem 'sunspot_solr'
+gem 'analytics-ruby', '~> 2.0.0', require: 'segment/analytics'
 gem 'friendly_id', '~> 5.4.0'
 gem 'letter_opener', group: :development
 gem 'postmark-rails'
