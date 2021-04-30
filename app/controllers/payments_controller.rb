@@ -16,8 +16,7 @@ class PaymentsController < ApplicationController
           name: current_user.name,
           email: current_user.email,
           cart: @cart.id,
-          amount: @cart.amount / 100,
-          shipping_location: current_user.shipping.suburb.name || current_user.suburb.name
+          amount: @cart.amount / 100
         }
       )
     end
