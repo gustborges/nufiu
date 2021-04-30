@@ -9,7 +9,7 @@
 #   policy.font_src    :self, :https, :data
 #   policy.img_src     :self, :https, :data
 #   policy.object_src  :none
-#   policy.script_src  :self, :https
+#   policy.script_src  :self, 'https://www.googletagmanager.com', 'https://www.google-analytics.com'
 #   policy.style_src   :self, :https
 #   # If you are using webpack-dev-server then specify webpack-dev-server host
 #   policy.connect_src :self, :https, "http://localhost:3035", "ws://localhost:3035" if Rails.env.development?
