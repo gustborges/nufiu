@@ -1,4 +1,3 @@
-# Carts for customers who are buying a product
 # frozen_string_literal: true
 
 class CartsController < ApplicationController
@@ -13,6 +12,8 @@ class CartsController < ApplicationController
     authorize @cart
     @cart.amount = @total_bill.sum.to_i * 100
     @cart.save
+
+    # Sending information to Segment.io
     if user_signed_in?
       Analytics.track(
         user_id: current_user.id,
@@ -28,21 +29,25 @@ class CartsController < ApplicationController
   end
 
   def thanks
+    # Send thanks email
     CartMailer.with(cart: @cart).payment_confirmation(@cart).deliver_now if @cart.state == 'paid'
+
+    # Sending information to Segment.io
     details = @cart.cart_plants.map { |cp| " #{cp.amount} x #{cp.plant.name} (R$#{cp.plant.price}/cada)" }
+    @user = @cart.user
     if user_signed_in?
       Analytics.track(
-        user_id: current_user.id,
+        user_id: @user.id,
         event: 'Obrigada pela compra',
         properties: {
           details: details,
-          name: current_user.name,
-          email: current_user.email,
+          name: @user.name,
+          email: @user.email,
           cart: @cart.id,
           amount: @cart.amount / 100,
-          shipping_price: current_user.shipping.pick_up ? 0 : current_user.shipping.suburb.shipping_price,
-          pick_up: current_user.shipping.pick_up,
-          shipping_location: current_user.shipping.suburb.name || current_user.suburb.name
+          shipping_price: @user.shipping.pick_up ? 0 : @user.shipping.suburb.shipping_price,
+          pick_up: @user.shipping.pick_up,
+          shipping_location: @user.shipping.suburb.name || @user.suburb.name
         }
       )
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PaymentsController < ApplicationController
   skip_before_action :authenticate_user!, only: :new
 
@@ -7,7 +9,11 @@ class PaymentsController < ApplicationController
       transfer_guest_cart_to_user
     end
     set_shipping_address_and_price
+    @cart.user = current_user
+    @cart.save
     go_to_payment
+
+    # Sending information to Segment.io
     if user_signed_in?
       Analytics.track(
         user_id: current_user.id,
@@ -23,27 +29,23 @@ class PaymentsController < ApplicationController
   end
 
   def set_shipping_address_and_price
-    @user = current_user
-    if @user.shipping.nil?
-      @suburb = @user.suburb
-      @shipping =
-        Shipping.create!(
-          suburb: @suburb,
-          user: @user,
-          address: @user.address,
-          address_complement: @user.address_complement,
-          zip_code: @user.zip_code,
-          location_details: @user.location_details,
-          pick_up: false
-        )
-    else
-      @shipping = current_user.shipping
-    end
+    @shipping = if current_user.shipping.nil?
+                  Shipping.create!(
+                    suburb: current_user.suburb,
+                    user: current_user,
+                    address: current_user.address,
+                    address_complement: current_user.address_complement,
+                    zip_code: current_user.zip_code,
+                    location_details: current_user.location_details,
+                    pick_up: false
+                  )
+                else
+                  current_user.shipping
+                end
     authorize @shipping
     @shipping.save
-
     @shipping_price =
-      @shipping.pick_up || @shipping.suburb.nil? ? 0 : (@user.shipping.suburb.shipping_price * 100)
+      @shipping.pick_up || @shipping.suburb.nil? ? 0 : (current_user.shipping.suburb.shipping_price * 100)
   end
 
   def transfer_guest_cart_to_user

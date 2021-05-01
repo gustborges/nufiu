@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PlantsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :plant_find, only: %i[show edit update destroy edit_published]

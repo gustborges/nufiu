@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CartPlantsController < ApplicationController
   skip_before_action :authenticate_user!
 
@@ -14,7 +16,6 @@ class CartPlantsController < ApplicationController
       authorize @cart_plant
       @cart_plant.save
     end
-    @cart.user_id = current_user.id if current_user
     if @cart.save
       redirect_to cart_path(@cart)
     else
