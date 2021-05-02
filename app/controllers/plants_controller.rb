@@ -43,7 +43,6 @@ class PlantsController < ApplicationController
   end
 
   def show
-    @plant = @plant.
     if user_signed_in?
       Analytics.track(
         user_id: current_user.id,
