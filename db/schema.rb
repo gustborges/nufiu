@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_30_023118) do
+ActiveRecord::Schema.define(version: 2021_05_02_194548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -212,7 +212,7 @@ ActiveRecord::Schema.define(version: 2021_04_30_023118) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cart_plants", "carts"
   add_foreign_key "cart_plants", "plants"
-  add_foreign_key "carts", "users"
+  add_foreign_key "carts", "users", on_delete: :cascade
   add_foreign_key "plant_colors", "colors"
   add_foreign_key "plant_colors", "plants"
   add_foreign_key "plants", "categories"

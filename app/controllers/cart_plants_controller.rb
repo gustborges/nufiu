@@ -6,7 +6,8 @@ class CartPlantsController < ApplicationController
   def create
     cart_plant_already_exists = @cart.cart_plants.find_by(plant_id: params[:plant_id])
     @cart_plant = if cart_plant_already_exists
-                    cart_plant_already_exists += 1
+                    cart_plant_already_exists.amount += 1
+                    cart_plant_already_exists
                   else
                     CartPlant.new(cart: @cart,
                                   plant_id: params[:plant_id], amount: 1)
