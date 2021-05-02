@@ -39,15 +39,17 @@ class PlantsController < ApplicationController
           }
         )
     end
-    @plants = policy_scope(@plants)
+    @plants = policy_scope(@plants).with_attached_photo
   end
 
   def show
+    @plant = @plant.
     if user_signed_in?
       Analytics.track(
         user_id: current_user.id,
         event: 'Visualizou produto',
-        properties: { name: current_user.name, email: current_user.email, product: @plant.name, price: @plant.price }
+        properties: { name: current_user.name, email: current_user.email, product: @plant.name, price: @plant.price,
+                      step: 1 }
       )
     end
   end

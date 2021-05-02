@@ -22,7 +22,8 @@ class CartsController < ApplicationController
           name: current_user.name,
           email: current_user.email,
           cart_id: @cart.id,
-          amount: @cart.amount / 100
+          amount: @cart.amount / 100,
+          step: 2
         }
       )
     end
@@ -47,7 +48,8 @@ class CartsController < ApplicationController
           amount: @cart.amount / 100,
           shipping_price: @user.shipping.pick_up ? 0 : @user.shipping.suburb.shipping_price,
           pick_up: @user.shipping.pick_up,
-          shipping_location: @user.shipping.suburb.name || @user.suburb.name
+          shipping_location: @user.shipping.suburb.name || @user.suburb.name,
+          step: 4
         }
       )
     end

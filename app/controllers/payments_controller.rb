@@ -22,7 +22,8 @@ class PaymentsController < ApplicationController
           name: current_user.name,
           email: current_user.email,
           cart: @cart.id,
-          amount: @cart.amount / 100
+          amount: @cart.amount / 100,
+          step: 3
         }
       )
     end
