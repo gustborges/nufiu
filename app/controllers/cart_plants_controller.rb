@@ -4,18 +4,15 @@ class CartPlantsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def create
-    @existing_cart_plant = @cart.cart_plants.find_by(plant_id: params[:plant_id])
-
-    if @existing_cart_plant
-      @existing_cart_plant.amount += 1
-      authorize @existing_cart_plant
-      @existing_cart_plant.save
-    else
-      @cart_plant =
-        CartPlant.new(cart: @cart, plant_id: params[:plant_id], amount: 1)
-      authorize @cart_plant
-      @cart_plant.save
-    end
+    cart_plant_already_exists = @cart.cart_plants.find_by(plant_id: params[:plant_id])
+    @cart_plant = if cart_plant_already_exists
+                    cart_plant_already_exists += 1
+                  else
+                    CartPlant.new(cart: @cart,
+                                  plant_id: params[:plant_id], amount: 1)
+                  end
+    authorize @cart_plant
+    @cart_plant.save
     if @cart.save
       redirect_to cart_path(@cart)
     else
