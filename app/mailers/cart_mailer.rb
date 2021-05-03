@@ -9,6 +9,6 @@ class CartMailer < ApplicationMailer
     @cart = cart
     @user = @cart.user
 
-    mail(to: @user.email, subject: 'Recebemos o seu pagamento', cc: 'nufiujardinagem@gmail.com.br')
+    mail(to: @user.email, subject: 'Recebemos o seu pagamento', cc: 'segrobmalu@gmail.com')
   end
 end
