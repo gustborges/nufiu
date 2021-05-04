@@ -44,6 +44,7 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'letter_opener', group: :development
 gem 'postmark-rails'
 gem 'prettier'
+gem 'sitemap_generator'
 gem 'stripe'
 gem 'stripe_event'
 
