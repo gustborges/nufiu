@@ -21,6 +21,14 @@ SitemapGenerator::Sitemap.create do
   # Add '/'
   add root_path, priority: 0.7, changefreq: 'daily'
 
+  # Add static pages
+  add sobre_path, priority: 0.5, changefreq: 'weekly'
+  add privacidade_path, priority: 0.5, changefreq: 'weekly'
+  add faq_path, priority: 0.5, changefreq: 'weekly'
+  add entregas_path, priority: 0.5, changefreq: 'weekly'
+  add workshop_path, priority: 0.5, changefreq: 'weekly'
+  add pagamento_path, priority: 0.5, changefreq: 'weekly'
+
   # Add each plants:
   Plant.all.each do |plant|
     add plant_path(plant), lastmod: plant.updated_at
