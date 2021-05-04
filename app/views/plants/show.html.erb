@@ -11,6 +11,11 @@
     <% end %>
   </div>
   <div class="col-12 col-md-6 plant-info">
+    <div class="breadcrumb">
+      <p><%= link_to "Home", root_path%></p>
+      <span class="bread-separator">▸</span>
+      <p><%= link_to @plant.name, plant_path(@plant) %></p>
+    </div>
     <div class="plant-title">
       <h2><%= @plant.name %></h2>
         <% if !current_user.nil? && policy(@plant).destroy? %>
@@ -18,7 +23,7 @@
           <%= link_to "<i class='fas fa-edit'></i>".html_safe, edit_plant_path %>
         <% end %>
     </div>
-    <h3 class="plant-specific-name"><%= @plant.scientific_name %></h3>
+    <h3 class="plant-specific-name"><i><%= @plant.scientific_name %></i></h3>
     <h4>R$ <%= @plant.price.ceil %> </h4>
     <p class="plant-description"><%= @plant.description %></p>
     <div class="plant-profile">

@@ -1,0 +1,9 @@
+<% if Rails.env.production? %>
+  User-agent: *
+  Disallow: /compras/
+  Disallow: /users/
+  Sitemap: https:/www.nufiu.com.br/sitemap.xml.gz
+<% else %>
+  User-Agent: *
+  Disallow: /
+<% end %>

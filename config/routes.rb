@@ -16,6 +16,7 @@ Rails
       get 'entregas', to: 'pages#delivery'
       get 'workshop', to: 'pages#workshop'
       get 'pagamento', to: 'pages#payment'
+      get '/robots.txt', to: 'pages#robots'
       resources :contacts, path: 'contato', only: %i[index show new create]
       resources :shippings, only: %i[create update]
       resources :plants, path: 'kokedamas' do

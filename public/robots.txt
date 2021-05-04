@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /compras/
-Disallow: /users/
-
-Sitemap: https:/www.nufiu.com.br/sitemap.xml.gz

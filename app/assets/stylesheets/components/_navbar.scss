@@ -2,7 +2,7 @@
   overflow-y: hidden;
 }
 
-nav {
+.navbar-container {
   position: fixed;
   top: 0;
   width: 100%;
@@ -48,7 +48,7 @@ nav {
 }
 
 @media screen and (max-width: 1024px) {
-  nav {
+  .navbar-container {
     .navlinks {
       width: 70%;
     }
@@ -59,7 +59,7 @@ nav {
   body {
     overflow-x: hidden;
   }
-  nav {
+  .navbar-container {
     .navlinks {
       position: fixed;
       right: 0px;
