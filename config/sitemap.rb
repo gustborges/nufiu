@@ -28,6 +28,7 @@ SitemapGenerator::Sitemap.create do
   add entregas_path, priority: 0.5, changefreq: 'weekly'
   add workshop_path, priority: 0.5, changefreq: 'weekly'
   add pagamento_path, priority: 0.5, changefreq: 'weekly'
+  add new_contact_path, priority: 0.5, changefreq: 'weekly'
 
   # Add each plants:
   Plant.all.each do |plant|
