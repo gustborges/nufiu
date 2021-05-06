@@ -1,11 +1,3 @@
-.add-margins {
-  margin-top: 8em;
-  margin-left: 4em;
-  p {
-    color: $green;
-  }
-}
-
 .form-container {
   padding-top: 1em;
   padding-left: 4em;
@@ -14,9 +6,6 @@
 }
 
 @media screen and (max-width: 520px) {
-  .add-margins {
-    margin-left: 3em;
-  }
   .form-container {
     padding-left: 3em;
   }

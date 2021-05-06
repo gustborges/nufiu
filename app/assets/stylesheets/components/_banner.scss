@@ -3,41 +3,32 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: $light-black;
   display: flex;
-  padding-left: 2.4em;
-  padding-right: 10vw;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  height: 90vh;
-  width: 100vw;
-  margin: 0;
   min-height: 450px;
-}
-
-.main-banner {
+  height: 100vh;
+  width: 100vw;
+  padding-left: 2em;
   h1 {
     font: {
       size: 4em;
     }
+    margin-bottom: 0.6em;
   }
   p {
-    padding-right: 4em;
-    margin-bottom: 0;
+    padding-right: 6em;
+    margin-bottom: 1.4em;
     font: {
       size: 1.4em;
     }
   }
 }
 
-#banner-button {
-  margin-top: 2em;
-}
-
 @media (max-width: 570px) {
   .main-banner h1 {
-    font-size: 3em;
+    font-size: 2.6em;
   }
   .main-banner p {
     font-size: 1.2em;

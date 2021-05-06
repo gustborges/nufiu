@@ -1,0 +1,61 @@
+body {
+  background-color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: $light-black;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: $green;
+  &:hover {
+    color: $coffee;
+    text-decoration: underline;
+  }
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+// Whatsapp float
+
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 200;
+  &:hover {
+    color: white;
+    background-color: #1cad52;
+  }
+}
+
+.my-float {
+  margin-top: 16px;
+}
+
+.add-margins {
+  margin-top: 7em;
+  margin-left: 2em;
+  p {
+    color: $light-gray;
+  }
+}

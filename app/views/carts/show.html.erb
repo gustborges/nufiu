@@ -4,12 +4,13 @@
 </div>
 
 <%= render partial: "cart" %>
+
   <div id="esvaziar">
       <%= link_to "🔥 Esvaziar carrinho", delete_all_cart_cart_plants_path(@cart), method: :delete %>
   </div>
   <div class="cart-disclaimer">
-    <p><strong>Importante:</strong> Plantas podem variar de tamanhos, formatos, cores e desenhos. Portanto, as imagens do site são apenas ilustrativas.</p>
-    <p><strong>Preferências:</strong> Caso você tenha preferências de cores de fios, você pode enviar uma mensagem para a gente após a sua compra.</p>
+    <p><strong>Plantas podem variar</strong> de tamanhos, formatos, cores e desenhos. As imagens do site são próximas da realidade, mas ilustrativas.</p>
+    <p><strong>Caso você tenha preferências nas cores dos fios</strong>, você pode enviar uma mensagem para a gente logo após a sua compra.</p>
   </div>
 
   <div class="cart-total">

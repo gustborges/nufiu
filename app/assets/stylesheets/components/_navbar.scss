@@ -13,7 +13,7 @@
   min-height: 8vh;
   transition: transform 0.3s ease;
   .logo img {
-    margin-left: 1.2em;
+    margin-left: 2em;
     margin-top: 1em;
   }
 
@@ -21,8 +21,11 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 50%;
+    width: 75%;
+    margin-top: 1em;
     margin-bottom: 0;
+    margin-right: 0;
+    padding-right: 0;
     li {
       list-style: none;
       a {
@@ -43,14 +46,6 @@
       background-color: $light-black;
       margin: 5px;
       transition: all 0.3s ease;
-    }
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .navbar-container {
-    .navlinks {
-      width: 70%;
     }
   }
 }
@@ -83,7 +78,7 @@
       z-index: 11;
     }
     .nav-hidden {
-      transform: translateY(50%);
+      transform: translateY(70%);
     }
     .nav-active {
       position: absolute;

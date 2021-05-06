@@ -2,45 +2,41 @@
   <%= link_to root_path, class: "logo" do %>
     <%= cl_image_tag "https://res.cloudinary.com/gustborges/image/upload/v1619470298/nufiu/logopretobold2_c4gsjc.png" ,
       alt: "Nufiu Jardinagem" , fetch_format: :auto, quality: 'auto' , width: 130, height: 39, crop: "scale" %>
-      <% end %>
-        <% background=current_page?(root_path) ? "white-font" : "black-font" %>
-          <ul class="navlinks" id=<%="#{background}" %>>
-            <% if user_signed_in? %>
-              <li>
-                <%= link_to "Minha Conta" , edit_user_registration_path %> | <%= link_to "Sair" ,
-                    destroy_user_session_path, method: :delete %>
-              </li>
-              <% else %>
-                <!-- <li>
-        <%= link_to "Entrar" , new_user_session_path %>
-      </li> -->
+    <% end %>
+    <% background=current_page?(root_path) ? "white-font" : "black-font" %>
+      <ul class="navlinks" id=<%="#{background}" %>>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to "Minha Conta" , edit_user_registration_path %> | <%= link_to "Sair" ,
+                destroy_user_session_path, method: :delete %>
+          </li>
+        <% end %>
+          <li>
+            <%= link_to "Sobre a Nufiu" , sobre_path %>
+          </li>
+          <li>
+            <%= link_to "Workshops" , workshop_path %>
+          </li>
+          <li>
+            <%= link_to "FAQ" , faq_path %>
+          </li>
+          <li>
+            <%= link_to "Contato" , new_contact_path %>
+          </li>
+          <li class="navbar-cart">
+            <% if @cart %>
+              <%= link_to cart_path(@cart) do %>
+                <i class='fas fa-shopping-basket'></i>
                 <% end %>
-                  <li>
-                    <%= link_to "Sobre a Nufiu" , sobre_path %>
-                  </li>
-                  <li>
-                    <%= link_to "Workshops" , workshop_path %>
-                  </li>
-                  <li>
-                    <%= link_to "FAQ" , faq_path %>
-                  </li>
-                  <li>
-                    <%= link_to "Contato" , new_contact_path %>
-                  </li>
-                  <li class="navbar-cart">
-                    <% if @cart %>
-                      <%= link_to cart_path(@cart) do %>
-                        <i class='fas fa-shopping-basket'></i>
-                        <% end %>
-                          <% end %>
-                  </li>
-          </ul>
-          <% burger_inversion="burger-color-inversion" if current_page?(root_path) %>
-            <div class="burger" id=<%="#{burger_inversion}" %> >
-              <div class="line1"></div>
-              <div class="line2"></div>
-              <div class="line3"></div>
-            </div>
+                  <% end %>
+          </li>
+        </ul>
+        <% burger_inversion="burger-color-inversion" if current_page?(root_path) %>
+          <div class="burger" id=<%="#{burger_inversion}" %> >
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
 </nav>
 
 <%= javascript_pack_tag 'navbar_slider' %>

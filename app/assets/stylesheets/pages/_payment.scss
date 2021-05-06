@@ -1,29 +1,27 @@
 .orders {
-  width: 80%;
-  margin: 4em 3em 0 3em;
+  margin: 2em 2em 0 2em;
 }
 
 .order-col1,
 .order-col2 {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   padding: 2em 2em;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
   a {
     padding-bottom: 1em;
     color: $green;
     text-decoration: underline;
   }
-  .order-col-title1 {
-    color: $green;
-    padding-bottom: 1em;
-  }
+  .order-col-title1,
   .order-col-title2 {
     color: $green;
+    padding-bottom: 1em;
   }
 }
 
 .order-pay {
-  margin: 0 3em;
+  margin: 0 1em;
   margin-bottom: 4em;
   padding: 0;
   display: block;

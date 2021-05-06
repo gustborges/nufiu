@@ -2,8 +2,8 @@
 <% content_for :meta_description, @plant.description %>
 <% content_for :meta_image, cl_image_path(@plant.photo.key) %>
 
-<div class="row">
-  <div class="col-12 col-md-6 plant-photo">
+<div class="row ml-0 mr-0">
+  <div class="col-12 col-md-6 pl-0 plant-photo">
     <% if @plant.photo.attached? %>
       <%= cl_image_tag @plant.photo.key, alt: "Kokedama de #{@plant.name}", fetch_format: :auto, quality: 70, width: :auto, crop: 'scale', responsive: true %>
     <% else %>
@@ -17,14 +17,14 @@
       <p><%= link_to @plant.name, plant_path(@plant) %></p>
     </div>
     <div class="plant-title">
-      <h2><%= @plant.name %></h2>
+      <h1><%= @plant.name %></h1>
         <% if !current_user.nil? && policy(@plant).destroy? %>
           <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, plant_path, method: :delete, data: { confirm: "Tem certeza que quer apagar?" } %>
           <%= link_to "<i class='fas fa-edit'></i>".html_safe, edit_plant_path %>
         <% end %>
     </div>
-    <h3 class="plant-specific-name"><i><%= @plant.scientific_name %></i></h3>
-    <h4>R$ <%= @plant.price.ceil %> </h4>
+    <h2 class="plant-scientific-name"><i><%= @plant.scientific_name %></i></h2>
+    <h3 class="plant-price">R$ <%= @plant.price.ceil %> </h3>
     <p class="plant-description"><%= @plant.description %></p>
     <div class="plant-profile">
       <% if @plant.sun != nil %>

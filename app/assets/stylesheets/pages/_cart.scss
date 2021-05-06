@@ -1,17 +1,18 @@
+// .add-margins (from the tile) is placed in general.scss
+
 .cart {
-  width: 80%;
-  margin: 4em 4em;
-  margin-bottom: 2em;
+  margin: 3em 2em 2em 2em;
 }
 
+// cart plant (line)
+
 .cart-line {
-  margin-bottom: 1.4em;
+  margin-bottom: 2em;
 }
 
 .cart-plant-img {
   display: flex;
   justify-content: center;
-  border-radius: 2px;
   img {
     display: inline;
     margin: 0 auto;
@@ -28,7 +29,7 @@
     font-size: 1.4em;
     font-weight: bold;
     margin-bottom: 0;
-    padding-left: 0.5em;
+    padding-left: 0.8em;
   }
   #cart-plant-amount {
     margin-bottom: 0;
@@ -60,26 +61,30 @@
   font-size: 1.4em;
   p {
     margin-bottom: 0;
+    font-weight: bold;
   }
 }
 
-.add-comment {
-  margin-left: 4em;
-  margin-right: 4em;
+// buttons and disclaimers
+
+#esvaziar {
   margin-bottom: 2em;
   text-align: center;
-  .comment-field {
-    width: 100%;
-    border: solid 1px #bfb8af;
-    padding: 1em;
-  }
+}
+
+.cart-disclaimer {
+  margin: 0 2em;
+  font-size: 0.8em;
+  background-color: #f3f1f1;
+  padding: 2em;
+  padding-bottom: 1em;
+  border-radius: 2px;
 }
 
 .cart-total {
   p {
     color: $green;
     font-size: 2em;
-    font-weight: bold;
     margin-top: 1em;
   }
   display: flex;
@@ -87,51 +92,25 @@
   align-items: center;
 }
 
-.cart-disclaimer {
-  margin: 0 4em;
-  text-align: center;
-}
-
-#esvaziar {
-  margin-bottom: 2em;
-  text-align: center;
-  a {
-    text-decoration: none;
-    color: $green;
-  }
-}
-
 .cart-buttons {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 1em;
   margin-bottom: 4em;
   #continuar-comprando {
-    margin-top: 1.6em;
+    margin-top: 2em;
     margin-bottom: 1em;
     display: flex;
     align-items: center;
-    a {
-      text-decoration: none;
-      color: $green;
-    }
   }
-}
-
-.pedido-finalizado {
-  width: 80%;
-  margin: 4em 4em;
 }
 
 @media screen and (max-width: 520px) {
-  .cart {
-    margin-left: 3em;
-  }
   .cart-plant-info {
-    padding-left: 0;
     #cart-plant-name {
-      font-size: 1em;
+      font-size: 1.2em;
     }
   }
   .cart-total {
@@ -144,11 +123,7 @@
       font-size: 1em;
     }
   }
-  .add-comment {
-    margin-left: 3em;
-    margin-right: 3em;
-  }
   .cart-plant-price {
-    font-size: 1em;
+    font-size: 1.2em;
   }
 }

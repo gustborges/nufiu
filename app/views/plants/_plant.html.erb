@@ -4,7 +4,7 @@
       <% if plant.photo.attached? %>
         <%= cl_image_tag plant.photo.key, class: "card-img", alt: "Kokedama de #{plant.name}", fetch_format: :auto, quality: 70, width: :auto, crop: 'scale' %>
       <% end %>
-      <div class="plant-card-text">
+      <div class="card-text">
         <h5 class="card-title"><%= plant.name %></h5>
         <h5 class="card-price">R$ <%= plant.price.ceil %></h5>
         <% if !current_user.nil? && current_user.admin %>

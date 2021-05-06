@@ -6,40 +6,27 @@
 
 .plant-info {
   padding-top: 2em;
-  padding-left: 10vw;
-  padding-right: 10vw;
+  padding-left: 2em;
+  padding-right: 2em;
   margin-bottom: 4em;
-}
+  .plant-title {
+    display: flex;
+    align-items: center;
+  }
+  .plant-scientific-name {
+    font-size: 1.2em;
+    color: $light-gray;
+  }
+  .plant-price {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+  }
 
-.plant-info h4 {
-  font-size: 1.8em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
-
-.plant-description,
-.plant-profile {
-  font-weight: 300;
-}
-
-.plant-title {
-  display: flex;
-  align-items: center;
-}
-
-.plant-title h2 {
-  font-size: 3em;
-}
-
-.plant-title i {
-  font-size: 1.5em;
-  padding-left: 1em;
-}
-
-.plant-specific-name {
-  font-size: 1em;
-  margin-bottom: 1em;
-  color: #969696;
+  .plant-description,
+  .plant-profile {
+    font-weight: 300;
+    padding-bottom: 0.6em;
+  }
 }
 
 @media (min-width: 768px) {

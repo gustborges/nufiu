@@ -4,6 +4,8 @@
   line-height: 2.4em;
   font-size: 1.1em;
   color: $light_black;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .left-side-menu,
@@ -11,15 +13,7 @@
 .social-media-menu,
 .copyright,
 .terms {
-  padding: 0 2em;
   text-align: center;
-  list-style-type: none;
-
-  a {
-    text-decoration: none;
-    color: $light_black;
-  }
-
   ul {
     list-style-type: none;
     padding: 0;
