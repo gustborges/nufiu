@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_145252) do
+ActiveRecord::Schema.define(version: 2021_05_08_195149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -127,6 +127,16 @@ ActiveRecord::Schema.define(version: 2021_05_03_145252) do
     t.index ["water_period_id"], name: "index_plants_on_water_period_id"
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
   create_table "shippings", force: :cascade do |t|
     t.string "address"
     t.string "address_complement"
@@ -219,6 +229,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_145252) do
   add_foreign_key "plants", "suns"
   add_foreign_key "plants", "users"
   add_foreign_key "plants", "water_periods"
+  add_foreign_key "products", "categories"
   add_foreign_key "shippings", "suburbs"
   add_foreign_key "shippings", "users", on_delete: :cascade
   add_foreign_key "taggings", "tags"

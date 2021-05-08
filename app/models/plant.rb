@@ -3,8 +3,8 @@ class Plant < ApplicationRecord
   friendly_id :name, use: :slugged
   belongs_to :user
   belongs_to :category
-  belongs_to :sun
-  belongs_to :water_period
+  belongs_to :sun, optional: true
+  belongs_to :water_period, optional: true
   has_many :plant_colors
   has_many :colors, through: :plant_colors
   has_many :cart_plants, dependent: :destroy

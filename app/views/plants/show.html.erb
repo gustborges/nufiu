@@ -1,6 +1,6 @@
 <% content_for :meta_title, "Kokedama de #{@plant.name} em Nufiu" %>
 <% content_for :meta_description, @plant.description %>
-<% content_for :meta_image, cl_image_path(@plant.photo.key) %>
+<% content_for :meta_image, cl_image_path(@plant.photo.key)  %>
 
 <div class="row ml-0 mr-0">
   <div class="col-12 col-md-6 pl-0 plant-photo">
@@ -26,16 +26,18 @@
     <h2 class="plant-scientific-name"><i><%= @plant.scientific_name %></i></h2>
     <h3 class="plant-price">R$ <%= @plant.price.ceil %> </h3>
     <p class="plant-description"><%= @plant.description %></p>
-    <div class="plant-profile">
-      <% if @plant.sun != nil %>
-        <p><%= image_tag "icons/sun.svg", alt: "Iluminação", width: 30, height: 30, style: 'margin-right: 10px', fetch_format: :auto, quality: 'auto' %><%= @plant.sun.amount %></p>
-      <% end %>
-      <p><%= image_tag "icons/two-drops.svg", alt: "Rega", size: '30x30', style: 'margin-right: 10px', fetch_format: :auto, quality: 'auto' %><%= @plant.water_text %></p>
-      <% if @plant.pet_friendly? %>
-        <p> <%= image_tag "icons/pet-friendly.svg", alt: "Pet-friendly", size: '30x30', style: 'margin-right: 10px' %>Pet-friendly </p>
-      <% end %>
-      <p> <%= image_tag "icons/ruler.png", alt: "Tamanho", size: '30x30', style: 'margin-right: 10px', fetch_format: :auto, quality: 'auto' %><%= @plant.size %> </p>
-    </div>
+    <% if @plant.category.name == "Kokedama" %>
+      <div class="plant-profile">
+        <% if @plant.sun != nil %>
+          <p><%= image_tag "icons/sun.svg", alt: "Iluminação", width: 30, height: 30, style: 'margin-right: 10px', fetch_format: :auto, quality: 'auto' %><%= @plant.sun.amount %></p>
+        <% end %>
+        <p><%= image_tag "icons/two-drops.svg", alt: "Rega", size: '30x30', style: 'margin-right: 10px', fetch_format: :auto, quality: 'auto' %><%= @plant.water_text %></p>
+        <% if @plant.pet_friendly? %>
+          <p> <%= image_tag "icons/pet-friendly.svg", alt: "Pet-friendly", size: '30x30', style: 'margin-right: 10px' %>Pet-friendly </p>
+        <% end %>
+        <p> <%= image_tag "icons/ruler.png", alt: "Tamanho", size: '30x30', style: 'margin-right: 10px', fetch_format: :auto, quality: 'auto' %><%= @plant.size %> </p>
+      </div>
+    <% end %>
     <div class="buy-button">
       <%= link_to "Quero comprar", plant_cart_plants_path(@plant.id), method: :post, class: "green-button" %>
     </div>

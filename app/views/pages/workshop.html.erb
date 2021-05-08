@@ -1,7 +1,41 @@
 <div class="add-margins">
-  <h1>Workshop de Kokedama</h1>
+  <%= cl_image_tag "https://res.cloudinary.com/gustborges/image/upload/v1619550363/nufiu/facebook_og_file_rrtigw.jpg", alt: "Workshop de Kokedamas", fetch_format: :auto, quality: 70, width: :auto, crop: 'scale', class: 'workshop-img' %>
+  <h1>Workshop Online de Kokedama</h1>
   <p>Você também pode aprender a criar suas próprias kokedamas.</p>
 </div>
 <div class="static-page-body">
-  <p>Já já publicaremos aqui tudo o que você precisa para criar as suas próprias kokedamas.</p>
+  <p>Nós temos um <strong>workshop online</strong> simples, objetivo e perfeito para você começar. Além do vídeo com toda a explicação para você acompanhar o processo de elaboração de uma kokedama, você também receberá uma apostila exclusiva e poderá pedir suporte e tirar dúvidas com a Malu.</p>
+  <p>Com um pouco de dedicação, você poderá impressionar a família, amigos, inovar nos presentes, enfeitar a casa ou mesmo criar a sua própria loja.</p>
+  <p><strong>Você vai aprender</strong> técnicas de plantio, rega, adubação, seleção de plantas, além de saber um pouco mais sobre a origem da kokedama e conversar sobre ideias para decoração. </p>
+  <div class="row workshops">
+    <div class="col-md-6 col-sm-12 workshop1">
+      <h2>Workshop Online + Kit Materiais</h2>
+      <ul>
+        <li>✅ Tutorial em vídeo</li>
+        <li>✅ Apostila para leitura</li>
+        <li>✅ Suporte da Nufiu</li>
+        <li>✅ Você recebe em casa todos os materiais para criar 3 kokedamas de espécies diferentes</li>
+      </ul>
+      <% @workshop_premium = Plant.find_by(name: "Workshop Online + Kit Materiais") %>
+      <%= link_to "Workshop + Materiais (R$ 269)", plant_cart_plants_path(@workshop_premium.id), method: :post, class: "green-button" %>
+    </div>
+    <div class="col-md-6 col-sm-12 workshop2">
+    <h2>Workshop Online</h2>
+      <ul>
+        <li>✅ Tutorial em vídeo</li>
+        <li>✅ Apostila para leitura</li>
+        <li>✅ Suporte da Nufiu</li>
+      </ul>
+      <% @workshop_regular = Plant.find_by(name: "Workshop Online de Kokedamas") %>
+      <%= link_to "Workshop Online (R$ 89)", plant_cart_plants_path(@workshop_regular.id), method: :post, class: "green-button" %>
+    </div>
+  </div>
+  <div class="row">
+    <h2>Workshops presenciais</h2>
+    <p>Há também um workshop presencial marcado para acontecer no dia <strong>30 de junho</strong> (quarta-feira), de 13h às 16h, no Jardim Botânico.</p>
+    <ul>
+    <li>Valor: R$240 (já inclui material)</li>
+    <li>Reserva com a Associação de Amigos do JB: 2259-5026/ 2239-9742</li>
+    </ul>
+  </div>
 </div>

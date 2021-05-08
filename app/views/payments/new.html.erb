@@ -14,7 +14,9 @@
             required: true %>
             <%= f.input :zip_code, label: "CEP" , placeholder: "00000-00" , required: true %>
               <%= f.input :location_details, label: "Referência" , placeholder: "Próximo a..." %>
+              <% if @online_workshop == false %>
                 <%= f.input :pick_up, label: "Pegar na Gávea e economizar frete" , as: :boolean %>
+                <% end %>
                   <%= f.button :submit, "Confirmar" , class: "green-button" %>
                     <% end %>
   </div>
@@ -26,11 +28,13 @@
         <%= cart_plant.amount %> x <%= cart_plant.plant.name %> = R$ <%= cart_plant.plant.price * cart_plant.amount %>
       </p>
       <% end %>
+        <% if @online_workshop == false %>
         <% if @shipping.pick_up==false %>
           <p>Frete<%= (" para " + @shipping.suburb.name) if @shipping.suburb %>: R$ <%= @shipping.suburb.nil? ? "
               Aguardando endereço" : @shipping_price/100 %>
           </p>
           <% end %>
+        <% end %>
             <hr>
             <p><strong>Total: R$ <%= (@cart.amount + @shipping_price) / 100 %></strong></p>
   </div>

@@ -45,8 +45,14 @@ class PaymentsController < ApplicationController
                 end
     authorize @shipping
     @shipping.save
-    @shipping_price =
-      @shipping.pick_up || @shipping.suburb.nil? ? 0 : (current_user.shipping.suburb.shipping_price * 100)
+    if @cart.cart_plants.count == 1 && @cart.cart_plants.last.plant.name == 'Workshop Online de Kokedamas'
+      @online_workshop = true
+      @shipping_price = 0
+    else
+      @online_workshop = false
+      @shipping_price =
+        @shipping.pick_up || @shipping.suburb.nil? ? 0 : (current_user.shipping.suburb.shipping_price * 100)
+    end
   end
 
   def transfer_guest_cart_to_user

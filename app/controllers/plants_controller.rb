@@ -93,8 +93,11 @@ class PlantsController < ApplicationController
   end
 
   def destroy
-    @plant.destroy
-    redirect_to plants_path
+    if @plant.destroy
+      redirect_to plants_path
+    else
+      render :show
+    end
   end
 
   private
