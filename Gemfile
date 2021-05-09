@@ -44,6 +44,8 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'letter_opener', group: :development
 # Sends emails
 gem 'postmark-rails'
+# Tags
+gem 'acts-as-taggable-on', '~> 6.0'
 
 # Sitemap Generator
 gem 'sitemap_generator'
