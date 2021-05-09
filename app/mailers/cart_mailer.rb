@@ -11,4 +11,11 @@ class CartMailer < ApplicationMailer
 
     mail(to: @user.email, subject: 'Recebemos o seu pagamento', cc: 'segrobmalu@gmail.com')
   end
+
+  def workshop_payment_confirmation(cart)
+    @cart = cart
+    @user = @cart.user
+
+    mail(to: @user.email, subject: 'Recebemos o seu pagamento', cc: 'segrobmalu@gmail.com')
+  end
 end

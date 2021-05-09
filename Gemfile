@@ -32,23 +32,27 @@ gem 'pundit'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'autoprefixer-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
+# Font icons for Social Media and Cart
 gem 'font-awesome-sass'
+# Forms
 gem 'simple_form'
-
-# Adds tags to objects for search and filters
-gem 'acts-as-taggable-on', '~> 6.0'
-# gem 'sunspot_rails'
-# gem 'sunspot_solr'
+# Analytics using Segment.io
 gem 'analytics-ruby', '~> 2.0.0', require: 'segment/analytics'
+# Changes slugs to names
 gem 'friendly_id', '~> 5.4.0'
+# For mail testing
 gem 'letter_opener', group: :development
+# Sends emails
 gem 'postmark-rails'
-gem 'prettier'
+
+# Sitemap Generator
 gem 'sitemap_generator'
+# Payments using Stripe
 gem 'stripe'
 gem 'stripe_event'
 
-# For VsCode
+# VsCode Extensions
+gem 'prettier'
 gem 'solargraph', group: :development
 
 group :development, :test do

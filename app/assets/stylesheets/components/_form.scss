@@ -1,12 +1,6 @@
 .form-container {
   padding-top: 1em;
-  padding-left: 4em;
-  padding-right: 4em;
+  padding-left: 2em;
+  padding-right: 2em;
   padding-bottom: 4em;
-}
-
-@media screen and (max-width: 520px) {
-  .form-container {
-    padding-left: 3em;
-  }
 }

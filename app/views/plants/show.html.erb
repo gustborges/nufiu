@@ -1,6 +1,10 @@
 <% content_for :meta_title, "Kokedama de #{@plant.name} em Nufiu" %>
 <% content_for :meta_description, @plant.description %>
 <% content_for :meta_image, cl_image_path(@plant.photo.key)  %>
+<% content_for :head do %>
+    <%= stylesheet_link_tag 'components/_breadcrumb', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'pages/_show', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
 
 <div class="row ml-0 mr-0">
   <div class="col-12 col-md-6 pl-0 plant-photo">
