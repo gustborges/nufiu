@@ -6,9 +6,9 @@
   <h1>🧺 Cesta de Compras</h1>
   <p>Antes de finalizar, confira os itens que já adicionou.</p>
 </div>
-
-<%= render partial: "cart" %>
-
+<div class="cart">
+  <%= render @cart.cart_plants %>
+</div>
   <div id="esvaziar">
       <%= link_to "🔥 Esvaziar carrinho", delete_all_cart_cart_plants_path(@cart), method: :delete %>
   </div>

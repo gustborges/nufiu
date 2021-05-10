@@ -1,0 +1,23 @@
+<div class="row cart-line">
+  <div class="col-2 cart-plant-img">
+    <%= cl_image_tag cart_plant.plant.photo.key, alt: "#{cart_plant.plant.name}", fetch_format: :auto, quality: :auto, size: '80x80' %>
+  </div>
+  <div class="col-5 cart-plant-info">
+    <p id="cart-plant-name">
+      <%= cart_plant.plant.name %>
+    </p>
+  </div>
+  <div class="col-2 cart-plant-edit">
+    <p>
+      <%= link_to "-" .html_safe, plant_cart_plant_path(plant_id: cart_plant.plant.id, fix_amount: "reduce" ),
+        method: :put %>
+        <%= cart_plant.amount %>
+          <%= link_to "+" .html_safe, plant_cart_plant_path(plant_id: cart_plant.plant.id, fix_amount: "add" ),
+            method: :put %>
+    </p>
+  </div>
+  <div class="col-3 cart-plant-price">
+    <p>R$ <%= cart_plant.plant.price * cart_plant.amount %>
+    </p>
+  </div>
+</div>
