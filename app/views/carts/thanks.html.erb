@@ -8,8 +8,20 @@
 </div>
 <div class="static-page-body">
   <p><strong>Status do Pedido:</strong> <%= @cart.state == "paid" ? "pago" : "aguardando pagamento (em processamento)" %></p>
-  <p>Seu pedido foi realizado com sucesso e vamos começar a preparar tudo com muito carinho. Em seguida, entraremos em contato para combinar a entrega.</p>
-  <p>Você também receberá um e-mail com as informações do seu pedido, mas se tiver alguma <strong>dúvida ou se tiver preferências de cores para os fios</strong>, entre em contato com a gente pelo e-mail <a href="mailto:malu@nufiu.com.br">malu@nufiu.com.br</a>, <a href="https://www.instagram.com/nufiu_jardinagem">Instagram</a> ou <a href="https://api.whatsapp.com/send?phone=5521993444535">Whatsapp</a>.</p>
-  <p>Obrigada pela preferência!</p>
+  <% if @cart_has_only_workshop %>
+    <p>Seu pedido foi realizado com sucesso. Você receberá um e-mail logo após a confirmação de pagamento com os dados para acesso ao vídeo-tutorial, apostila e contato para suporte direto com a gente.</p>
+     <p>Se tiver alguma dúvida, entre em contato com a gente pelo e-mail <a href="mailto:malu@nufiu.com.br">malu@nufiu.com.br</a>, <a href="https://www.instagram.com/nufiu_jardinagem">Instagram</a> ou <a href="https://api.whatsapp.com/send?phone=552122947134">Whatsapp</a>.</p>
+    <p>Obrigada pela preferência!</p>
+  <% elsif @cart_has_any_workshop %>
+    <p>Seu pedido foi realizado com sucesso e vamos começar a preparar tudo com muito carinho. Em seguida, entraremos em contato para combinar a entrega.</p>
+    <p>Você também receberá um e-mail com as informações do seu pedido, mas se tiver alguma <strong>dúvida ou se tiver preferências de cores para os fios</strong>, entre em contato com a gente pelo e-mail <a href="mailto:malu@nufiu.com.br">malu@nufiu.com.br</a>, <a href="https://www.instagram.com/nufiu_jardinagem">Instagram</a> ou <a href="https://api.whatsapp.com/send?phone=552122947134">Whatsapp</a>.</p><br />
+    <p><strong>Workshop</strong></p>
+    <p>Você receberá um e-mail logo após a confirmação de pagamento com os dados para acesso ao vídeo-tutorial, apostila e contato para suporte direto com a gente.
+    <p>Obrigada pela preferência!</p>
+  <% else %>
+    <p>Seu pedido foi realizado com sucesso e vamos começar a preparar tudo com muito carinho. Em seguida, entraremos em contato para combinar a entrega.</p>
+    <p>Você também receberá um e-mail com as informações do seu pedido, mas se tiver alguma <strong>dúvida ou se tiver preferências de cores para os fios</strong>, entre em contato com a gente pelo e-mail <a href="mailto:malu@nufiu.com.br">malu@nufiu.com.br</a>, <a href="https://www.instagram.com/nufiu_jardinagem">Instagram</a> ou <a href="https://api.whatsapp.com/send?phone=552122947134">Whatsapp</a>.</p>
+    <p>Obrigada pela preferência!</p>
+  <% end %>
 </div>
    <%= cl_image_tag "https://res.cloudinary.com/gustborges/image/upload/v1619459431/nufiu/pacova_bottom_sjbnqy.jpg", class: "thanks-plant" %>

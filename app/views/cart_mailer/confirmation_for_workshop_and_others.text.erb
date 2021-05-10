@@ -1,0 +1,50 @@
+Olá, <%= @user.name ? @user.name.titlecase : @user.email.split('@').first.titlecase %>! O seu pagamento no site da Nufiu foi confirmado.
+
+Produtos adquiridos:
+<% @cart.cart_plants.each do | cart_plant| %>
+  - <%= cart_plant.amount %> x <%= cart_plant.plant.name %> = R$ <%= cart_plant.plant.price * cart_plant.amount %>
+<% end %>
+<% if @user.shipping.pick_up == false %>
+  - Frete para <%= @user.shipping.suburb.name %> : R$ <%= @user.shipping.suburb.shipping_price %> 
+  - Total: R$ <%= (@cart.amount / 100) + @user.shipping.suburb.shipping_price  %>
+<% else %>
+  - Total: R$ <%= (@cart.amount / 100) %>
+<% end %>
+
+Endereço de entrega:
+
+- Endereço: <%= @user.shipping.address %>
+- Complemento: <%= @user.shipping.address_complement %>
+- Bairro: <%= @user.shipping.suburb.name %>
+- CEP: <%= @user.shipping.zip_code %>
+<% if @user.shipping.location_details %>
+- Detalhes adicionais: <%= @user.shipping.location_details %>
+<% end %>
+
+KOKEDAMAS
+Se você deseja adicionar algum detalhe, como escolher uma cor para os fios de sua kokedama, basta responder a esse e-mail com seus comentários.
+
+Vamos selecionar suas plantinhas e preparar os arranjos com muito carinho. Você também deverá receber um contato nosso em breve para confirmarmos dados de entrega. 
+
+Aliás, o prazo de entrega pode variar um pouquinho de acordo com a disponibilidade das espécies de plantas que você selecionou, mas vamos fazer o máximo para que elas cheguem ao seu endereço em até 7 dias corridos. 
+
+WORKSHOP
+Fiquei muito feliz pelo seu interesse em criar suas próprias kokedamas e estarei disponível para ajudar você nessa jornada.
+
+Tenho certeza que você também vai se fascinar com a técnica e poderá fazer as suas, presentear família e amigos com lindos arranjos e até vender. 
+
+Você pode começar agora mesmo entrando neste link para o tutorial em vídeo: https://www.youtube.com/watch?v=qNwSsJtW93s
+
+Sugiro que você assista o vídeo todo e quando estiver preparada(o) com todo o material, repita a parte prática para fazermos juntos. Para esta prática utilizei uma muda de chameadora (uma palmeirinha, como popularmente é chamada). 
+
+Também faz parte do curso o suporte às dúvidas que você tiver e será feito por mim mesma. Por isso, você pode me ligar ou mandar mensagem/whatsapp para (21)993444535. Estarei sempre pronta a ajudar. 
+
+Por fim, até amanhã, enviaremos uma apostila para facilitar o acompanhamento do vídeo.
+
+Agradeço muito seu feedback para que eu possa sempre melhorar em todos os aspectos.
+
+Vamos lá? Divirta-se!!!! 
+
+Malu Borges
+Nufiu Jardinagem
+www.nufiu.com.br

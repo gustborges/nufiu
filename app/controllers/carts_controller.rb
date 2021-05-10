@@ -30,8 +30,18 @@ class CartsController < ApplicationController
   end
 
   def thanks
-    # Send thanks email
-    CartMailer.with(cart: @cart).payment_confirmation(@cart).deliver_now if @cart.state == 'paid'
+    # Sending confirmation mail to user
+    @cart_has_any_workshop = @cart.cart_plants.any?(&:workshop?)
+    @cart_has_only_workshop = @cart.cart_plants.all?(&:workshop?)
+    # if @cart.state == 'paid'
+    if @cart_has_only_workshop
+      CartMailer.with(cart: @cart).confirmation_for_workshop(@cart).deliver_now
+    elsif @cart_has_any_workshop
+      CartMailer.with(cart: @cart).confirmation_for_workshop_and_others(@cart).deliver_now
+    else
+      CartMailer.with(cart: @cart).payment_confirmation(@cart).deliver_now
+    end
+    # end
 
     # Sending information to Segment.io
     details = @cart.cart_plants.map { |cp| " #{cp.amount} x #{cp.plant.name} (R$#{cp.plant.price}/cada)" }
