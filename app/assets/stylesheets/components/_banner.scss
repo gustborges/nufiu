@@ -1,6 +1,6 @@
 .main-banner {
   background: url("https://res.cloudinary.com/gustborges/image/upload/v1619555207/nufiu/banner_dia_maes_oqw3oo.jpg");
-  background-position: center;
+  background-position: 35% 50%;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -16,12 +16,12 @@
       size: 4em;
     }
     padding-right: 4em;
-    margin-top: 3em;
-    margin-bottom: 0.6em;
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
   p {
     padding-right: 6em;
-    margin-bottom: 1.4em;
+    margin-bottom: 2em;
     font: {
       size: 1.4em;
     }
