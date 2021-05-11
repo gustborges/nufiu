@@ -11,5 +11,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-Rails.application.config.assets.precompile += %w[components/_card.css components/_banner.css
-                                                 pages/_main.css components/_alert.css components/_breadcrumb.css components/_facet.css components/_form.css pages/_cart.css pages/_payment.css pages/_show.css pages/_static_pages.css pages/_thanks.css]
+# Rails.application.config.assets.precompile += %w[components/_card.css components/_banner.css
+#                                                  pages/_main.css components/_alert.css components/_breadcrumb.css components/_facet.css components/_form.css pages/_cart.css pages/_payment.css pages/_show.css pages/_static_pages.css pages/_thanks.css]

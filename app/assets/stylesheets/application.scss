@@ -1,10 +1,12 @@
-// Critical for all pages
+// Graphical variables
 @import "config/fonts";
 @import "config/colors";
+
+// External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "components/navbar";
-@import "components/button";
-@import "components/footer";
-@import "pages/general";
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
