@@ -30,25 +30,43 @@
 
 .subscribe {
   text-align: center;
-  padding: 2em 0;
+  padding: 2em 2em;
   h2 {
     font-size: 1.2em;
     padding-bottom: 1em;
   }
-  input {
-    width: 90%;
-    border: 1px solid #bfb8af;
-    text-align: center;
-    font-size: 0.8em;
-  }
-  .button {
-    background-color: white;
-    width: 90%;
-    border: 1px solid #bfb8af;
-    border-top: 0;
-    font-size: 0.8em;
+  .simple_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
     margin-bottom: 2em;
+    .contact_email,
+    .contact_name {
+      margin: 0;
+      width: 100%;
+      input {
+        border: 1px solid #bfb8af;
+        text-align: center;
+        font-size: 0.8em;
+        border-radius: 0;
+        padding: 1.4rem;
+      }
+    }
+    .contact_email input {
+      border-top: none;
+    }
+    input {
+      border: 1px solid #bfb8af;
+      border-top: none;
+      text-align: center;
+      font-size: 0.8em;
+      border-radius: 0;
+      width: 100%;
+    }
   }
+
   a {
     font-size: 1.6em;
     text-decoration: none;

@@ -21,8 +21,7 @@ class ContactsController < ApplicationController
     if @contact.save
       redirect_to contact_path(@contact)
       authorize @contact
-      mail =
-        ContactMailer.with(contact: @contact).send_message(@contact).deliver_now
+      ContactMailer.with(contact: @contact).send_message(@contact).deliver_now if @contact.message && @contact.subject
     else
       render :new
     end

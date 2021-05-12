@@ -1,18 +1,30 @@
-<div class="add-margins">
-  <h1>Sua mensagem foi enviada</h1>
-  <p>Retornaremos em breve</p>
-</div>
 
-<div class="static-page-body">
-<p><strong>Sua mensagem foi enviada e deve ser respondida em breve.</strong></p>
-<p>Nome: <%= @contact.name %></p>
-<p>Email: <%= @contact.email %></p>
-<p>Telefone: <%= @contact.phone %></p>
-<p>Assunto: <%= @contact.subject %></p>
+<% if @contact.message.nil? && @contact.subject.nil? %>
+  <div class="add-margins">
+    <h1>Que legal!</h1>
+    <p>Você se inscreveu para receber notícias da Nufiu.</p>
+  </div>
 
-<p><strong>Mensagem:</strong></p>
-<p><%= @contact.message %></p>
-<br /><br />
-<%= link_to "Voltar ao site", root_path, class: 'green-button' %>
+  <div class="static-page-body">
+    <p><strong><%= @contact.name %></strong>, ficamos felizes pelo seu interesse em receber nossas novidades.</p> 
+    <p>Não curtimos spam e mensagens insistentes de marketing. Então você só receberá mesmo o que for realmente relevante, como lançamentos ou promoções da Nufiu. 😉 </p>
+<% else %>
+  <div class="add-margins">
+    <h1>Sua mensagem foi enviada</h1>
+    <p>Retornaremos em breve</p>
+  </div>
 
+  <div class="static-page-body">
+    <p><strong>Sua mensagem foi enviada e deve ser respondida em breve.</strong></p>
+    <p>Nome: <%= @contact.name %></p>
+    <p>Email: <%= @contact.email %></p>
+    <p>Telefone: <%= @contact.phone %></p>
+    <p>Assunto: <%= @contact.subject %></p>
+    <p><strong>Mensagem:</strong></p>
+    <p><%= @contact.message %></p>
+
+<% end %>
+
+  <br /><br />
+  <%= link_to "Voltar ao site", root_path, class: 'green-button' %>
 </div>

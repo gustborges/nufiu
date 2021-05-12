@@ -1,3 +1,3 @@
 class Contact < ApplicationRecord
-  validates_presence_of :subject, :message, :email
+  validates_presence_of :email
 end
