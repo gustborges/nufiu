@@ -5,4 +5,8 @@ class CartPlant < ApplicationRecord
   def workshop?
     plant.category.name == 'Workshop'
   end
+
+  def kokedama?
+    plant.category.name == 'Kokedama'
+  end
 end
