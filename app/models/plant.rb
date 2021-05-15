@@ -11,6 +11,9 @@ class Plant < ApplicationRecord
   has_one_attached :photo
   default_scope { order('best_seller DESC, RANDOM()') }
 
+  validates :name, :scientific_name, :description, :size, :price, :water_text, :category, :water_period, :sun, :user,
+            presence: true
+
   def sun_amount
     sun.amount
   end

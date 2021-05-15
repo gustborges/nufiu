@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_12_134948) do
+ActiveRecord::Schema.define(version: 2021_05_15_042124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -115,7 +115,6 @@ ActiveRecord::Schema.define(version: 2021_05_12_134948) do
     t.integer "price"
     t.bigint "user_id"
     t.bigint "category_id"
-    t.integer "water_level"
     t.string "water_text"
     t.bigint "sun_id"
     t.bigint "water_period_id"
@@ -160,10 +159,10 @@ ActiveRecord::Schema.define(version: 2021_05_12_134948) do
   end
 
   create_table "suns", force: :cascade do |t|
-    t.string "level"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "amount"
+    t.integer "indicator"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -218,6 +217,7 @@ ActiveRecord::Schema.define(version: 2021_05_12_134948) do
     t.string "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "indicator"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

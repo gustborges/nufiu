@@ -5,6 +5,8 @@ class User < ApplicationRecord
   belongs_to :suburb, optional: true
   has_one :shipping, dependent: :destroy
 
+  validates :name, :email, presence: true
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,
