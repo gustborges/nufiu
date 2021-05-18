@@ -13,6 +13,7 @@ class Plant < ApplicationRecord
 
   validates :name, :scientific_name, :description, :size, :price, :water_text, :category, :water_period, :sun, :user,
             presence: true
+  validates :name, :scientific_name, uniqueness: true
 
   def sun_amount
     sun.amount
