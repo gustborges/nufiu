@@ -1,24 +1,26 @@
-<div class="col-6 col-md-4 col-lg-3" id="encontre-kokedamas">
-  <%= link_to plant_path(plant) do %>
-    <%# Foto %>
-    <% if plant.photo.attached? %>
-      <%= cl_image_tag plant.photo.key, class: "card-img", alt: "Kokedama de #{plant.name}", fetch_format: :auto, quality: 70, width: :auto, crop: 'scale' %>
-    <% end %>
-    
-    <%# Nome e preço %>
-    <div class="card-text">
-      <h5 class="card-title"><%= plant.name %></h5>
-      <h5 class="card-price">R$ <%= plant.price.ceil %></h5>
-      
-      <%# Botões de edição da planta %>
-      <% if !current_user.nil? && current_user.admin %>
-        <%= link_to "<i class='fas fa-edit'></i>" .html_safe, edit_plant_path(plant) %>
-        <% if plant.published %>
-          <%= link_to "Publicado", edit_published_plant_path(plant), method: :patch %>
-        <% else %>
-          <%= link_to "Não publicado", edit_published_plant_path(plant), method: :patch %>
-        <% end %>
+<% @plants.each do |plant| %>
+  <div class="col-6 col-md-4 col-lg-3" id="encontre-kokedamas">
+    <%= link_to plant_path(plant) do %>
+      <%# Foto %>
+      <% if plant.photo.attached? %>
+        <%= cl_image_tag plant.photo.key, class: "card-img", alt: "Kokedama de #{plant.name}", fetch_format: :auto, quality: 70, width: :auto, crop: 'scale' %>
       <% end %>
-    </div>
-  <% end %>
-</div>
+      
+      <%# Nome e preço %>
+      <div class="card-text">
+        <h5 class="card-title"><%= plant.name %></h5>
+        <h5 class="card-price">R$ <%= plant.price.ceil %></h5>
+        
+        <%# Botões de edição da planta %>
+        <% if !current_user.nil? && current_user.admin %>
+          <%= link_to "<i class='fas fa-edit'></i>" .html_safe, edit_plant_path(plant) %>
+          <% if plant.published %>
+            <%= link_to "Publicado", edit_published_plant_path(plant), method: :patch %>
+          <% else %>
+            <%= link_to "Não publicado", edit_published_plant_path(plant), method: :patch %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

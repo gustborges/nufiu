@@ -5,41 +5,53 @@ class PlantsController < ApplicationController
   before_action :plant_find, only: %i[show edit update destroy edit_published]
 
   def index
-    # Faceted search
-    @pet_friendly = params[:filter_pet_friendly] == '1'
-    @sun = params[:filter_by_sun] ? true : false
-    @water = params[:filter_by_water] ? true : false
-    @plants = policy_scope(Plant).includes(:sun, :water_period)
+    @plants = policy_scope(Plant).where(nil)
+    filtering_params(params).each do |key, value|
+      @plants = @plants.public_send("filter_by_#{key}", value).with_attached_photo if value.present?
+    end
+    respond_to do |format|
+      format.js { render 'plants/filter.js.erb' }
+      format.html
+    end
 
-    if @pet_friendly && @sun && @water
-      @plants =
-        @plants.where(
-          pet_friendly: true,
-          suns: {
-            amount: params[:filter_by_sun]
-          }
-        )
-    end
-    if @pet_friendly && @sun
-      @plants =
-        @plants.where(
-          pet_friendly: true,
-          suns: {
-            amount: params[:filter_by_sun]
-          }
-        )
-    end
-    @plants = @plants.where(pet_friendly: true) if @pet_friendly
-    @plants = @plants.where(suns: { amount: params[:filter_by_sun] }) if @sun
-    if @water
-      @plants =
-        @plants.where(
-          water_periods: {
-            amount: params[:filter_by_water]
-          }
-        )
-    end
-    @plants = policy_scope(@plants).with_attached_photo
+    # @plants = @plants.filter_by_pet_friendly(params[:pet_friendly]) if params[:pet_friendly]
+    # @plants = @plants.filter_by_water(params[:water]) if params[:water]
+    # @plants = @plants.filter_by_sun(params[:sun]) if params[:sun]
+
+    # aggs = {}
+    # aggs[:pet_friendly] = params[:filter_pet_friendly].to_i == 1
+    # aggs[:sun] = Sun.find_by(indicator: params[:filter_by_sun].to_i) if params[:filter_by_sun]
+    # aggs[:water_period] = WaterPeriod.find_by(indicator: params[:filter_by_water].to_i).to_i if params[:filter_by_water]
+    # @plants = policy_scope(Plant).includes(:sun, :water_period).where(aggs).with_attached_photo
+
+    # if @pet_friendly && @sun && @water
+    #   @plants =
+    #     @plants.where(
+    #       pet_friendly: true,
+    #       suns: {
+    #         amount: params[:filter_by_sun]
+    #       }
+    #     )
+    # end
+    # if @pet_friendly && @sun
+    #   @plants =
+    #     @plants.where(
+    #       pet_friendly: true,
+    #       suns: {
+    #         amount: params[:filter_by_sun]
+    #       }
+    #     )
+    # end
+    # @plants = @plants.where(pet_friendly: true) if @pet_friendly
+    # @plants = @plants.where(suns: { amount: params[:filter_by_sun] }) if @sun
+    # if @water
+    #   @plants =
+    #     @plants.where(
+    #       water_periods: {
+    #         amount: params[:filter_by_water]
+    #       }
+    #     )
+    # end
   end
 
   def show
@@ -100,11 +112,20 @@ class PlantsController < ApplicationController
     end
   end
 
+  def reload_index
+    render partial: 'plants/_plant'
+    raise
+  end
+
   private
 
   def plant_find
     @plant = Plant.friendly.find(params[:id])
     authorize @plant
+  end
+
+  def filtering_params(params)
+    params.slice(:pet_friendly, :water, :sun)
   end
 
   def plant_params
