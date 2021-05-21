@@ -7,68 +7,10 @@
     </div>
   </div>
 </div>
-<div class="facets">
-  <div class="row filtrar">
-      <div class="col-4 filter-title"><h6>Filtrar</h6></div>
-      <div class="col-4 inline"><h6>Luz</h6><%= image_tag "icons/down-arrow.svg", alt: "Mostrar filtros", size: "15x15", class: "arrow" %></div>
-      <div class="col-4 inline"><h6>Rega</h6><%= image_tag "icons/down-arrow.svg", alt: "Mostrar filtros", size: "15x15", class: "arrow" %></div>
-  </div>
 
-  <div class="facets-deck row">
-    <div class="col-4 facetlist">
-      <div class="facet-aligned">
-        <% if params[:pet_friendly] %> 
-          <strong><%= link_to 'Pet-friendly', plants_path, class: 'filter', remote: true %></strong>
-        <% else %>
-          <%= link_to 'Pet-friendly', plants_path(pet_friendly: 1), class: 'filter', remote: true %>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-4 facetlist">
-      <div class="facet-aligned">
-        <% if params[:sun] == 3.to_s %> 
-          <strong><%= link_to 'Sol pleno', plants_path(sun: 3), remote: true %></strong>
-        <% else %>
-          <%= link_to 'Sol pleno', plants_path(sun: 3), remote: true %>
-        <% end %>
-        <% if params[:sun] == 2.to_s %> 
-          <strong><%= link_to 'Meia-sombra clara', plants_path(sun: 2), remote: true %></strong>
-        <% else %>
-          <%= link_to 'Meia-sombra clara', plants_path(sun: 2), remote: true %>
-        <% end %>
-        <% if params[:sun] == 1.to_s %> 
-          <strong><%= link_to 'Meia-sombra', plants_path(sun: 1), remote: true %></strong>
-        <% else %>
-          <%= link_to 'Meia-sombra', plants_path(sun: 1), remote: true %>
-        <% end %>
-      </div>
-      </div>
-    <div class="col-4 facetlist">
-      <div class="facet-aligned">
-        <% if params[:water] == 3.to_s %> 
-          <strong><%= link_to 'Frequente', plants_path(water: 3), remote: true %></strong>
-        <% else %>
-          <%= link_to 'Frequente', plants_path(water: 3), remote: true %>
-        <% end %>
-        <% if params[:water] == 2.to_s %> 
-          <strong><%= link_to 'Regular', plants_path(water: 2), remote: true %></strong>
-        <% else %>
-          <%= link_to 'Regular', plants_path(water: 2), remote: true %>
-        <% end %>
-        <% if params[:water] == 1.to_s %> 
-          <strong><%= link_to 'Pouca', plants_path(water: 1), remote: true %></strong>
-        <% else %>
-          <%= link_to 'Pouca', plants_path(water: 1), remote: true %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+<div id="facets-render">
+ <%=  render 'facet' %>
 </div>
-<% if !current_user.nil? && current_user.admin %>
-  <div class="add-product row">
-    <%= link_to "Adicionar itens" , new_plant_path, class: "green-button" %>    
-  </div>
-<% end %>
 
 <div class="index-plants row", id="container-render">
   <%= render 'plants/plant' %>

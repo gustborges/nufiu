@@ -112,9 +112,8 @@ class PlantsController < ApplicationController
     end
   end
 
-  def reload_index
-    render partial: 'plants/_plant'
-    raise
+  def delete_params(params, *excluded_params)
+    url_for(params.except(*excluded_params).merge(only_path: true))
   end
 
   private
