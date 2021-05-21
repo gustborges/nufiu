@@ -3,7 +3,7 @@
     <%= link_to plant_path(plant) do %>
       <%# Foto %>
       <% if plant.photo.attached? %>
-        <%= cl_image_tag plant.photo.key, class: "card-img", alt: "Kokedama de #{plant.name}", fetch_format: :auto, quality: 70, width: :auto, crop: 'scale' %>
+        <%= cl_image_tag plant.photo.key, class: "card-img", alt: "Kokedama de #{plant.name}", fetch_format: :auto, quality: 70, crop: 'scale' %>
       <% end %>
       
       <%# Nome e preço %>
