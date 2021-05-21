@@ -13,24 +13,23 @@
           <strong><%= link_to 'Pet-friendly', plants_path(pet_friendly: nil), class: 'filter', remote: true %></strong>          
         <% else %>
           <%= link_to 'Pet-friendly', plants_path(pet_friendly: true), class: 'filter', remote: true %>
-          <% params.delete :pet_friendly %>
         <% end %>
       </div>
     </div>
     <div class="col-4 facetlist">
       <div class="facet-aligned">
-        <% if @plants.all? { |p| p.sun.indicator == 3 } %> 
-          <strong><%= link_to 'Sol pleno', plants_path(sun: 3), remote: true %></strong>
+        <% if params[:sun] == 3.to_s %> 
+          <strong><%= link_to 'Sol pleno', plants_path(sun: nil), remote: true %></strong>
         <% else %>
           <%= link_to 'Sol pleno', plants_path(sun: 3), remote: true %>
         <% end %>
         <% if params[:sun] == 2.to_s %> 
-          <strong><%= link_to 'Meia-sombra clara', plants_path(sun: 2), remote: true %></strong>
+          <strong><%= link_to 'Meia-sombra clara', plants_path(sun: nil), remote: true %></strong>
         <% else %>
           <%= link_to 'Meia-sombra clara', plants_path(sun: 2), remote: true %>
         <% end %>
         <% if params[:sun] == 1.to_s %> 
-          <strong><%= link_to 'Meia-sombra', plants_path(sun: 1), remote: true %></strong>
+          <strong><%= link_to 'Meia-sombra', plants_path(sun: nil), remote: true %></strong>
         <% else %>
           <%= link_to 'Meia-sombra', plants_path(sun: 1), remote: true %>
         <% end %>
@@ -39,17 +38,17 @@
     <div class="col-4 facetlist">
       <div class="facet-aligned">
         <% if params[:water] == 3.to_s %> 
-          <strong><%= link_to 'Frequente', plants_path(water: 3), remote: true %></strong>
+          <strong><%= link_to 'Frequente', plants_path(water: nil), remote: true %></strong>
         <% else %>
           <%= link_to 'Frequente', plants_path(water: 3), remote: true %>
         <% end %>
         <% if params[:water] == 2.to_s %> 
-          <strong><%= link_to 'Regular', plants_path(water: 2), remote: true %></strong>
+          <strong><%= link_to 'Regular', plants_path(water: nil), remote: true %></strong>
         <% else %>
           <%= link_to 'Regular', plants_path(water: 2), remote: true %>
         <% end %>
         <% if params[:water] == 1.to_s %> 
-          <strong><%= link_to 'Pouca', plants_path(water: 1), remote: true %></strong>
+          <strong><%= link_to 'Pouca', plants_path(water: nil), remote: true %></strong>
         <% else %>
           <%= link_to 'Pouca', plants_path(water: 1), remote: true %>
         <% end %>
