@@ -28,6 +28,11 @@
       flex-direction: column;
       align-items: flex-start;
       padding-bottom: 2em;
+      a,
+      i {
+        text-decoration: none;
+        color: $light-black;
+      }
     }
   }
 }
