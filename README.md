@@ -12,6 +12,7 @@ The website was built using Ruby on Rails.
 - SSL: Let's Encrypt
 - Website Registry: Registro.br
 - Mailer: Postmark
+- Analytics: Google Analytics + Facebook API using Segment.io
 
 ## User Stories
 Admin users can:
