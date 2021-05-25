@@ -7,7 +7,7 @@
 <div class="facets-deck row">
     <div class="col-4 facetlist">
       <div class="facet-aligned">
-      <%= form_tag(root_path, method: :get, id: "filtros") do %>
+      <%= form_tag(root_path, method: :get, id: "filtros", remote: true) do %>
         <%= check_box_tag(:pet_friendly) %>
         <%= label_tag :pet_friendly, 'Pet-friendly' %>
       </div>

@@ -7,7 +7,7 @@
     </div>
   </div>
 </div>
-<div class="facets">
+<div class= "facets">
   <%= render "facet" %>
 </div>
 <% if !current_user.nil? && current_user.admin %>
@@ -16,8 +16,8 @@
   </div>
 <% end %>
 
-<div class="index-plants row">
-  <%= render @plants %>
+<div class="index-plants row"  id="container-render">
+  <%= render "plants/plant" %>
 </div>
 
 <%= javascript_pack_tag 'cloudinary' %>
