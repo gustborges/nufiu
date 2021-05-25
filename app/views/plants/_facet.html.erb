@@ -11,13 +11,11 @@
       <div class="facet-aligned">
         <% if params[:pet_friendly] %> 
           <div>
-            <i class="far fa-check-square pr-1"></i>
-            <%= link_to 'Pet-friendly', plants_path(pet_friendly: nil), class: 'filter', remote: true %>
+            <%= link_to raw("<i class='far fa-check-square pr-1'></i> Pet-friendly"), plants_path(pet_friendly: nil), class: 'filter', remote: true %>
           </div>          
         <% else %>
           <div>
-            <i class="far fa-square pr-1"></i>
-            <%= link_to 'Pet-friendly', plants_path(pet_friendly: true), class: 'filter', remote: true %>
+            <%= link_to raw("<i class='far fa-square pr-1'></i> Pet-friendly"), plants_path(pet_friendly: true), class: 'filter', remote: true %>
           </div>
         <% end %>
       </div>
@@ -26,35 +24,29 @@
       <div class="facet-aligned">
         <% if params[:sun] == 3.to_s %> 
           <div>
-            <i class="far fa-check-square pr-1"></i>
-            <%= link_to 'Sol pleno', plants_path(sun: nil), remote: true %>
+            <%= link_to raw("<i class='far fa-check-square pr-1'></i> Sol pleno"), plants_path(sun: nil), remote: true %>
           </div>
         <% else %>
           <div>
-            <i class="far fa-square pr-1"></i>
-            <%= link_to 'Sol pleno', plants_path(sun: 3), remote: true %>
+            <%= link_to raw("<i class='far fa-square pr-1'></i> Sol pleno"), plants_path(sun: 3), remote: true %>
             </div>
         <% end %>
         <% if params[:sun] == 2.to_s %> 
           <div>
-            <i class="far fa-check-square pr-1"></i>
-            <%= link_to 'Meia-sombra clara', plants_path(sun: nil), remote: true %>
+            <%= link_to raw("<i class='far fa-check-square pr-1'></i> Claridade"), plants_path(sun: nil), remote: true %>
             </div>
         <% else %>
           <div>
-            <i class="far fa-square pr-1"></i>
-            <%= link_to 'Meia-sombra clara', plants_path(sun: 2), remote: true %>
+            <%= link_to raw("<i class='far fa-square pr-1'></i> Claridade"), plants_path(sun: 2), remote: true %>
           </div>
         <% end %>
         <% if params[:sun] == 1.to_s %> 
           <div>
-            <i class="far fa-check-square pr-1"></i>
-            <%= link_to 'Meia-sombra', plants_path(sun: nil), remote: true %>
+            <%= link_to raw("<i class='far fa-check-square pr-1'></i> Meia-sombra"), plants_path(sun: nil), remote: true %>
             </div>
         <% else %>
           <div>
-            <i class="far fa-square pr-1"></i>
-            <%= link_to 'Meia-sombra', plants_path(sun: 1), remote: true %>
+            <%= link_to raw("<i class='far fa-square pr-1'></i> Meia-sombra"), plants_path(sun: 1), remote: true %>
             </div>
         <% end %>
       </div>
@@ -63,35 +55,29 @@
       <div class="facet-aligned">
         <% if params[:water] == 3.to_s %> 
           <div>
-            <i class="far fa-check-square pr-1"></i>
-            <%= link_to 'Frequente', plants_path(water: nil), remote: true %>
+            <%= link_to raw("<i class='far fa-check-square pr-1'></i> Frequente"), plants_path(water: nil), remote: true %>
             </div>
         <% else %>
           <div>
-            <i class="far fa-square pr-1"></i>
-            <%= link_to 'Frequente', plants_path(water: 3), remote: true %>
+            <%= link_to raw("<i class='far fa-square pr-1'></i> Frequente"), plants_path(water: 3), remote: true %>
             </div>
         <% end %>
         <% if params[:water] == 2.to_s %> 
           <div>
-            <i class="far fa-check-square pr-1"></i>
-            <%= link_to 'Regular', plants_path(water: nil), remote: true %>
+            <%= link_to raw("<i class='far fa-check-square pr-1'></i> Regular"), plants_path(water: nil), remote: true %>
             </div>
         <% else %>
           <div>
-            <i class="far fa-square pr-1"></i>
-            <%= link_to 'Regular', plants_path(water: 2), remote: true %>
+            <%= link_to raw("<i class='far fa-square pr-1'></i> Regular"), plants_path(water: 2), remote: true %>
             </div>
         <% end %>
         <% if params[:water] == 1.to_s %> 
           <div>
-            <i class="far fa-check-square pr-1"></i>
-            <%= link_to 'Pouca', plants_path(water: nil), remote: true %>
+            <%= link_to raw("<i class='far fa-check-square pr-1'></i> De vez em quando"), plants_path(water: nil), remote: true %>
             </div>
         <% else %>
           <div>
-            <i class="far fa-square pr-1"></i>
-            <%= link_to 'Pouca', plants_path(water: 1), remote: true %>
+            <%= link_to raw("<i class='far fa-square pr-1'></i> De vez em quando"), plants_path(water: 1), remote: true %>
             </div>
         <% end %>
       </div>
@@ -105,21 +91,21 @@
 <% end %>
 
 
-<!-- <script type="text/javascript">
+<%# <script type="text/javascript">
 
   var filter = document.querySelector('.filtrar');
   var facetsDeck = document.querySelector('.facets-deck');
     filter.addEventListener('click', (event) => {
     event.preventDefault();
     if (facetsDeck.style.display === "none") {
-      facetsDeck.style.display = "block";
+      facetsDeck.style.display = "flex";
     } else {
       facetsDeck.style.display = "none";
     }
    });
 
 
-</script> -->
+</script> %>
 
 
 

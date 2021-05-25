@@ -20,6 +20,7 @@
 
 .facets-deck {
   background-color: #f8f8f7;
+  display: flex;
   .facetlist {
     display: flex;
     justify-content: center;
@@ -31,7 +32,22 @@
       a,
       i {
         text-decoration: none;
-        color: $light-black;
+        color: $lighter-black;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .filtrar {
+    font-size: 0.9em;
+  }
+  .facets-deck {
+    padding-left: 1em;
+    padding-right: 1em;
+    .facetlist {
+      .facet-aligned {
+        font-size: 0.95em;
       }
     }
   }
