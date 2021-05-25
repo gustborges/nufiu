@@ -10,6 +10,11 @@ class Plant < ApplicationRecord
   has_many :cart_plants, dependent: :destroy
   has_one_attached :photo
   default_scope { order('best_seller DESC, RANDOM()') }
+  scope :filter_by_pet_friendly, ->(pet_friendly) { where pet_friendly: pet_friendly }
+  scope :filter_by_water, lambda { |water_indicator|
+                            where water_period_id: WaterPeriod.find_by(indicator: water_indicator)
+                          }
+  scope :filter_by_sun, ->(sun_indicator) { where sun_id: Sun.find_by(indicator: sun_indicator) }
 
   validates :name, :scientific_name, :description, :size, :price, :water_text, :category, :water_period, :sun, :user,
             presence: true

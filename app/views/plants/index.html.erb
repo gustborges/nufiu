@@ -7,6 +7,9 @@
     </div>
   </div>
 </div>
+<div class="facets">
+  <%= render "facet" %>
+</div>
 <% if !current_user.nil? && current_user.admin %>
   <div class="add-product row">
     <%= link_to "Adicionar itens" , new_plant_path, class: "green-button" %>    

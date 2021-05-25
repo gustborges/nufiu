@@ -5,41 +5,14 @@ class PlantsController < ApplicationController
   before_action :plant_find, only: %i[show edit update destroy edit_published]
 
   def index
-    # Faceted search
-    @pet_friendly = params[:filter_pet_friendly] == '1'
-    @sun = params[:filter_by_sun] ? true : false
-    @water = params[:filter_by_water] ? true : false
-    @plants = policy_scope(Plant).includes(:sun, :water_period)
-
-    if @pet_friendly && @sun && @water
-      @plants =
-        @plants.where(
-          pet_friendly: true,
-          suns: {
-            amount: params[:filter_by_sun]
-          }
-        )
+    @plants = policy_scope(Plant).where(nil)
+    filtering_params(params).each do |key, value|
+      @plants = @plants.public_send("filter_by_#{key}", value).with_attached_photo if value.present?
     end
-    if @pet_friendly && @sun
-      @plants =
-        @plants.where(
-          pet_friendly: true,
-          suns: {
-            amount: params[:filter_by_sun]
-          }
-        )
+    respond_to do |format|
+      format.js { render 'plants/filter.js.erb' }
+      format.html
     end
-    @plants = @plants.where(pet_friendly: true) if @pet_friendly
-    @plants = @plants.where(suns: { amount: params[:filter_by_sun] }) if @sun
-    if @water
-      @plants =
-        @plants.where(
-          water_periods: {
-            amount: params[:filter_by_water]
-          }
-        )
-    end
-    @plants = policy_scope(@plants).with_attached_photo
   end
 
   def show
@@ -105,6 +78,10 @@ class PlantsController < ApplicationController
   def plant_find
     @plant = Plant.friendly.find(params[:id])
     authorize @plant
+  end
+
+  def filtering_params(params)
+    params.slice(:pet_friendly, :water, :sun)
   end
 
   def plant_params

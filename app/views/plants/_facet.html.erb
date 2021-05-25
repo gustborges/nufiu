@@ -8,62 +8,33 @@
     <div class="col-4 facetlist">
       <div class="facet-aligned">
       <%= form_tag(root_path, method: :get, id: "filtros") do %>
-        <%= check_box_tag(:filter_pet_friendly) %>
-        <%= label_tag :filter_pet_friendly, 'Pet-friendly' %>
+        <%= check_box_tag(:pet_friendly) %>
+        <%= label_tag :pet_friendly, 'Pet-friendly' %>
       </div>
     </div>
     <div class="col-4 facetlist">
       <div class="facet-aligned">
-        <div><%= check_box_tag(:filter_by_sun, "Sol Direto") %>
-          <%= label_tag(:filter_by_sun, "Sol Direto") %></div>
-          <div><%= check_box_tag(:filter_by_sun, "Meia-sombra") %>
-          <%= label_tag(:filter_by_sun, "Meia-sombra") %></div>
-          <div><%= check_box_tag(:filter_by_sun, "Sombra") %>
-          <%= label_tag(:filter_by_sun, "Sombra") %></div>
+        <div><%= check_box_tag(:sun, 3) %>
+          <%= label_tag(:sun, "Sol pleno") %></div>
+          <div><%= check_box_tag(:sun, 2) %>
+          <%= label_tag(:sun, "Claridade") %></div>
+          <div><%= check_box_tag(:sun, 1) %>
+          <%= label_tag(:sun, "Meia-sombra") %></div>
         </div>
     </div>
     <div class="col-4 facetlist">
       <div class="facet-aligned">
-        <div><%= check_box_tag(:filter_by_water, "Todo dia") %>
-        <%= label_tag(:filter_by_water, "Todo dia") %></div>
-        <div><%= check_box_tag(:filter_by_water, "Frequência média") %>
-        <%= label_tag(:filter_by_water, "Frequência média") %></div>
-        <div><%= check_box_tag(:filter_by_water, "Raramente") %>
-        <%= label_tag(:filter_by_water, "Raramente") %></div>
+        <div><%= check_box_tag(:water, 3) %>
+        <%= label_tag(:water, "Frequente") %></div>
+        <div><%= check_box_tag(:water, 2) %>
+        <%= label_tag(:water, "Regular") %></div>
+        <div><%= check_box_tag(:water, 1) %>
+        <%= label_tag(:water, "De vez em quando") %></div>
         <div><%= submit_tag "Filtrar", class: "green-button", name: nil %></div>
         </div>
     </div>
     <% end %>
 </div>
-
-<!-- <script type="text/javascript">
-  function save() {
-    var checkbox = document.getElementById("chck1");
-    localStorage.setItem("chck1", checkbox.checked);
-  }
-  var checked = JSON.parse(localStorage.getItem("chck1"));
-  document.getElementById("chck1").checked = checked;
-
-</script> -->
-
-
-
-
-<!-- <script type="text/javascript">
-
-  var filter = document.querySelector('.filtrar');
-  var facetsDeck = document.querySelector('.facets-deck');
-    filter.addEventListener('click', (event) => {
-    event.preventDefault();
-    if (facetsDeck.style.display === "none") {
-      facetsDeck.style.display = "block";
-    } else {
-      facetsDeck.style.display = "none";
-    }
-   });
-
-
-</script> -->
 
 
 
