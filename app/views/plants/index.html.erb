@@ -20,5 +20,21 @@
   <%= render "plants/plant" %>
 </div>
 
+<script>
+  var form = document.getElementById("filtros");
+  var checkboxes = filtros.querySelectorAll("input");
+  // checkboxes.forEach((chck) => {
+  //   chck.addEventListener("change", (event) => {
+  //     console.log(event);
+  //     form.submit();
+  //   })
+  // });
+form.addEventListener("change", (event) => {
+  preventDefault();
+  form.submit();
+})
+
+</script>
+
 <%= javascript_pack_tag 'cloudinary' %>
 <%= javascript_pack_tag 'smooth_scrolling' %>
