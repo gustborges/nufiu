@@ -4,10 +4,8 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.welcome.subject
   #
-  def welcome(user)
-    @user = user
-    @greeting = 'Hi'
-
+  def welcome(user_id)
+    @user = User.find(user_id)
     mail(to: @user.email, subject: 'Bem-vinda(o) a Nufiu!')
   end
 end

@@ -1,6 +1,6 @@
 class ContactMailer < ApplicationMailer
-  def send_message(contact)
-    @contact = contact
+  def send_message(contact_id)
+    @contact = Contact.find(contact_id)
     mail(
       from: 'gustavo@nufiu.com.br',
       to: 'malu@nufiu.com.br',

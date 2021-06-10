@@ -22,7 +22,7 @@ class ContactsController < ApplicationController
       redirect_to contact_path(@contact)
       authorize @contact
       if @contact.message && @contact.subject
-        ContactMailer.with(contact: @contact).send_message(@contact).deliver_now
+        ContactMailer.with(contact: @contact).send_message(@contact.id).deliver_later
       else
         @contact.update(newsletter_subscription: true)
       end

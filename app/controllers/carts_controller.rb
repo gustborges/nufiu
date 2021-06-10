@@ -35,11 +35,11 @@ class CartsController < ApplicationController
     @cart_has_only_workshop = @cart.cart_plants.all?(&:workshop?)
     # if @cart.state == 'paid'
     if @cart_has_only_workshop
-      CartMailer.with(cart: @cart).confirmation_for_workshop(@cart).deliver_now
+      CartMailer.with(cart: @cart).confirmation_for_workshop(@cart.id).deliver_later
     elsif @cart_has_any_workshop
-      CartMailer.with(cart: @cart).confirmation_for_workshop_and_others(@cart).deliver_now
+      CartMailer.with(cart: @cart).confirmation_for_workshop_and_others(@cart.id).deliver_later
     else
-      CartMailer.with(cart: @cart).payment_confirmation(@cart).deliver_now
+      CartMailer.with(cart: @cart).payment_confirmation(@cart.id).deliver_later
     end
     # end
 
