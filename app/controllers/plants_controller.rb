@@ -5,10 +5,16 @@ class PlantsController < ApplicationController
   before_action :plant_find, only: %i[show edit update destroy edit_published]
 
   def index
-    @plants = policy_scope(Plant).where(nil)
-    filtering_params(params).each do |key, value|
-      @plants = @plants.public_send("filter_by_#{key}", value).with_attached_photo if value.present?
+    if params[:sun] || params[:water] || params[:pet_friendly]
+      filters = {}
+      filters[:sun] = Sun.find_by(indicator: params[:sun]) if params[:sun]
+      filters[:water_period] = WaterPeriod.find_by(indicator: params[:water]) if params[:water]
+      filters[:pet_friendly] = true if params[:pet_friendly]
+      @plants = policy_scope(Plant).includes(:sun, :water_period).with_attached_photo.where(filters)
+    else
+      @plants = policy_scope(Plant)
     end
+
     respond_to do |format|
       format.js { render 'plants/filter.js.erb' }
       format.html

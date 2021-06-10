@@ -28,3 +28,5 @@ import "bootstrap";
   // Call your functions here, e.g:
   // initSelect2();
 // });
+
+import "controllers"
