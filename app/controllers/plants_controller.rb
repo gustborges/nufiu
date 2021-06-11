@@ -12,7 +12,7 @@ class PlantsController < ApplicationController
       filters[:pet_friendly] = true if params[:pet_friendly]
       @plants = policy_scope(Plant).includes(:sun, :water_period).with_attached_photo.where(filters)
     else
-      @plants = policy_scope(Plant)
+      @plants = policy_scope(Plant).includes(:sun, :water_period).with_attached_photo
     end
 
     respond_to do |format|
