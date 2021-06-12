@@ -1,0 +1,6 @@
+development:
+  cloud_name: 'dhrffribk'
+  api_key: '212226343954438'
+  api_secret: '6ZtElHrKTuhfoYQfmUX8ZcekKM4'
+  secure: true
+  cdn_subdomain: true

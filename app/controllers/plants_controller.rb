@@ -5,12 +5,8 @@ class PlantsController < ApplicationController
   before_action :plant_find, only: %i[show edit update destroy edit_published]
 
   def index
-    if params[:sun] || params[:water] || params[:pet_friendly]
-      filters = {}
-      filters[:sun] = Sun.find_by(indicator: params[:sun]) if params[:sun]
-      filters[:water_period] = WaterPeriod.find_by(indicator: params[:water]) if params[:water]
-      filters[:pet_friendly] = true if params[:pet_friendly]
-      @plants = policy_scope(Plant).includes(:sun, :water_period).with_attached_photo.where(filters)
+    if params[:plant]
+      @plants = policy_scope(Plant).includes(:sun, :water_period).where(filter_plants).with_attached_photo
     else
       @plants = policy_scope(Plant).includes(:sun, :water_period).with_attached_photo
     end
@@ -86,10 +82,6 @@ class PlantsController < ApplicationController
     authorize @plant
   end
 
-  def filtering_params(params)
-    params.slice(:pet_friendly, :water, :sun)
-  end
-
   def plant_params
     params
       .require(:plant)
@@ -99,17 +91,28 @@ class PlantsController < ApplicationController
         :description,
         :water_level,
         :water_text,
-        :pet_friendly,
         :best_seller,
         :size,
         :price,
         :photo,
         :user_id,
         :category_id,
-        :sun_id,
-        :water_period_id,
         :published,
+        :pet_friendly,
+        sun: [],
+        water_period: [],
         color_ids: []
       )
+  end
+
+  def filter_plants
+    # Clean the array from empty string and transform into integer
+    params_sun = params[:plant][:sun].reject(&:empty?).map(&:to_i)
+    params_water_period = params[:plant][:water_period].reject(&:empty?).map(&:to_i)
+
+    pet_friendly = params[:plant][:pet_friendly] == "1" ? true: false
+    sun = params_sun.present? ? params_sun : Sun.all.pluck(:id)
+    water_period = params_water_period.present? ? params_water_period : WaterPeriod.all.pluck(:id)
+    return { pet_friendly: pet_friendly, sun: sun, water_period: water_period }
   end
 end

@@ -1,40 +1,37 @@
 <div class="row filtrar">
     <div class="col-4 filter-title"><h6>Filtrar</h6></div>
-    <div class="col-4 inline"><h6>Luz</h6><%= image_tag "icons/down-arrow.svg", alt: "Mostrar filtros", size: "15x15", class: "arrow" %></div>
     <div class="col-4 inline"><h6>Rega</h6><%= image_tag "icons/down-arrow.svg", alt: "Mostrar filtros", size: "15x15", class: "arrow" %></div>
+    <div class="col-4 inline"><h6>Luz</h6><%= image_tag "icons/down-arrow.svg", alt: "Mostrar filtros", size: "15x15", class: "arrow" %></div>
 </div>
 
-<div class="facets-deck row">
-    <div class="col-4 facetlist">
-      <div class="facet-aligned">
-      <%= form_tag(root_path, method: :get, id: "filtros", remote: true) do %>
-        <%= check_box_tag(:pet_friendly) %>
-        <%= label_tag :pet_friendly, 'Pet-friendly' %>
-      </div>
+<%= simple_form_for Plant.new, method: :get, url: root_path, id: "filtros", html: { class: "facets-deck row" }, remote: true do |f| %>
+  <div class="col-4 facetlist">
+    <div class="facet-aligned">
+      <%= f.input :pet_friendly, as: :boolean, input_html: { checked: params[:plant] && params[:plant][:pet_friendly] && params[:plant][:pet_friendly] == "1" } %>
     </div>
-    <div class="col-4 facetlist">
-      <div class="facet-aligned">
-        <div><%= check_box_tag(:sun, 3) %>
-          <%= label_tag(:sun, "Sol pleno") %></div>
-          <div><%= check_box_tag(:sun, 2) %>
-          <%= label_tag(:sun, "Claridade") %></div>
-          <div><%= check_box_tag(:sun, 1) %>
-          <%= label_tag(:sun, "Meia-sombra") %></div>
+  </div>
+  <div class="col-4 facetlist">
+    <div class="facet-aligned">
+      <% WaterPeriod.all.each do |water| %>
+        <input type="hidden" name="plant[water_period][]" value="">
+        <div class="form-check">
+          <input class="form-check-input check_boxes required" type="checkbox" value="<%= water.id %>" name="plant[water_period][]" id="plant_water_period_<%= water.id %>" <%= "checked" if params[:plant] && params[:plant][:water_period] && params[:plant][:water_period].include?("#{water.id}") %>>
+          <label class="form-check-label collection_check_boxes" for="plant_water_period_<%= water %>"><%= water.amount %></label>
         </div>
+      <% end %>
     </div>
-    <div class="col-4 facetlist">
-      <div class="facet-aligned">
-        <div><%= check_box_tag(:water, 3) %>
-        <%= label_tag(:water, "Frequente") %></div>
-        <div><%= check_box_tag(:water, 2) %>
-        <%= label_tag(:water, "Regular") %></div>
-        <div><%= check_box_tag(:water, 1) %>
-        <%= label_tag(:water, "De vez em quando") %></div>
-        <div><%= submit_tag "Filtrar", class: "green-button", name: nil %></div>
-        </div>
+  </div>
+  <div class="col-4 facetlist">
+    <div class="facet-aligned">
+      <input type="hidden" name="plant[sun][]" value="">
+      <% Sun.all.each do |sun| %>
+        <div class="form-check">
+          <input class="form-check-input check_boxes required" type="checkbox" value="<%= sun.id %>" name="plant[sun][]" id="plant_sun_<%= sun.id %>" <%= "checked" if params[:plant] && params[:plant][:sun] && params[:plant][:sun].include?("#{sun.id}") %>>
+          <label class="form-check-label collection_check_boxes" for="plant_sun_<%= sun.id %>"><%= sun.amount %></label></div>
+      <% end %>
     </div>
-    <% end %>
-</div>
+  <%= submit_tag "Filtrar", class: "green-button", name: nil %></div>
+<% end %>
 
 
 
