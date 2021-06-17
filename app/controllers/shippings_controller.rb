@@ -32,7 +32,8 @@ class ShippingsController < ApplicationController
         :location_details,
         :zip_code,
         :suburb_id,
-        :pick_up
+        :pick_up,
+        :phone
       )
   end
 end

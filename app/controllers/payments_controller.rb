@@ -38,7 +38,8 @@ class PaymentsController < ApplicationController
                     address_complement: current_user.address_complement,
                     zip_code: current_user.zip_code,
                     location_details: current_user.location_details,
-                    pick_up: false
+                    pick_up: false,
+                    phone: current_user.phone
                   )
                 else
                   current_user.shipping

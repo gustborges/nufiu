@@ -7,6 +7,7 @@
   <div class="col-12 col-md-7 order-col2">
     <h6 class="order-col-title2"><strong>Dados para entrega</strong></h6>
     <%= simple_form_for @shipping, html: { method: :put }, :onchange=> 'this.form.submit()' do |f| %>
+      <%= f.input :phone, label: "Telefone", required: true %>
       <%= f.association :suburb, label: "Bairro" , hint: "Entregamos apenas nos bairros listados" , label_method: :name
         %>
         <%= f.input :address, label: "Endereço" , required: true %>
@@ -16,6 +17,7 @@
               <%= f.input :location_details, label: "Referência" , placeholder: "Próximo a..." %>
               <% if @online_workshop == false %>
                 <%= f.input :pick_up, label: "Pegar na Gávea e economizar frete" , as: :boolean %>
+                
                 <% end %>
                   <%= f.button :submit, "Confirmar" , class: "green-button" %>
                     <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_15_042124) do
+ActiveRecord::Schema.define(version: 2021_06_17_190436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -147,6 +147,7 @@ ActiveRecord::Schema.define(version: 2021_05_15_042124) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.boolean "pick_up", default: false
+    t.string "phone"
     t.index ["suburb_id"], name: "index_shippings_on_suburb_id"
     t.index ["user_id"], name: "index_shippings_on_user_id"
   end
