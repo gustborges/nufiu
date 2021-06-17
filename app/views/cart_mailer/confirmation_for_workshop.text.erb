@@ -1,5 +1,17 @@
 Olá, <%= @user.name ? @user.name.titlecase : @user.email.split('@').first.titlecase %>! O seu pagamento no site da Nufiu foi confirmado.
 
+Produtos adquiridos:
+<% @cart.cart_plants.each do | cart_plant| %>
+  - <%= cart_plant.amount %> x <%= cart_plant.plant.name %> = R$ <%= cart_plant.plant.price * cart_plant.amount %>
+<% end %>
+<% if @user.shipping.pick_up == false %>
+  - Frete para <%= @user.shipping.suburb.name %> : R$ <%= @user.shipping.suburb.shipping_price %> 
+  - Total: R$ <%= (@cart.amount / 100) + @user.shipping.suburb.shipping_price  %>
+<% else %>
+  - Total: R$ <%= (@cart.amount / 100) %>
+<% end %>
+
+
 Fiquei muito feliz pelo seu interesse em criar suas próprias kokedamas e estarei disponível para ajudar você nessa jornada.
 
 Tenho certeza que você também vai se fascinar com a técnica e poderá fazer as suas, presentear família e amigos com lindos arranjos e até vender. 
