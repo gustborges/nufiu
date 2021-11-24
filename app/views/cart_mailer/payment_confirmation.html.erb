@@ -19,6 +19,7 @@
   <li>Complemento: <%= @user.shipping.address_complement %></li>
   <li>Bairro: <%= @user.shipping.suburb.name %></li>
   <li>CEP: <%= @user.shipping.zip_code %></li>
+  <li>Telefone: <%= @user.shipping.phone %></li>
   <% if @user.shipping.location_details %>
     <li>Detalhes adicionais: <%= @user.shipping.location_details %></li>
   <% end %>

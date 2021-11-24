@@ -17,6 +17,7 @@ Endereço de entrega:
 - Complemento: <%= @user.shipping.address_complement %>
 - Bairro: <%= @user.shipping.suburb.name %>
 - CEP: <%= @user.shipping.zip_code %>
+- Telefone: <%= @user.shipping.phone %>
 <% if @user.shipping.location_details %>
 - Detalhes adicionais: <%= @user.shipping.location_details %>
 <% end %>
