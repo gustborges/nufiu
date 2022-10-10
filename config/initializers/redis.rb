@@ -1,6 +1,6 @@
 $redis = Redis.new
 
-url = ENV['REDISCLOUD_URL']
+url = ENV['REDISCLOUD_URL'] || Rails.application.credentials.redis[:cloud_url]
 
 if url
   Sidekiq.configure_server do |config|

@@ -18,7 +18,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    if @contact.save
+    if verify_recaptcha(action: 'send_message', model: @contact) && @contact.save
       redirect_to contact_path(@contact)
       authorize @contact
       if @contact.message && @contact.subject

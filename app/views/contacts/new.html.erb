@@ -11,7 +11,8 @@
       <%= f.input :phone, label: 'Telefone (opcional)' %>
       <%= f.input :subject, label: 'Assunto' %>
       <%= f.input :message, label: 'Mensagem', :input_html => {:rows => 10}  %>
-      <%= f.submit 'Enviar', class: 'green-button' %>
+      <%= f.submit 'Enviar', class: 'green-button mb-4' %>
+      <%= recaptcha_v3(action: 'send_message') %>
     <% end %>
   </div>
 </div>
