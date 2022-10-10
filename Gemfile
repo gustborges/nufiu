@@ -54,7 +54,8 @@ gem 'sitemap_generator'
 # Payments using Stripe
 gem 'stripe'
 gem 'stripe_event'
-
+# Captcha for contact form
+gem 'recaptcha'
 # VsCode Extensions
 gem 'prettier'
 gem 'solargraph', group: :development
