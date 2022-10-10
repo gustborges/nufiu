@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2021_06_17_190436) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -127,16 +126,6 @@ ActiveRecord::Schema.define(version: 2021_06_17_190436) do
     t.index ["water_period_id"], name: "index_plants_on_water_period_id"
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.integer "price"
-    t.bigint "category_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_products_on_category_id"
-  end
-
   create_table "shippings", force: :cascade do |t|
     t.string "address"
     t.string "address_complement"
@@ -160,10 +149,10 @@ ActiveRecord::Schema.define(version: 2021_06_17_190436) do
   end
 
   create_table "suns", force: :cascade do |t|
+    t.string "level"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "amount"
-    t.integer "indicator"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -218,7 +207,6 @@ ActiveRecord::Schema.define(version: 2021_06_17_190436) do
     t.string "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "indicator"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -231,7 +219,6 @@ ActiveRecord::Schema.define(version: 2021_06_17_190436) do
   add_foreign_key "plants", "suns"
   add_foreign_key "plants", "users"
   add_foreign_key "plants", "water_periods"
-  add_foreign_key "products", "categories"
   add_foreign_key "shippings", "suburbs"
   add_foreign_key "shippings", "users", on_delete: :cascade
   add_foreign_key "taggings", "tags"

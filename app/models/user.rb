@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
   has_many :carts, dependent: :destroy
   has_many :plants
   belongs_to :suburb, optional: true
