@@ -92,4 +92,5 @@ class PaymentsController < ApplicationController
     @cart.update(checkout_session_id: session.id)
     authorize @cart
   end
+
 end
