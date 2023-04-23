@@ -85,6 +85,7 @@ class PaymentsController < ApplicationController
           }
         ],
         mode: 'payment',
+        allow_promotion_codes: true,
         success_url: cart_obrigada_url(@cart.id),
         cancel_url: cart_url(@cart.id)
       )
