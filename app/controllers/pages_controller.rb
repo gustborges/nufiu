@@ -10,7 +10,10 @@ class PagesController < ApplicationController
 
   def delivery; end
 
-  def workshop; end
+  def workshop
+    @workshop_premium = Plant.find(78)
+    @workshop_regular = Plant.find(77)
+  end
 
   def payment; end
 

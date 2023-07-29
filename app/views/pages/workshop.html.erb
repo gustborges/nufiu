@@ -4,35 +4,37 @@
   <p>Você também pode aprender a criar suas próprias kokedamas.</p>
 </div>
 <div class="static-page-body">
-  <p>Nós temos um <strong>workshop online</strong> simples, objetivo e perfeito para você começar. Além do vídeo com toda a explicação para você acompanhar o processo de elaboração de uma kokedama, você também receberá uma apostila exclusiva e poderá pedir suporte e tirar dúvidas com a Malu.</p>
-  <p>Com um pouco de dedicação, você poderá impressionar a família, amigos, inovar nos presentes, enfeitar a casa ou mesmo criar a sua própria loja.</p>
-  <p><strong>Você vai aprender</strong> técnicas de plantio, rega, adubação, seleção de plantas, além de saber um pouco mais sobre a origem da kokedama e conversar sobre ideias para decoração. </p>
+  <p>Nós temos um <strong>workshop online</strong> simples, objetivo e perfeito para você começar. Além do vídeo com
+    toda a explicação para você acompanhar o processo de elaboração de uma kokedama, você também receberá uma apostila
+    exclusiva e poderá pedir suporte e tirar dúvidas com a Malu.</p>
+  <p>Com um pouco de dedicação, você poderá impressionar a família, amigos, inovar nos presentes, enfeitar a casa ou
+    mesmo criar a sua própria loja.</p>
+  <p><strong>Você vai aprender</strong> técnicas de plantio, rega, adubação, seleção de plantas, além de saber um pouco
+    mais sobre a origem da kokedama e conversar sobre ideias para decoração. </p>
   <div class="row workshops">
     <div class="col-md-6 col-sm-12 workshop1">
-      <h2>Workshop Online + Kit Materiais</h2>
+      <h2><%= @workshop_premium.name %></h2>
       <ul>
         <li>✅ Tutorial em vídeo</li>
         <li>✅ Apostila para leitura</li>
         <li>✅ Suporte da Nufiu</li>
         <li>✅ Você recebe em casa todos os materiais para criar 3 kokedamas de espécies diferentes</li>
       </ul>
-      <% @workshop_premium = Plant.find(78) %>
       <%= link_to "Workshop + Materiais (R$ #{@workshop_premium.price})", plant_cart_plants_path(@workshop_premium.id), method: :post, class: "green-button" %>
     </div>
     <div class="col-md-6 col-sm-12 workshop2">
-    <h2>Workshop Online</h2>
+      <h2><%= @workshop_regular.name %></h2>
       <ul>
         <li>✅ Tutorial em vídeo</li>
         <li>✅ Apostila para leitura</li>
         <li>✅ Suporte da Nufiu</li>
       </ul>
-      <% @workshop_regular = Plant.find(77) %>
       <%= link_to "Workshop Online (R$ #{@workshop_regular.price})", plant_cart_plants_path(@workshop_regular.id), method: :post, class: "green-button" %>
     </div>
   </div>
 </div>
 <div class="static-page-body">
-    <h2>Workshops presenciais</h2>
-    <p>Há também, periodicamente, workshops presenciais realizados no Rio de Janeiro. Entre em contato caso tenha interesse.</p>
-  </div>
-<!--q: how to deploy to heru-->
+  <h2>Workshops presenciais</h2>
+  <p>Há também, periodicamente, workshops presenciais realizados no Rio de Janeiro. Entre em contato caso tenha
+    interesse.</p>
+</div>
