@@ -48,6 +48,10 @@ class ApplicationController < ActionController::Base
       session[:cart] = @cart.id
       @cart.save
     end
+  rescue ActiveRecord::RecordNotFound
+    @cart = Cart.create
+    session[:cart] = @cart.id
+    @cart.save
   end
 
   def default_url_options

@@ -16,8 +16,8 @@
         <li>✅ Suporte da Nufiu</li>
         <li>✅ Você recebe em casa todos os materiais para criar 3 kokedamas de espécies diferentes</li>
       </ul>
-      <% @workshop_premium = Plant.find_by(name: "Workshop Online + Kit Materiais") %>
-      <%= link_to "Workshop + Materiais (R$ 269)", plant_cart_plants_path(@workshop_premium.id), method: :post, class: "green-button" %>
+      <% @workshop_premium = Plant.find(78) %>
+      <%= link_to "Workshop + Materiais (R$ #{@workshop_premium.price})", plant_cart_plants_path(@workshop_premium.id), method: :post, class: "green-button" %>
     </div>
     <div class="col-md-6 col-sm-12 workshop2">
     <h2>Workshop Online</h2>
@@ -26,16 +26,13 @@
         <li>✅ Apostila para leitura</li>
         <li>✅ Suporte da Nufiu</li>
       </ul>
-      <% @workshop_regular = Plant.find_by(name: "Workshop Online de Kokedamas") %>
-      <%= link_to "Workshop Online (R$ 89)", plant_cart_plants_path(@workshop_regular.id), method: :post, class: "green-button" %>
+      <% @workshop_regular = Plant.find(77) %>
+      <%= link_to "Workshop Online (R$ #{@workshop_regular.price})", plant_cart_plants_path(@workshop_regular.id), method: :post, class: "green-button" %>
     </div>
   </div>
 </div>
 <div class="static-page-body">
     <h2>Workshops presenciais</h2>
-    <p>Há também um workshop presencial que será realizado no Jardim Botânico em breve. Aguarde nova data. Caso tenha interesse, entre em contato com a Associação de Amigos do JB.</p>
-    <ul>
-    <li>Valor: R$260 (já inclui material)</li>
-    <li>Reserva com a Associação de Amigos do JB: 2259-5026/ 2239-9742</li>
-    </ul>
+    <p>Há também, periodicamente, workshops presenciais realizados no Rio de Janeiro. Entre em contato caso tenha interesse.</p>
   </div>
+<!--q: how to deploy to heru-->
